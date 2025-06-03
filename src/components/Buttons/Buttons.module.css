@@ -1,0 +1,11 @@
+.buttons {
+    background-color: var(--pr-cl-yellow);
+    border: none;
+    border-radius: 7px;
+    height: 3.5rem;
+    width: 18rem;
+    padding-left: 1rem;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}

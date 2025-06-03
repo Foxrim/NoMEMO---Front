@@ -1,0 +1,10 @@
+.title {
+    font-size: 40px;
+  .titleMemo {
+    color: var(--ft-cl-yellow);
+  }
+
+  .titleNo {
+    color: var(--ft-cl-black);
+  }
+}
