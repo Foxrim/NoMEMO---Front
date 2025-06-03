@@ -47,7 +47,7 @@ export default function Auth() {
         <Buttons type="submit" children="Connect" />
       </form>
     <NavLink to="/">Mot de passe oublié</NavLink>
-    <NavLink className={styles.createAccount} to="/">Créer un compte</NavLink>
+    <NavLink className={styles.createAccount} to="/create-account">Créer un compte</NavLink>
     </div>
   );
 }
