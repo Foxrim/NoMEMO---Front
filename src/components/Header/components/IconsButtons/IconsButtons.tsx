@@ -2,11 +2,12 @@ import styles from "./IconsButtons.module.css";
 
 type IconsButtonsProps = {
     children: React.ReactNode;
+    onClick?: () => void;
 }
 
-export default function IconsButtons({ children }: IconsButtonsProps) {
+export default function IconsButtons({ children, onClick }: IconsButtonsProps) {
     return (
-        <button className={styles.iconsButtons}>
+        <button onClick={onClick} className={styles.iconsButtons}>
             {children}
         </button>
     )
