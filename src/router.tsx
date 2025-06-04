@@ -5,6 +5,8 @@ import NewAccount from "./pages/NewAccount/NewAccount";
 import Home from "./pages/Home/Home";
 import AuthConnection from "./pages/utils/AuthConnection";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import NewPassword from "./pages/NewPassword/NewPassword";
+import TokenVerify from "./pages/utils/TokenVerify";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassword />
+      },
+      {
+        path: "verify",
+        element: <TokenVerify />,
+      },
+      {
+        path: "new-password",
+        element: <NewPassword />
       },
 
       // Uniquement connecté
