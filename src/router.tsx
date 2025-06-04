@@ -4,6 +4,7 @@ import Connection from "./pages/Connection/Connection";
 import NewAccount from "./pages/NewAccount/NewAccount";
 import Home from "./pages/Home/Home";
 import AuthConnection from "./pages/utils/AuthConnection";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "create-account",
         element: <NewAccount />
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />
       },
 
       // Uniquement connecté

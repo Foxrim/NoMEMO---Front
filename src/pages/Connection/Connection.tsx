@@ -47,7 +47,7 @@ export default function Connection() {
         />
         <Buttons type="submit" children="Connect" />
       </form>
-      <NavLink to="/">Mot de passe oublié</NavLink>
+      <NavLink to="/forgot-password">Mot de passe oublié</NavLink>
       <NavLink className={styles.createAccount} to="/create-account">
         Créer un compte
       </NavLink>

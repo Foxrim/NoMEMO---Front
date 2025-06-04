@@ -69,7 +69,7 @@ export default function NewAccount() {
         />
         <Buttons type="submit" children="Créer un compte" />
       </form>
-      <NavLink to="/">Mot de passe oublié</NavLink>
+      <NavLink to="/forgot-password">Mot de passe oublié</NavLink>
       <NavLink className={styles.createAccount} to="/">
         Connection
       </NavLink>
