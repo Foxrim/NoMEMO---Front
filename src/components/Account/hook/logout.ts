@@ -6,7 +6,6 @@ function useHandleLogout() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("ok")
     logout();
     navigate("/login");
   };

@@ -53,7 +53,6 @@ function useUpdatePseudo() {
         pseudo: tempPseudo,
       }));
 
-      console.log(data.message);
       setIsUpdatePseudo(false);
     } catch {
       throw new Error("Erreur lors de la modification du pseudo");
