@@ -1,12 +1,12 @@
 import Buttons from "../Buttons/Buttons";
 import IconsButtons from "../Header/components/IconsButtons/IconsButtons";
 import styles from "./Account.module.css";
-import { useHeader } from "../Header/context/useHeader";
 import TextInput from "../Inputs/Text/TextInput";
 import { useHandleLogout } from "./hook/logout";
+import { useAccount } from "./context/useAccount";
 
 export default function Account() {
-    const { user } = useHeader();
+    const { user } = useAccount();
     const pseudo = localStorage.getItem('userName')
 
     return (
