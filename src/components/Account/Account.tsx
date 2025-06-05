@@ -10,7 +10,7 @@ import { useHeader } from "../Header/context/useHeader";
 export default function Account() {
   const { handleModalAccount } = useHeader();
   const { handleLogout } = useHandleLogout();
-  const { isUpdatePseudo, handleUpdatePseudo, handleChangePseudo, updatePseudo, tempPseudo, handleCancelUpdate } = useUpdatePseudo();
+  const { isUpdatePseudo, handleUpdatePseudo, handleChangePseudo, updatePseudo, tempPseudo, handleCancelUpdate, inputRef } = useUpdatePseudo();
   const { newPassword } = useUpdatePassword();
 
   return (
@@ -29,10 +29,12 @@ export default function Account() {
         </div>
         {isUpdatePseudo ? (
           <TextInput
+          ref={inputRef}
           className={`${styles.pseudoAccount} ${styles.pseudoAccountUpdate}`}
           value={tempPseudo}
           onChange={handleChangePseudo}
           name="pseudo"
+          spellCheck={false}
           />
         ) : (
           <TextInput

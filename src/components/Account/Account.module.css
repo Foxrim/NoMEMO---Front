@@ -51,10 +51,12 @@
 
     .pseudoAccount {
       grid-row: 2 / 3;
+      cursor: default;
     }
 
     .pseudoAccountUpdate {
       border: solid 3px var(--ft-cl-yellow);
+      cursor: text;
     }
 
     .pseudoValidateAccount {

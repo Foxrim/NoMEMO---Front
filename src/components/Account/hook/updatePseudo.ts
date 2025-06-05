@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAccount } from "../context/useAccount";
 
 function useUpdatePseudo() {
@@ -6,6 +6,12 @@ function useUpdatePseudo() {
   const [tempPseudo, setTempPseudo] = useState<string>("");
 
   const { user, setUser } = useAccount();
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isUpdatePseudo) inputRef.current?.focus();
+  }, [isUpdatePseudo]);
 
   const handleCancelUpdate = () => {
     if (user?.pseudo) {
@@ -66,6 +72,7 @@ function useUpdatePseudo() {
     updatePseudo,
     tempPseudo,
     handleCancelUpdate,
+    inputRef
   };
 }
 
