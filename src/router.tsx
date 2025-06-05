@@ -3,10 +3,10 @@ import App from "./App";
 import Connection from "./pages/Connection/Connection";
 import NewAccount from "./pages/NewAccount/NewAccount";
 import Home from "./pages/Home/Home";
-import AuthConnection from "./pages/utils/AuthConnection";
+import AuthConnection from "./pages/guard/AuthConnection";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import NewPassword from "./pages/NewPassword/NewPassword";
-import TokenVerify from "./pages/utils/TokenVerify";
+import TokenVerify from "./pages/guard/TokenVerify";
 
 export const router = createBrowserRouter([
   {

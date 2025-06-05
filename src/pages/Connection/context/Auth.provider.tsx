@@ -22,8 +22,8 @@ export function AuthProvider ({children}: {children: ReactNode}) {
 
             if (loggedUser) {
                 localStorage.setItem("isAuth", "true");
-                sessionStorage.setItem("user", loggedUser.id);
-                sessionStorage.setItem("userName", loggedUser.pseudo);
+                localStorage.setItem("user", loggedUser.id);
+                localStorage.setItem("userName", loggedUser.pseudo);
             }
 
             return loggedUser;         
@@ -35,8 +35,8 @@ export function AuthProvider ({children}: {children: ReactNode}) {
 
         const logout = () => {
             localStorage.removeItem('isAuth');
-            sessionStorage.removeItem('user');
-            sessionStorage.removeItem('userName');
+            localStorage.removeItem('user');
+            localStorage.removeItem('userName');
         };
 
         return (
