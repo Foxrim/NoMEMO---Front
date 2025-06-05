@@ -7,6 +7,7 @@ export type UserProps = {
 type AccountContextType = {
   fetchUser: () => void;
   user: UserProps | undefined;
+  setUser: (value: React.SetStateAction<UserProps>) => void
 };
 
 export const AccountContext = createContext<AccountContextType | undefined>(

@@ -4,15 +4,12 @@ import styles from "./Account.module.css";
 import TextInput from "../Inputs/Text/TextInput";
 import useHandleLogout from "./hook/logout";
 import useUpdatePseudo from "./hook/updatePseudo";
-import { useAccount } from "./context/useAccount";
 import { useHeader } from "../Header/context/useHeader";
 
 export default function Account() {
-  const { user } = useAccount();
   const { handleModalAccount } = useHeader();
   const { handleLogout } = useHandleLogout();
-  const pseudo = localStorage.getItem("userName");
-  const { isUpdatePseudo, handleUpdatePseudo } = useUpdatePseudo();
+  const { isUpdatePseudo, handleUpdatePseudo, handleChangePseudo, updatePseudo, tempPseudo, handleCancelUpdate } = useUpdatePseudo();
 
   return (
     <div className={styles.account}>
@@ -24,28 +21,32 @@ export default function Account() {
           ></i>
           <h2>Compte</h2>
           <IconsButtons
-            onClick={handleUpdatePseudo}
+            onClick={isUpdatePseudo ? handleCancelUpdate : handleUpdatePseudo}
             children={<i className="fa-solid fa-pen-to-square"></i>}
           />
         </div>
         {isUpdatePseudo ? (
-            <TextInput
-            className={styles.pseudoAccount}
-            value={user ? user?.pseudo ?? pseudo : ''}
-            />
+          <TextInput
+          className={`${styles.pseudoAccount} ${styles.pseudoAccountUpdate}`}
+          value={tempPseudo}
+          onChange={handleChangePseudo}
+          name="pseudo"
+          />
         ) : (
-            <TextInput
-            className={styles.pseudoAccount}
-            value={user ? user?.pseudo : pseudo ?? ''}
-            readOnly
-            />
+          <TextInput
+          className={styles.pseudoAccount}
+          value={tempPseudo}
+          readOnly
+          />
         )}
         {isUpdatePseudo && (
           <Buttons
             className={styles.pseudoValidateAccount}
             children={"Valider la modification"}
-          />
-        )}
+            onClick={updatePseudo}
+            type="submit"
+            />
+          )}
         <Buttons
           className={styles.emailAccount}
           children={"Modifier l'email"}

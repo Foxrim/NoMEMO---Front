@@ -5,7 +5,9 @@ import type { UserProps } from "./Account.context";
 export const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<UserProps>();
+  const [user, setUser] = useState<UserProps>({
+    pseudo: "",
+  });
 
   const id = localStorage.getItem("user");
 
@@ -23,6 +25,7 @@ export const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
     <AccountContext.Provider
       value={{
         user,
+        setUser,
         fetchUser
       }}
     >

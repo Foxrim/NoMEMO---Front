@@ -6,7 +6,7 @@
   top: 0;
   overflow: scroll;
   background-color: var(--pr-cl-demi-white);
-  
+
   .modalAccount {
     background-color: var(--pr-cl-grey);
     height: calc(100vh - 4rem);
@@ -18,64 +18,69 @@
     grid-template-rows: 12vh 10vh 10vh 5vh 10vh 10vh 15vh 10vh;
     grid-template-columns: 100%;
 
-   .topAccount {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-       
-        width: 100%;
-        align-self: flex-start;
-       
-       .closeAccount {
-           font-size: 40px;
-           color: var(--ft-cl-white);
-           cursor: pointer;
-           margin-left: 1rem ;
-        }
-        
-        h2 {
-            font-size: 25px;
-            color: var(--ft-cl-white);
-            cursor: default;
-        }
+    .topAccount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-        button {
-            margin: 0;
-        }
+      width: 100%;
+      align-self: flex-start;
+
+      .closeAccount {
+        font-size: 40px;
+        color: var(--ft-cl-white);
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+
+      h2 {
+        font-size: 25px;
+        color: var(--ft-cl-white);
+        cursor: default;
+      }
+
+      button {
+        margin: 0;
+      }
     }
 
-    input, button {
-        margin: auto;
+    input,
+    button {
+      margin: auto;
     }
 
     .pseudoAccount {
-        grid-row: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .pseudoAccountUpdate {
+      border: solid 3px var(--ft-cl-yellow);
     }
 
     .pseudoValidateAccount {
-        grid-row: 3 / 4;
+      grid-row: 3 / 4;
     }
 
     .emailAccount {
-        grid-row: 5 / 6;
+      grid-row: 5 / 6;
     }
 
     .passwordAccount {
-        grid-row: 6 / 7;
+      grid-row: 6 / 7;
     }
 
     .logoutAccount {
-        grid-row: 8 / 9;
+      grid-row: 8 / 9;
     }
 
     a {
-        font-size: 20px;
-        color: var(--ft-cl-white);
-        text-decoration: none;
-        align-self: center;
-        justify-self: flex-end;
-        margin: auto;
-        grid-row: 9 / 10;
+      font-size: 20px;
+      color: var(--ft-cl-white);
+      text-decoration: none;
+      align-self: center;
+      justify-self: flex-end;
+      margin: auto;
+      grid-row: 9 / 10;
     }
   }
 }
