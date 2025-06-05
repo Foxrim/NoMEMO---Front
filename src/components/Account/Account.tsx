@@ -4,12 +4,14 @@ import styles from "./Account.module.css";
 import TextInput from "../Inputs/Text/TextInput";
 import useHandleLogout from "./hook/logout";
 import useUpdatePseudo from "./hook/updatePseudo";
+import useUpdatePassword from "./hook/updatePassword";
 import { useHeader } from "../Header/context/useHeader";
 
 export default function Account() {
   const { handleModalAccount } = useHeader();
   const { handleLogout } = useHandleLogout();
   const { isUpdatePseudo, handleUpdatePseudo, handleChangePseudo, updatePseudo, tempPseudo, handleCancelUpdate } = useUpdatePseudo();
+  const { newPassword } = useUpdatePassword();
 
   return (
     <div className={styles.account}>
@@ -54,6 +56,7 @@ export default function Account() {
         <Buttons
           className={styles.passwordAccount}
           children={"Modifier le mot de passe"}
+          onClick={newPassword}
         />
         <Buttons
           className={styles.logoutAccount}
