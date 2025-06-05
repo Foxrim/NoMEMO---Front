@@ -1,8 +1,12 @@
 import styles from "./IconAccount.module.css";
 
-export default function IconAccount() {
+type IconAccount = {
+    onClick: () => void;
+}
+
+export default function IconAccount({ onClick }: IconAccount) {
     return (
-        <button className={styles.iconAccount}>
+        <button onClick={onClick} className={styles.iconAccount}>
             <i className="fa-regular fa-user"></i>
         </button>
     )
