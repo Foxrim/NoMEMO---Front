@@ -6,19 +6,26 @@ import { useHandleLogout } from "./hook/logout";
 import { useAccount } from "./context/useAccount";
 
 export default function Account() {
-    const { user } = useAccount();
-    const pseudo = localStorage.getItem('userName')
+  const { user } = useAccount();
+  const pseudo = localStorage.getItem("userName");
 
-    return (
+  return (
     <div className={styles.account}>
-        <i className="fa-solid fa-xmark"></i>
-        <h2>Compte</h2>
-        <IconsButtons children={<i className="fa-solid fa-pen-to-square"></i>} />
-        <TextInput value={user ? user?.pseudo : pseudo ?? ""} readOnly/>
-        <Buttons children={"Modifier l'email"} />
-        <Buttons children={"Modifier le mot de passe"} />
-        <Buttons children={"Déconnection"} onClick={useHandleLogout} />
+      <div className={styles.modalAccount}>
+        <div className={styles.topAccount}>
+          <i className={`fa-solid fa-xmark ${styles.closeAccount}`}></i>
+          <h2>Compte</h2>
+          <IconsButtons
+            children={<i className="fa-solid fa-pen-to-square"></i>}
+          />
+        </div>
+        <TextInput className={styles.pseudoAccount} value={user ? user?.pseudo : pseudo ?? ""} readOnly />
+        <Buttons className={styles.pseudoValidateAccount} children={"Valider la modification"} />
+        <Buttons className={styles.emailAccount} children={"Modifier l'email"} />
+        <Buttons className={styles.passwordAccount} children={"Modifier le mot de passe"} />
+        <Buttons className={styles.logoutAccount} children={"Déconnection"} onClick={useHandleLogout} />
         <a href="">Supprimer le compte</a>
+      </div>
     </div>
-)
+  );
 }

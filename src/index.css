@@ -14,7 +14,8 @@ body {
   span,
   input,
   button,
-  a {
+  a, 
+  h2 {
     font-family: "Lato", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -32,6 +33,7 @@ body {
   --pr-cl-yellow: #dea605;
   --pr-cl-grey: #2c2c2c;
   --pr-cl-white: #ffffff;
+  --pr-cl-demi-white: #ffffff7e;
   --pr-cl-demi-yellow: rgba(222, 168, 5, 0.5);
   --pr-cl-light-grey: #404040;
 
