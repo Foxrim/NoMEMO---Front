@@ -1,14 +1,17 @@
 import { useAuth } from "../../../pages/Connection/context/useAuth";
 import { useNavigate } from "react-router";
 
-export const useHandleLogout = () => {
-    const { logout } = useAuth();
-    const navigate = useNavigate();
+function useHandleLogout() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
-    const handleLogout = () => {
-        logout();
-        navigate('/login');
-    };
+  const handleLogout = () => {
+    console.log("ok")
+    logout();
+    navigate("/login");
+  };
 
-    return handleLogout;
+  return { handleLogout };
 };
+
+export default useHandleLogout;
