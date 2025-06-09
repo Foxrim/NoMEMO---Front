@@ -9,13 +9,13 @@ export const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
     pseudo: "",
   });
   
-  const id = localStorage.getItem("user");
-  
   const fetchUser = useCallback(() => {
-    fetch(`http://localhost:5012/api/v1/users/${id}`)
+    fetch(`http://localhost:5012/api/v1/users/find-me`,{
+      credentials: "include",
+    })
     .then((response) => response.json())
     .then((data: UserProps) => setUser(data));
-  }, [id]);
+  }, []);
   
   useEffect(() => {
     fetchUser();

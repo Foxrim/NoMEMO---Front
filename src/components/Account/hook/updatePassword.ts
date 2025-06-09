@@ -6,17 +6,29 @@ type EmailProps = {
 
 function useUpdatePassword() {
     const [user, setUser] = useState<EmailProps | undefined>(undefined);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const fetchEmail = async () => {
-        const id = localStorage.getItem('user');
-
-        await fetch(`http://localhost:5012/api/v1/users/${id}`)
-        .then((response) => response.json())
-        .then((data: EmailProps) => setUser(data))
+        setLoading(true);
+        try {
+            const res = await fetch(`http://localhost:5012/api/v1/users/find-me`, {
+                credentials: "include",
+            });
+            if (res.ok) {
+                const data: EmailProps = await res.json();
+                setUser(data);
+            } else {
+                setUser(undefined);
+            }            
+        } catch {
+            setUser(undefined);
+        } finally {
+            setLoading(false);
+        }
     }
     
     const newPassword = async () => {
-        fetchEmail();
+        await fetchEmail();
 
         if (!user?.email) {
             console.error("Email non trouvé");
@@ -36,7 +48,7 @@ function useUpdatePassword() {
         }
     };
 
-    return { newPassword };
+    return { newPassword, loading };
 }
 
 export default useUpdatePassword;
