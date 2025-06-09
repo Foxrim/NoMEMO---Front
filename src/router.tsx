@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         element: <AuthConnection />,
         children: [
           {
-            path: "home",
+            path: "home/:pseudo",
             element: <Home />
           }
         ]
