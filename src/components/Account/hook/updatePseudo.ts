@@ -9,6 +9,7 @@ function useUpdatePseudo() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+
   useEffect(() => {
     if (isUpdatePseudo) inputRef.current?.focus();
   }, [isUpdatePseudo]);

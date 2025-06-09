@@ -1,7 +1,6 @@
 import { createContext } from "react";
 
 type LoggedUser = {
-    authToken: string;
     id: string;
     pseudo: string;
 };

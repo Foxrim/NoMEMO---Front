@@ -14,29 +14,17 @@ export function AuthProvider ({children}: {children: ReactNode}) {
 
             const data = await connect.json();
 
-            const loggedUser = {
-                authToken: data.authToken,
-                id: data.user.id,
-                pseudo: data.user.pseudo
-            }
-
-            if (loggedUser) {
-                localStorage.setItem("isAuth", "true");
-                localStorage.setItem("user", loggedUser.id);
-                localStorage.setItem("userName", loggedUser.pseudo);
-            }
-
-            return loggedUser;         
+            return data;         
         } catch (err) {
             console.error('Connection échoué : ', err);
             return null;
         }
     }
 
-        const logout = () => {
-            localStorage.removeItem('isAuth');
-            localStorage.removeItem('user');
-            localStorage.removeItem('userName');
+        const logout = async () => {
+            await fetch('http://localhost:5012/api/v1/auth/logout', {
+                credentials: 'include',
+            });
         };
 
         return (

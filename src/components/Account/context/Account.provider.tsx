@@ -8,15 +8,15 @@ export const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<UserProps>({
     pseudo: "",
   });
-
+  
   const id = localStorage.getItem("user");
-
+  
   const fetchUser = useCallback(() => {
     fetch(`http://localhost:5012/api/v1/users/${id}`)
-      .then((response) => response.json())
-      .then((data: UserProps) => setUser(data));
+    .then((response) => response.json())
+    .then((data: UserProps) => setUser(data));
   }, [id]);
-
+  
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
