@@ -12,7 +12,7 @@ export default function ConfirmModal({
   onClick,
   children,
   onClickYes,
-  onClickNo,
+  onClickNo
 }: ConfirmModalProps) {
   return (
     <div className={styles.confirmModal}>
