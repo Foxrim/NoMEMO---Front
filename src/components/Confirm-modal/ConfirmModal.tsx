@@ -18,11 +18,11 @@ export default function ConfirmModal({
     <div className={styles.confirmModal}>
       <div className={styles.modalConfirmModal}>
         <i
-          className={`fa-solid fa-xmark ${styles.closeAccount}`}
+          className={`fa-solid fa-xmark ${styles.closeModal}`}
           onClick={onClick}
         ></i>
         <h2>{children}</h2>
-        <Buttons children="Oui" onClick={onClickYes} />
+        <Buttons children="Oui" onClick={onClickYes} className={styles.buttonYes} />
         <Buttons children="Non" onClick={onClickNo} />
       </div>
     </div>
