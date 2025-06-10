@@ -7,7 +7,15 @@ export type UserProps = {
 type AccountContextType = {
   fetchUser: () => void;
   user: UserProps | undefined;
-  setUser: (value: React.SetStateAction<UserProps>) => void
+  setUser: (value: React.SetStateAction<UserProps>) => void;
+  emailModal: boolean;
+  passwordModal: boolean;
+  disconnectModal: boolean;
+  deleteAccountModal: boolean;
+  handleEmailModal: () => void;
+  handlePasswordModal: () => void;
+  handleDisconnectModal: () => void;
+  handleDeleteAccountModal: () => void;
 };
 
 export const AccountContext = createContext<AccountContextType | undefined>(

@@ -14,10 +14,12 @@ function usePseudo() {
           credentials: "include",
         });
 
-        if (!res.ok)
+        if (!res.ok) {
           throw new Error("Erreur lors de la récupération du pseudo");
+        }
 
         const data: usePseudoProps = await res.json();
+
         setPseudo(data.pseudo);
       } catch (err) {
         console.error(err);
