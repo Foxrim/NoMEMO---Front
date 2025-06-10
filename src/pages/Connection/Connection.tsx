@@ -6,12 +6,14 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import styles from "./Connection.module.css";
 import { useAuth } from "./context/useAuth";
+import usePseudo from "../../services/user";
 
 export default function Connection() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const { login } = useAuth();
+  const pseudo = usePseudo();
 
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ export default function Connection() {
       const data = await login(email, password);
 
       if (data) {
-        navigate('/home');
+        navigate(`/home/${pseudo}`);
       }
     } catch {
       console.error('Mauvais identifiants');

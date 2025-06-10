@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
-export default function TokenVerify() {
+export default function TokenVerifyEmail() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -10,17 +10,18 @@ export default function TokenVerify() {
       const token = params.get("token");
 
       if (!token) {
-        navigate('/forgot-password');
+        navigate('/login');
         return;
       }
 
       try {
+        await fetch('http://localhost:5012')
         if (token) {
-          sessionStorage.setItem("resetToken", token);
+          sessionStorage.setItem("resetTokenEmail", token);
 
-          navigate(`/new-password?token=${token}`);
+          navigate(`/new-email?token=${token}`);
         } else {
-          navigate('/forgot-password');
+          navigate('/login');
         }
       } catch (err) {
         console.error(err);

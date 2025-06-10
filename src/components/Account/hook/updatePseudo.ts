@@ -9,6 +9,7 @@ function useUpdatePseudo() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+
   useEffect(() => {
     if (isUpdatePseudo) inputRef.current?.focus();
   }, [isUpdatePseudo]);
@@ -38,13 +39,12 @@ function useUpdatePseudo() {
   };
 
   const updatePseudo = async () => {
-    const id = localStorage.getItem("user");
-
     try {
-      const response = await fetch(`http://localhost:5012/api/v1/users/${id}`, {
+      const response = await fetch(`http://localhost:5012/api/v1/users/pseudo-me`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pseudo: tempPseudo }),
+        credentials: "include"
       });
 
       const data = await response.json();

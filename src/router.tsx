@@ -6,7 +6,10 @@ import Home from "./pages/Home/Home";
 import AuthConnection from "./pages/guard/AuthConnection";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import NewPassword from "./pages/NewPassword/NewPassword";
-import TokenVerify from "./pages/guard/TokenVerify";
+import TokenVerifyPassword from "./pages/guard/TokenVerifyPassword";
+import TokenVerifyEmail from "./pages/guard/TokenVerifyEmail";
+import NewEmail from "./pages/NewEmail/NewEmail";
+import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
 
 export const router = createBrowserRouter([
   {
@@ -19,23 +22,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Connection />
+        element: <Connection />,
       },
       {
         path: "create-account",
-        element: <NewAccount />
+        element: <NewAccount />,
+      },
+      {
+        path: "confirm-email",
+        element: <ConfirmEmail />,
       },
       {
         path: "forgot-password",
-        element: <ForgotPassword />
+        element: <ForgotPassword />,
       },
       {
-        path: "verify",
-        element: <TokenVerify />,
+        path: "verify-password",
+        element: <TokenVerifyPassword />,
       },
       {
         path: "new-password",
-        element: <NewPassword />
+        element: <NewPassword />,
       },
 
       // Uniquement connecté
@@ -44,12 +51,19 @@ export const router = createBrowserRouter([
         element: <AuthConnection />,
         children: [
           {
-            path: "home",
-            element: <Home />
-          }
-        ]
+            path: "home/:pseudo",
+            element: <Home />,
+          },
+          {
+            path: "verify-email",
+            element: <TokenVerifyEmail />,
+          },
+          {
+            path: "new-email",
+            element: <NewEmail />,
+          },
+        ],
       },
-
     ],
   },
 ]);
