@@ -3,35 +3,38 @@ import Buttons from "../../components/Buttons/Buttons";
 import PasswordInput from "../../components/Inputs/Password/PasswordInput";
 import EmailInput from "../../components/Inputs/Email/EmailInput";
 import { useState } from "react";
-import { NavLink } from "react-router";
-import styles from "./Auth.module.css";
+import { NavLink, useNavigate } from "react-router";
+import styles from "./Connection.module.css";
+import { useAuth } from "./context/useAuth";
+import usePseudo from "../../services/user";
 
-export default function Auth() {
+export default function Connection() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [res, setRes] = useState<string>("");
+
+  const { login } = useAuth();
+  const pseudo = usePseudo();
+
+  const navigate = useNavigate();
 
   const connection = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const connect = await fetch("http://localhost:5012/api/v1/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    
-    const data = await connect.json();
-    setRes(data.message);
 
-    setTimeout(() => {
-        setRes("");
-    }, 2500);
-  };
+    try {
+      const data = await login(email, password);
+
+      if (data) {
+        navigate(`/home/${pseudo}`);
+      }
+    } catch {
+      console.error('Mauvais identifiants');
+    }
+  }
+  
 
   return (
     <div className={styles.auth}>
       <Title />
-      <p>{res}</p>
       <form onSubmit={connection}>
         <EmailInput
           type="email"
@@ -46,8 +49,10 @@ export default function Auth() {
         />
         <Buttons type="submit" children="Connect" />
       </form>
-    <NavLink to="/">Mot de passe oublié</NavLink>
-    <NavLink className={styles.createAccount} to="/create-account">Créer un compte</NavLink>
+      <NavLink to="/forgot-password">Mot de passe oublié</NavLink>
+      <NavLink className={styles.createAccount} to="/create-account">
+        Créer un compte
+      </NavLink>
     </div>
   );
 }

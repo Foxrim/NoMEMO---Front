@@ -1,7 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
-import Auth from "./pages/Auth/Auth";
+import Connection from "./pages/Connection/Connection";
 import NewAccount from "./pages/NewAccount/NewAccount";
+import Home from "./pages/Home/Home";
+import AuthConnection from "./pages/guard/AuthConnection";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import NewPassword from "./pages/NewPassword/NewPassword";
+import TokenVerifyPassword from "./pages/guard/TokenVerifyPassword";
+import TokenVerifyEmail from "./pages/guard/TokenVerifyEmail";
+import NewEmail from "./pages/NewEmail/NewEmail";
+import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
 
 export const router = createBrowserRouter([
   {
@@ -10,12 +18,52 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Auth />,
+        element: <Connection />,
+      },
+      {
+        path: "login",
+        element: <Connection />,
       },
       {
         path: "create-account",
-        element: <NewAccount />
-      }
+        element: <NewAccount />,
+      },
+      {
+        path: "confirm-email",
+        element: <ConfirmEmail />,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "verify-password",
+        element: <TokenVerifyPassword />,
+      },
+      {
+        path: "new-password",
+        element: <NewPassword />,
+      },
+
+      // Uniquement connecté
+      {
+        path: "/",
+        element: <AuthConnection />,
+        children: [
+          {
+            path: "home/:pseudo",
+            element: <Home />,
+          },
+          {
+            path: "verify-email",
+            element: <TokenVerifyEmail />,
+          },
+          {
+            path: "new-email",
+            element: <NewEmail />,
+          },
+        ],
+      },
     ],
   },
 ]);
