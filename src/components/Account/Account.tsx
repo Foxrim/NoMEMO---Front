@@ -10,7 +10,15 @@ import DeleteAccount from "./components/DeleteAccount/DeleteAccount";
 
 export default function Account() {
   const { handleModalAccount } = useHeader();
-  const { isUpdatePseudo, handleUpdatePseudo, handleCancelUpdate, handleChangePseudo, updatePseudo, tempPseudo, inputRef } = useUpdatePseudo();
+  const {
+    isUpdatePseudo,
+    handleUpdatePseudo,
+    handleCancelUpdate,
+    handleChangePseudo,
+    updatePseudo,
+    tempPseudo,
+    inputRef,
+  } = useUpdatePseudo();
 
   return (
     <div className={styles.account}>
@@ -26,11 +34,17 @@ export default function Account() {
             children={<i className="fa-solid fa-pen-to-square"></i>}
           />
         </div>
-          <PseudoAccount isUpdatePseudo={isUpdatePseudo} handleChangePseudo={handleChangePseudo} updatePseudo={updatePseudo} tempPseudo={tempPseudo} inputRef={inputRef}  />
-          <EmailAccount /> 
-          <PasswordAccount />
-          <DisconnectAccount /> 
-          <DeleteAccount />
+        <PseudoAccount
+          isUpdatePseudo={isUpdatePseudo}
+          handleChangePseudo={handleChangePseudo}
+          updatePseudo={updatePseudo}
+          tempPseudo={tempPseudo}
+          inputRef={inputRef}
+        />
+        <EmailAccount />
+        <PasswordAccount />
+        <DisconnectAccount />
+        <DeleteAccount />
       </div>
     </div>
   );
