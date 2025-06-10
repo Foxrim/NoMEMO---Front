@@ -1,0 +1,8 @@
+.addNote {
+  .closeAddNote {
+    font-size: 40px;
+    color: var(--ft-cl-white);
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+}
