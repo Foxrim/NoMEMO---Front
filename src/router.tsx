@@ -6,7 +6,9 @@ import Home from "./pages/Home/Home";
 import AuthConnection from "./pages/guard/AuthConnection";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import NewPassword from "./pages/NewPassword/NewPassword";
-import TokenVerify from "./pages/guard/TokenVerify";
+import TokenVerifyPassword from "./pages/guard/TokenVerifyPassword";
+import TokenVerifyEmail from "./pages/guard/TokenVerifyEmail";
+import NewEmail from "./pages/NewEmail/NewEmail";
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +32,8 @@ export const router = createBrowserRouter([
         element: <ForgotPassword />
       },
       {
-        path: "verify",
-        element: <TokenVerify />,
+        path: "verify-password",
+        element: <TokenVerifyPassword />,
       },
       {
         path: "new-password",
@@ -46,6 +48,14 @@ export const router = createBrowserRouter([
           {
             path: "home/:pseudo",
             element: <Home />
+          },
+          {
+            path: "verify-email",
+            element: <TokenVerifyEmail />
+          },
+          {
+            path: "new-email",
+            element: <NewEmail />
           }
         ]
       },
