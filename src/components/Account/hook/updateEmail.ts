@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAccount } from "../context/useAccount";
 
 type EmailProps = {
   email: string;
@@ -7,6 +8,7 @@ type EmailProps = {
 function useUpdateEmail() {
   const [user, setUser] = useState<EmailProps | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
+  const { handleEmailModal } = useAccount();
 
   const fetchEmail = async () => {
     setLoading(true);
@@ -43,6 +45,7 @@ function useUpdateEmail() {
       });
 
       setUser(undefined);
+      handleEmailModal();
     } catch {
       console.error("Email non reconnue");
     }
