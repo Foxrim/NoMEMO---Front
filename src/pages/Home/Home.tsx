@@ -19,7 +19,7 @@ export default function Home() {
       <Header />
       {modalAccount && <Account />}
 
-      {notes.length == 0 ? (
+      {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
             <Notes key={note.nameNote} isDone={String(note.isDone)}>
