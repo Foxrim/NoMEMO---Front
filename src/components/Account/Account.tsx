@@ -7,6 +7,7 @@ import EmailAccount from "./components/Email/EmailAccount";
 import PasswordAccount from "./components/Password/PasswordAccount";
 import DisconnectAccount from "./components/Disconnect/DisconnectAccount";
 import DeleteAccount from "./components/DeleteAccount/DeleteAccount";
+import Close from "../Close/Close";
 
 export default function Account() {
   const { handleModalAccount } = useHeader();
@@ -24,10 +25,7 @@ export default function Account() {
     <div className={styles.account}>
       <div className={styles.modalAccount}>
         <div className={styles.topAccount}>
-          <i
-            className={`fa-solid fa-xmark ${styles.closeAccount}`}
-            onClick={handleModalAccount}
-          ></i>
+          <Close className={styles.closeAccount} onClick={handleModalAccount} />
           <h2>Compte</h2>
           <IconsButtons
             onClick={isUpdatePseudo ? handleCancelUpdate : handleUpdatePseudo}

@@ -1,0 +1,5 @@
+.close {
+  font-size: 40px;
+  color: var(--ft-cl-white);
+  cursor: pointer;
+}
