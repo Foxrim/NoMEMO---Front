@@ -39,7 +39,8 @@
     .radioDone {
       grid-area: 3 / 1 / 4 / 2;
       align-self: center;
-      justify-self: center;      
+      justify-self: center;
+      width: 18rem;
     }
 
     .textAreaAddNote {
