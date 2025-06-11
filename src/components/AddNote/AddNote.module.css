@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   background-color: var(--pr-cl-demi-white);
+  z-index: 10;
 
   .addNoteModal {
     background-color: var(--pr-cl-grey);
@@ -19,16 +20,15 @@
       color: var(--ft-cl-white);
       cursor: default;
       grid-area: 1 / 1 / 2 / 2;
-      margin: auto;
+      justify-self: center;
+      align-self: center;
+      margin-top: 1.5rem;
     }
 
     .closeAddNote {
-      font-size: 40px;
-      color: var(--ft-cl-white);
-      cursor: pointer;
       grid-area: 1 / 1 / 2 / 2;
       align-self: center;
-      margin: 1rem 0 1rem 1.5rem;
+      margin: 1.5rem 0 1rem 1.5rem;
     }
 
     .itemsForm {

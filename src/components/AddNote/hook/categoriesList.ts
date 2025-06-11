@@ -26,7 +26,6 @@ function useCategoriesList() {
     }, []);
 
 
-
     return categories;
 }
 

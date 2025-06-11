@@ -16,28 +16,23 @@ type NotesProps = {
 
 function useHomeHook() {
   const [notes, setNotes] = useState<NotesProps[]>([]);
-  const [addNoteModal, setAddNoteModal] = useState<boolean>(false);
-
+  
   useEffect(() => {
     const fetchNotes = async () => {
-      const res = await fetch(
+      await fetch(
         "http://localhost:5012/api/v1/notes/find-by-user",
         {
           credentials: "include",
         }
-      );
-      const data: NotesProps[] = await res.json();
-      setNotes(data);
+      )
+      .then((res) => res.json())
+      .then((data: NotesProps[]) => setNotes(data));
     };
 
     fetchNotes();
   }, []);
 
-  const handleNoteModal = () => {
-    setAddNoteModal((prev) => !prev);
-  }
-
-  return { notes, handleNoteModal, addNoteModal };
+  return { notes };
 }
 
 export default useHomeHook;
