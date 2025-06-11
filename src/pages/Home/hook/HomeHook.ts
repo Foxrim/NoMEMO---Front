@@ -16,8 +16,7 @@ type NotesProps = {
 
 function useHomeHook() {
   const [notes, setNotes] = useState<NotesProps[]>([]);
-  const [addNoteModal, setAddNoteModal] = useState<boolean>(false);
-
+  
   useEffect(() => {
     const fetchNotes = async () => {
       await fetch(
@@ -32,12 +31,8 @@ function useHomeHook() {
 
     fetchNotes();
   }, []);
-  
-  const handleNoteModal = () => {
-    setAddNoteModal((prev) => !prev);
-  }
 
-  return { notes, handleNoteModal, addNoteModal };
+  return { notes };
 }
 
 export default useHomeHook;

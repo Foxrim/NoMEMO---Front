@@ -21,8 +21,7 @@ export default function ConfirmEmail() {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify({ token })
         })
-        console.log(data)
-
+        
         if (data.ok) {
           navigate(`login`);
         }

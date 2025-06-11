@@ -5,11 +5,12 @@ type NotesProps = {
   children: React.ReactNode;
   isDone: string;
   className?: string;
+  onClick?: () => void; 
 };
 
-export default function Notes({ children, isDone, className }: NotesProps) {
+export default function Notes({ children, isDone, className, onClick }: NotesProps) {
   return (
-    <div className={`${styles.notes} ${className}`}>
+    <div className={`${styles.notes} ${className}`} onClick={onClick}>
       <p>{children}</p>
       {isDone === "notDone" ? (
         <img src={xNotDone} alt="croix rouge validé" />

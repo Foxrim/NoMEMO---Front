@@ -6,11 +6,13 @@ import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
 import styles from "./Home.module.css";
 import useHomeHook from "./hook/HomeHook";
+import useHomeModal from "./hook/HomeModal";
 
 export default function Home() {
   const { modalAccount } = useHeader();
-  const { notes, addNoteModal, handleNoteModal } = useHomeHook();
-  console.log(notes)
+  const { notes } = useHomeHook();
+  const { addNoteModal, handleNoteModal, addCatNote, handleCatNoteModal } = useHomeModal();
+
   return (
     <section className={styles.home}>
       <Header />
@@ -19,7 +21,7 @@ export default function Home() {
       {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
-            <Notes key={note.nameNote} isDone={String(note.isDone)} >
+            <Notes key={note.nameNote} isDone={String(note.isDone)}>
               {note.nameNote}
             </Notes>
           ))}
@@ -31,6 +33,18 @@ export default function Home() {
         </Buttons>
       )}
       {addNoteModal && <AddNote handleNoteModal={handleNoteModal} />}
+
+      <Buttons className={styles.addButtonSmall} onClick={handleCatNoteModal}>
+        Ajouter
+        <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
+      </Buttons>
+      {addCatNote}
+
+      <Buttons className={styles.moreButtonSmall} onClick={handleNoteModal}>
+        Plus
+        <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
+      </Buttons>
+      
     </section>
   );
 }
