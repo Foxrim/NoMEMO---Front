@@ -12,7 +12,12 @@ function useHomeModal() {
     setAddCatNot((prev) => !prev);
   }
 
-  return { handleNoteModal, addNoteModal, handleCatNoteModal, addCatNote };
+  const handleNoteModalByModal = () => {
+     setAddCatNot((prev) => !prev);
+     setAddNoteModal((prev) => !prev);
+  }
+
+  return { handleNoteModal, addNoteModal, handleCatNoteModal, addCatNote, handleNoteModalByModal };
 }
 
 export default useHomeModal;
