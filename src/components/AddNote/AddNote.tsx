@@ -32,7 +32,7 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
     <div className={styles.addNote}>
       <form className={styles.addNoteModal} onSubmit={createNote}>
         <Close className={styles.closeAddNote} onClick={handleNoteModal} />
-        <h2>Ajouter une note</h2>
+        <h2>Nouvelle note</h2>
 
         <TextInput
           className={styles.itemsForm}

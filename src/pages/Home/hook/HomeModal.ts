@@ -3,6 +3,7 @@ import { useState } from "react";
 function useHomeModal() {
   const [addNoteModal, setAddNoteModal] = useState<boolean>(false);
   const [addCatNote, setAddCatNot] = useState<boolean>(false);
+  const [addCategorieModal, setAddCategorieModal] = useState<boolean>(false);
 
   const handleNoteModal = () => {
     setAddNoteModal((prev) => !prev);
@@ -10,14 +11,32 @@ function useHomeModal() {
 
   const handleCatNoteModal = () => {
     setAddCatNot((prev) => !prev);
-  }
+  };
+
+  const handleCategorieModal = () => {
+    setAddCategorieModal((prev) => !prev);
+  };
 
   const handleNoteModalByModal = () => {
-     setAddCatNot((prev) => !prev);
-     setAddNoteModal((prev) => !prev);
-  }
+    handleCatNoteModal();
+    handleNoteModal();
+  };
 
-  return { handleNoteModal, addNoteModal, handleCatNoteModal, addCatNote, handleNoteModalByModal };
+  const handleCategorieModalByModal = () => {
+    handleCatNoteModal();
+    handleCategorieModal();
+  };
+
+  return {
+    handleNoteModal,
+    addNoteModal,
+    handleCatNoteModal,
+    addCatNote,
+    handleNoteModalByModal,
+    addCategorieModal,
+    handleCategorieModal,
+    handleCategorieModalByModal,
+  };
 }
 
 export default useHomeModal;

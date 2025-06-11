@@ -5,9 +5,10 @@ import styles from "./AddCatNote.module.css";
 type AddCatNoteProps = {
     handleCatNoteModal: () => void;
     handleNoteModalByModal: () => void;
+    handleCategorieModalByModal: () => void;
 }
 
-export default function AddCatNote({ handleCatNoteModal, handleNoteModalByModal }: AddCatNoteProps) {
+export default function AddCatNote({ handleCatNoteModal, handleNoteModalByModal, handleCategorieModalByModal }: AddCatNoteProps) {
 
   return (
     <div className={styles.addCatNote}>
@@ -15,7 +16,7 @@ export default function AddCatNote({ handleCatNoteModal, handleNoteModalByModal 
         <Close className={styles.closeAddCatNote} onClick={handleCatNoteModal} />
         <h2>Ajouts</h2>
         <Buttons className={styles.addNewNote} onClick={handleNoteModalByModal}>Nouvelle note</Buttons>
-        <Buttons className={styles.addNewCategorie}>Nouvelle catégorie</Buttons>
+        <Buttons className={styles.addNewCategorie} onClick={handleCategorieModalByModal}>Nouvelle catégorie</Buttons>
       </div>
     </div>
   );
