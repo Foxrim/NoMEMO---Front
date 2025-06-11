@@ -12,11 +12,11 @@
         font-size: 35.5px;
         color: var(--tf-cl-demi-green);
         margin: auto;
+        cursor: pointer;
     }
 
     .doneChecked {
         color: var(--tf-cl-green);
-        margin: auto;
     }
 
     input {
@@ -25,6 +25,7 @@
 
     img {
         margin: auto;
+        cursor: pointer;
     }
 
     hr {

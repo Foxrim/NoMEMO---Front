@@ -1,10 +1,14 @@
 import styles from "./RadioDone.module.css";
 import xNotDone from "../../assets/square-xmark.png";
 import xNotDoneDemi from "../../assets/square-xmark-demi.png";
-import { useState } from "react";
 
-export default function RadioDone() {
-  const [isDone, setIsDone] = useState<"done" | "notDone">("notDone");
+type RadioDoneProps = {
+  value: string;
+  setIsDone: React.Dispatch<React.SetStateAction<"done" | "notDone">>;
+  isDone: "done" | "notDone";
+}
+
+export default function RadioDone({ value, setIsDone, isDone }: RadioDoneProps) {
 
   return (
     <div className={styles.radioDone}>
@@ -14,6 +18,7 @@ export default function RadioDone() {
         id="done"
         checked={isDone === "done"}
         onChange={() => setIsDone("done")}
+        value={value}
       />
       <i
         className={`fa-regular fa-square-check ${styles.done} ${
@@ -28,6 +33,7 @@ export default function RadioDone() {
         id="notDone"
         checked={isDone === "notDone"}
         onChange={() => setIsDone("notDone")}
+        value={value}
       />
       {isDone === "notDone" ? (
         <img src={xNotDone} alt="croix rouge validé" onClick={() => setIsDone("notDone")} />
