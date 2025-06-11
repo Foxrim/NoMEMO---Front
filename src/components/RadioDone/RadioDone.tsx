@@ -6,12 +6,13 @@ type RadioDoneProps = {
   value: string;
   setIsDone: React.Dispatch<React.SetStateAction<"done" | "notDone">>;
   isDone: "done" | "notDone";
+  className?: string;
 }
 
-export default function RadioDone({ value, setIsDone, isDone }: RadioDoneProps) {
+export default function RadioDone({ value, setIsDone, isDone, className }: RadioDoneProps) {
 
   return (
-    <div className={styles.radioDone}>
+    <div className={`${styles.radioDone} ${className}`}>
       <input
         type="radio"
         name="isDone"

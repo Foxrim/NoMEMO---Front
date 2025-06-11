@@ -1,6 +1,7 @@
 import Buttons from "../Buttons/Buttons";
 import TextInput from "../Inputs/Text/TextInput";
 import RadioDone from "../RadioDone/RadioDone";
+import Select from "../Select/Select";
 import styles from "./AddNote.module.css";
 import useCategoriesList from "./hook/categoriesList";
 import useNewNote from "./hook/newNote";
@@ -42,33 +43,31 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
           onChange={(e) => setNameNote(e.target.value)}
         />
 
-        <RadioDone value={isDone} setIsDone={setIsDone} isDone={isDone} />
+        <RadioDone value={isDone} setIsDone={setIsDone} isDone={isDone} className={styles.radioDone} />
 
         <textarea
           placeholder="Description"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-
-        <select
-          value={categoryId}
+        <Select
+          option="Catégorie"
+          value={Number(categoryId)}
           onChange={(e) => setCategoryId(Number(e.target.value))}
+          className={styles.selectAddNote}
         >
-           <option unselectable="on">
-              Catégorie
-            </option>
-            {categories.map((category, idx) =>
-              idx === 0 && category.id === 0 ? (
-                <option key={category.id} value={category.id} disabled>
-                  {category.nameCategory}
-                </option>
-              ) : (
-                <option key={category.id} value={category.id}>
-                  {category.nameCategory}
-                </option>
-              )
-            )}
-        </select>
+          {categories.map((category, idx) =>
+            idx === 0 && category.id === 0 ? (
+              <option key={category.id} value={category.id} disabled>
+                {category.nameCategory}
+              </option>
+            ) : (
+              <option key={category.id} value={category.id}>
+                {category.nameCategory}
+              </option>
+            )
+          )}
+        </Select>
 
         <TextInput
           className={styles.itemsForm}
