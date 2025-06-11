@@ -23,9 +23,6 @@
     }
 
     .closeAddNote {
-      font-size: 40px;
-      color: var(--ft-cl-white);
-      cursor: pointer;
       grid-area: 1 / 1 / 2 / 2;
       align-self: center;
       margin: 1rem 0 1rem 1.5rem;

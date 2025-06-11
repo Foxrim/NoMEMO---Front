@@ -1,4 +1,5 @@
 import Buttons from "../Buttons/Buttons";
+import Close from "../Close/Close";
 import TextInput from "../Inputs/Text/TextInput";
 import RadioDone from "../RadioDone/RadioDone";
 import Select from "../Select/Select";
@@ -30,10 +31,7 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
   return (
     <div className={styles.addNote}>
       <form className={styles.addNoteModal} onSubmit={createNote}>
-        <i
-          className={`fa-solid fa-xmark ${styles.closeAddNote}`}
-          onClick={handleNoteModal}
-        ></i>
+        <Close className={styles.closeAddNote} onClick={handleNoteModal} />
         <h2>Ajouter une note</h2>
 
         <TextInput
