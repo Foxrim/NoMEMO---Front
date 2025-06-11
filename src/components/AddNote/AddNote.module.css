@@ -35,7 +35,8 @@
       justify-self: center;
       align-self: center;
       margin-bottom: 1rem;
-      width: 18rem;
+      max-width: 18rem;
+      width: 100%;
 
     }
 
@@ -45,7 +46,8 @@
       justify-self: center;
       width: 18rem;
       margin-bottom: 1rem;
-      width: 20rem;
+      max-width: 20rem;
+      width: 100%;
 
     }
 
@@ -54,8 +56,8 @@
       justify-self: center;
       align-self: center;
       margin-bottom: 1rem;
-      width: 20rem;
-
+      max-width: 18rem;
+      width: 100%;
     }
 
     .selectAddNote {
@@ -66,7 +68,8 @@
 
     .buttonAddNote {
       font-size: 25px;
-      width: 20rem;
+      max-width: 20rem;
+      width: 100%;
     }
 
     .addIcon {
