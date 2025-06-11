@@ -85,7 +85,7 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
           onChange={(e) => setLink(e.target.value)}
         />
 
-        <Buttons className={styles.itemsForm} type="submit">
+        <Buttons className={`${styles.itemsForm} ${styles.buttonAddNote}`} type="submit">
           Ajouter
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
