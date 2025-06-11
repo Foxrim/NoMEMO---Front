@@ -1,7 +1,7 @@
 import styles from "./Close.module.css";
 
 type CloseProps = {
-  onClick: () => void;
+  onClick?: () => void;
   className: string;
 };
 
