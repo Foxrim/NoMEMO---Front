@@ -31,7 +31,7 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote />}
+      {addNoteModal && <AddNote handleNoteModal={handleNoteModal} />}
     </section>
   );
 }
