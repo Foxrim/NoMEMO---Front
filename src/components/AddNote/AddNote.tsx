@@ -2,6 +2,7 @@ import Buttons from "../Buttons/Buttons";
 import TextInput from "../Inputs/Text/TextInput";
 import RadioDone from "../RadioDone/RadioDone";
 import Select from "../Select/Select";
+import TextArea from "../TextArea/TextArea";
 import styles from "./AddNote.module.css";
 import useCategoriesList from "./hook/categoriesList";
 import useNewNote from "./hook/newNote";
@@ -43,13 +44,20 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
           onChange={(e) => setNameNote(e.target.value)}
         />
 
-        <RadioDone value={isDone} setIsDone={setIsDone} isDone={isDone} className={styles.radioDone} />
+        <RadioDone
+          value={isDone}
+          setIsDone={setIsDone}
+          isDone={isDone}
+          className={styles.radioDone}
+        />
 
-        <textarea
+        <TextArea
           placeholder="Description"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
+          className={styles.textAreaAddNote}
         />
+
         <Select
           option="Catégorie"
           value={Number(categoryId)}
