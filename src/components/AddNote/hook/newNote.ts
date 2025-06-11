@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useHomeHook from "../../../pages/Home/hook/HomeHook";
+import useHomeModal from "../../../pages/Home/hook/HomeModal";
 
 function useNewNote() {
     const [nameNote, setNameNote] = useState<string>('');
@@ -8,7 +8,7 @@ function useNewNote() {
     const [categoryId, setCategoryId] = useState<number>();
     const [isDone, setIsDone] = useState<"done" | "notDone">("notDone");
 
-    const { handleNoteModal } = useHomeHook();
+    const { handleNoteModal } = useHomeModal();
 
     const createNote = async () => {
         await fetch('http://localhost:5012/api/v1/notes/create', {

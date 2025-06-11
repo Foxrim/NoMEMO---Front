@@ -6,13 +6,27 @@
 
   gap: 1rem;
 
-  .addButton {
+  .addButton, .addButtonSmall, .moreButtonSmall {
     box-shadow: -1px 8px 18px -9px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: -1px 8px 18px -9px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -1px 8px 18px -9px rgba(0, 0, 0, 0.75);
+  }
 
-    .addIcon {
-      margin-left: 1rem;
-    }
+  .addIcon {
+    margin-left: .5rem;
+  }
+
+  .addButtonSmall {
+    position: fixed;
+    bottom: 0;
+    right: 9rem;
+    width: 7.5rem;
+  }
+
+  .moreButtonSmall {
+    position: fixed;
+    bottom: 0;
+    right: 1rem;
+    width: 7.5rem;
   }
 }
