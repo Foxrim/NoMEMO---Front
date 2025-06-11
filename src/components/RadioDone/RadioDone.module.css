@@ -1,0 +1,38 @@
+.radioDone {
+    background-color: var(--pr-cl-white);
+    height: 3rem;
+    width: 7rem;
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .done {
+        font-size: 35.5px;
+        color: var(--tf-cl-demi-green);
+        margin: auto;
+    }
+
+    .doneChecked {
+        color: var(--tf-cl-green);
+        margin: auto;
+    }
+
+    input {
+        display: none;
+    }
+
+    img {
+        margin: auto;
+    }
+
+    hr {
+        height: 80%;
+        width: 5px;
+        border: none;
+        background-color: var(--pr-cl-grey);
+        border-radius: 10px;
+    }
+
+}
