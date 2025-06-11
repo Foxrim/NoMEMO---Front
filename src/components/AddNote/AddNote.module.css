@@ -34,9 +34,14 @@
       justify-self: center;
     }
 
-    .radioDone,
-    .radioNotDone {
+    .radioDone {
       grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .selectAddNote {
+      grid-area: 5 / 1 / 6 / 2;
+      justify-self: center;
+      align-self: center;
     }
 
     .addIcon {

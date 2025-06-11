@@ -1,0 +1,25 @@
+.selectWrapper {
+    position: relative;
+    
+    .select {
+        border: none;
+        border-radius: 7px;
+        height: 3rem;
+        width: 18rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    
+    .selectArrow {
+        position: absolute;
+        top: 32%;
+        transform: translateY(-50%);
+        font-size: 36px;
+        right: .6rem;
+    }
+}
