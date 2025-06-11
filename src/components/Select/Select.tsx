@@ -1,11 +1,12 @@
 import styles from "./Select.module.css";
 
 type SelectProps = {
-  value: number;
-  onChange: React.ChangeEventHandler<HTMLSelectElement>;
+  value?: number;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   children: React.ReactNode;
   option: React.ReactNode;
   className?: string;
+  classNameSelect?: string;
 };
 
 export default function Select({
@@ -14,11 +15,12 @@ export default function Select({
   children,
   option,
   className,
+  classNameSelect
 }: SelectProps) {
   return (
     <div className={`${styles.selectWrapper} ${className}`}>
       <select
-        className={styles.select}
+        className={`${styles.select} ${classNameSelect}`}
         value={value}
         onChange={onChange}
       >

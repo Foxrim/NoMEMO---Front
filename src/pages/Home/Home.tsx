@@ -1,5 +1,6 @@
 import Account from "../../components/Account/Account";
 import AddCatNote from "../../components/AddCatNote/AddCatNote";
+import AddCategorie from "../../components/AddCategorie/AddCategory";
 import AddNote from "../../components/AddNote/AddNote";
 import Buttons from "../../components/Buttons/Buttons";
 import Header from "../../components/Header/Header";
@@ -12,7 +13,16 @@ import useHomeModal from "./hook/HomeModal";
 export default function Home() {
   const { modalAccount } = useHeader();
   const { notes } = useHomeHook();
-  const { addNoteModal, handleNoteModal, addCatNote, handleCatNoteModal, handleNoteModalByModal } = useHomeModal();
+  const {
+    addNoteModal,
+    handleNoteModal,
+    addCatNote,
+    handleCatNoteModal,
+    handleNoteModalByModal,
+    addCategorieModal,
+    handleCategorieModal,
+    handleCategorieModalByModal,
+  } = useHomeModal();
 
   return (
     <section className={styles.home}>
@@ -39,13 +49,19 @@ export default function Home() {
         Ajouter
         <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
       </Buttons>
-      {addCatNote && <AddCatNote handleCatNoteModal={handleCatNoteModal} handleNoteModalByModal={handleNoteModalByModal} />}
+      {addCatNote && (
+        <AddCatNote
+          handleCatNoteModal={handleCatNoteModal}
+          handleNoteModalByModal={handleNoteModalByModal}
+          handleCategorieModalByModal={handleCategorieModalByModal}
+        />
+      )}
+      {addCategorieModal && <AddCategorie handleCategorieModal={handleCategorieModal} />}
 
       <Buttons className={styles.moreButtonSmall} onClick={handleNoteModal}>
         Plus
         <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
       </Buttons>
-      
     </section>
   );
 }
