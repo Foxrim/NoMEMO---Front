@@ -4,38 +4,79 @@ function useHomeModal() {
   const [addNoteModal, setAddNoteModal] = useState<boolean>(false);
   const [addCatNote, setAddCatNot] = useState<boolean>(false);
   const [addCategorieModal, setAddCategorieModal] = useState<boolean>(false);
+  const [categoryModal, setCategoryModal] = useState<boolean>(false);
+  const [updateCategory, setUpdateCategory] = useState<boolean>(false);
+  const [deleteCategory, setDeleteCategory] = useState<boolean>(false);
 
-  const handleNoteModal = () => {
+  // Modal ajout d'une note 
+  const handleAddNote = () => {
     setAddNoteModal((prev) => !prev);
   };
 
-  const handleCatNoteModal = () => {
+  // Modal ajout d'une note ou d'une catégorie
+  const handleModalAdd = () => {
     setAddCatNot((prev) => !prev);
   };
 
-  const handleCategorieModal = () => {
+  // Modal ajout d'une catégorie
+  const handleAddCategorie = () => {
     setAddCategorieModal((prev) => !prev);
   };
 
-  const handleNoteModalByModal = () => {
-    handleCatNoteModal();
-    handleNoteModal();
+  // Modal fermeture de la première modal et ajout de note
+  const handleChangeToAddNote = () => {
+    handleModalAdd();
+    handleAddNote();
   };
 
-  const handleCategorieModalByModal = () => {
-    handleCatNoteModal();
-    handleCategorieModal();
+  // Modal fermeture de la première modal et ajout de categorie
+  const handleChangeToAddCategorie = () => {
+    handleModalAdd();
+    handleAddCategorie();
   };
+
+  // Modal option de catégorie
+  const handleCategorieOption = () => {
+    setCategoryModal((prev) => !prev);
+  }
+
+  // Modal modification de catégorie
+  const handleUpdateCategory = () => {
+    setUpdateCategory((prev) => !prev);
+  }
+
+  // Modal suppréssion de catégorie
+  const handleDeleteCategory = () => {
+    setDeleteCategory((prev) => !prev);
+  }
+
+  // Modal fermeture de la première modal et modification de categorie
+  const handleChangeToUpdateCategorie = () => {
+    handleCategorieOption();
+    handleUpdateCategory();
+  }
+
+  // Modal fermeture de la première modal et suppression de categorie
+  const handleChangeToDeleteCategorie = () => {
+    handleCategorieOption();
+    handleDeleteCategory();
+  }
 
   return {
-    handleNoteModal,
+    handleAddNote,
     addNoteModal,
-    handleCatNoteModal,
+    handleModalAdd,
     addCatNote,
-    handleNoteModalByModal,
+    handleChangeToAddNote,
     addCategorieModal,
-    handleCategorieModal,
-    handleCategorieModalByModal,
+    handleAddCategorie,
+    handleChangeToAddCategorie,
+    categoryModal,
+    handleCategorieOption,
+    handleChangeToUpdateCategorie,
+    handleChangeToDeleteCategorie,
+    updateCategory,
+    deleteCategory
   };
 }
 
