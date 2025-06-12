@@ -3,6 +3,7 @@ import AddCatNote from "../../components/AddCatNote/AddCatNote";
 import AddCategorie from "../../components/AddCategorie/AddCategory";
 import AddNote from "../../components/AddNote/AddNote";
 import Buttons from "../../components/Buttons/Buttons";
+import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
@@ -15,13 +16,17 @@ export default function Home() {
   const { notes } = useHomeHook();
   const {
     addNoteModal,
-    handleNoteModal,
+    handleAddNote,
     addCatNote,
-    handleCatNoteModal,
-    handleNoteModalByModal,
+    handleModalAdd,
+    handleChangeToAddNote,
     addCategorieModal,
-    handleCategorieModal,
-    handleCategorieModalByModal,
+    handleAddCategorie,
+    handleChangeToAddCategorie,
+    categoryModal,
+    handleCategorieOption,
+    handleChangeToUpdateCategorie,
+    handleChangeToDeleteCategorie
   } = useHomeModal();
 
   return (
@@ -38,30 +43,31 @@ export default function Home() {
           ))}
         </>
       ) : (
-        <Buttons className={styles.addButton} onClick={handleNoteModal}>
+        <Buttons className={styles.addButton} onClick={handleAddNote}>
           Ajouter
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleNoteModal={handleNoteModal} />}
+      {addNoteModal && <AddNote handleNoteModal={handleAddNote} />}
 
-      <Buttons className={styles.addButtonSmall} onClick={handleCatNoteModal}>
+      <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
         <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
       </Buttons>
       {addCatNote && (
         <AddCatNote
-          handleCatNoteModal={handleCatNoteModal}
-          handleNoteModalByModal={handleNoteModalByModal}
-          handleCategorieModalByModal={handleCategorieModalByModal}
+          handleModalAdd={handleModalAdd}
+          handleChangeToAddNote={handleChangeToAddNote}
+          handleChangeToAddCategorie={handleChangeToAddCategorie}
         />
       )}
-      {addCategorieModal && <AddCategorie handleCategorieModal={handleCategorieModal} />}
+      {addCategorieModal && <AddCategorie handleCategorieModal={handleAddCategorie} />}
 
-      <Buttons className={styles.moreButtonSmall} onClick={handleNoteModal}>
+      <Buttons className={styles.moreButtonSmall} onClick={handleCategorieOption}>
         Plus
-        <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
+        <i className={`fa-solid fa-gear ${styles.addIcon}`}></i>
       </Buttons>
+      {categoryModal && <CategoryOptions handleCategorieOption={handleCategorieOption} handleChangeToUpdateCategorie={handleChangeToUpdateCategorie} handleChangeToDeleteCategorie={handleChangeToDeleteCategorie} />}
     </section>
   );
 }
