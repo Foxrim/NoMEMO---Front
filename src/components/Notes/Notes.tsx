@@ -7,11 +7,13 @@ type NotesProps = {
   className?: string;
   onClick?: () => void;
   style?: React.CSSProperties;
+  backgroundColor?: string;
+  fontColor?: string
 };
 
-export default function Notes({ children, isDone, className, onClick, style }: NotesProps) {
+export default function Notes({ children, isDone, className, onClick, backgroundColor, fontColor }: NotesProps) {
   return (
-    <div className={`${styles.notes} ${className}`} onClick={onClick} style={style}>
+    <div className={`${styles.notes} ${className}`} onClick={onClick} style={{backgroundColor: backgroundColor, color: fontColor}}>
       <p>{children}</p>
       {isDone === "notDone" ? (
         <img src={xNotDone} alt="croix rouge validé" />

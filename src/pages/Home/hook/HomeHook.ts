@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 
+interface ColorsProps {
+  fontColor?: string;
+  backgroundColor?: string;
+}
+interface CategoriesProps {
+  id?: number;
+  nameCategory?: string;
+  colors?: ColorsProps;
+}
 interface DoneProps {
   done?: string;
   notDone: string;
@@ -12,6 +21,7 @@ type NotesProps = {
   isDone: DoneProps;
   createdAt: Date;
   categoryId?: number;
+  categories?: CategoriesProps;
 };
 
 function useHomeHook() {
