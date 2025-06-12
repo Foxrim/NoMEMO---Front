@@ -32,7 +32,7 @@ export default function Home() {
       {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
-            <Notes key={note.nameNote} isDone={String(note.isDone)}>
+            <Notes key={note.nameNote} isDone={String(note.isDone)} backgroundColor={note.categories?.colors?.backgroundColor} fontColor={note.categories?.colors?.fontColor} >
               {note.nameNote}
             </Notes>
           ))}
