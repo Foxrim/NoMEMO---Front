@@ -7,11 +7,11 @@ import useColorList from "./hook/ColorsList";
 import useNewCategory from "./hook/NewCategory";
 
 type AddCategorieProps = {
-  handleCategorieModal: () => void;
+  handleAddCategorie: () => void;
 };
 
 export default function AddCategorie({
-  handleCategorieModal,
+  handleAddCategorie,
 }: AddCategorieProps) {
   const colors = useColorList();
   const { colorId, setColorId, nameCategory, setNameCategory, createCategory } = useNewCategory()
@@ -21,7 +21,7 @@ export default function AddCategorie({
       <form className={styles.addCategoryModal} onSubmit={createCategory}>
         <Close
           className={styles.closeAddCategory}
-          onClick={handleCategorieModal}
+          onClick={handleAddCategorie}
         />
         <h2>Nouvelle catérogie</h2>
 

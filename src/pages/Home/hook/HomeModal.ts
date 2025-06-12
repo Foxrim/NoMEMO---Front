@@ -41,8 +41,12 @@ function useHomeModal() {
   }
 
   // Modal modification de catégorie
-  const handleUpdateCategory = () => {
-    setUpdateCategory((prev) => !prev);
+  const handleUpdateCategoryOpen = () => {
+    setUpdateCategory(true);
+  }
+
+  const handleUpdateCategoryClose = () => {
+    setUpdateCategory(false);
   }
 
   // Modal suppréssion de catégorie
@@ -53,7 +57,7 @@ function useHomeModal() {
   // Modal fermeture de la première modal et modification de categorie
   const handleChangeToUpdateCategorie = () => {
     handleCategorieOption();
-    handleUpdateCategory();
+    handleUpdateCategoryOpen();
   }
 
   // Modal fermeture de la première modal et suppression de categorie
@@ -76,7 +80,9 @@ function useHomeModal() {
     handleChangeToUpdateCategorie,
     handleChangeToDeleteCategorie,
     updateCategory,
-    deleteCategory
+    deleteCategory,
+    handleUpdateCategoryClose,
+    setUpdateCategory
   };
 }
 

@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 
+interface ColorsProps {
+    id?: number;
+    nameColor?: string;
+    backgrounColor?: string;
+}
+
 type CategoriesProps = {
     id: number;
     nameCategory: string;
+    colorId?: number;
+    colors?: ColorsProps;
 }
 
 function useCategoriesList() {

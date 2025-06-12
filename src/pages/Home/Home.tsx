@@ -7,6 +7,7 @@ import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
+import UpdateCategory from "../../components/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
 import useHomeHook from "./hook/HomeHook";
 import useHomeModal from "./hook/HomeModal";
@@ -26,7 +27,9 @@ export default function Home() {
     categoryModal,
     handleCategorieOption,
     handleChangeToUpdateCategorie,
-    handleChangeToDeleteCategorie
+    handleChangeToDeleteCategorie,
+    updateCategory,
+    handleUpdateCategoryClose
   } = useHomeModal();
 
   return (
@@ -48,7 +51,7 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleNoteModal={handleAddNote} />}
+      {addNoteModal && <AddNote handleAddNote={handleAddNote} />}
 
       <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
@@ -61,13 +64,14 @@ export default function Home() {
           handleChangeToAddCategorie={handleChangeToAddCategorie}
         />
       )}
-      {addCategorieModal && <AddCategorie handleCategorieModal={handleAddCategorie} />}
+      {addCategorieModal && <AddCategorie handleAddCategorie={handleAddCategorie} />}
 
       <Buttons className={styles.moreButtonSmall} onClick={handleCategorieOption}>
         Plus
         <i className={`fa-solid fa-gear ${styles.addIcon}`}></i>
       </Buttons>
       {categoryModal && <CategoryOptions handleCategorieOption={handleCategorieOption} handleChangeToUpdateCategorie={handleChangeToUpdateCategorie} handleChangeToDeleteCategorie={handleChangeToDeleteCategorie} />}
+      {updateCategory && <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />}
     </section>
   );
 }

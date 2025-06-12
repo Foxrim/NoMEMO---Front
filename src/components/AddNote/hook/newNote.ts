@@ -8,7 +8,7 @@ function useNewNote() {
     const [categoryId, setCategoryId] = useState<number>();
     const [isDone, setIsDone] = useState<"done" | "notDone">("notDone");
 
-    const { handleNoteModal } = useHomeModal();
+    const { handleAddNote } = useHomeModal();
 
     const createNote = async () => {
         await fetch('http://localhost:5012/api/v1/notes/create', {
@@ -18,7 +18,7 @@ function useNewNote() {
             credentials: "include"
         });
 
-        handleNoteModal();
+        handleAddNote();
     }
 
     return { createNote, setNameNote, setComment, setLink, setIsDone, setCategoryId, nameNote, comment, link, isDone, categoryId } ;

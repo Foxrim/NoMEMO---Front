@@ -27,22 +27,19 @@ type NotesProps = {
 function useHomeHook() {
   const [notes, setNotes] = useState<NotesProps[]>([]);
   
-  useEffect(() => {
-    const fetchNotes = async () => {
-      await fetch(
-        "http://localhost:5012/api/v1/notes/find-by-user",
-        {
-          credentials: "include",
-        }
-      )
-      .then((res) => res.json())
-      .then((data: NotesProps[]) => setNotes(data));
-    };
+  const fetchNotes = async () => {
+    await fetch("http://localhost:5012/api/v1/notes/find-by-user",
+      { credentials: "include" }
+    )
+    .then((res) => res.json())
+    .then((data: NotesProps[]) => setNotes(data));
+  };
 
+  useEffect(() => {
     fetchNotes();
   }, []);
 
-  return { notes };
+  return { notes, fetchNotes };
 }
 
 export default useHomeHook;

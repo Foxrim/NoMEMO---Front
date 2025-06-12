@@ -5,7 +5,7 @@ function useNewCategory() {
   const [nameCategory, setNameCategory] = useState<string>("");
   const [colorId, setColorId] = useState<number>();
 
-  const { handleCategorieModal } = useHomeModal();
+  const { handleAddCategorie } = useHomeModal();
 
   const createCategory = async () => {
     if (colorId !== null && colorId !== undefined  && nameCategory !== null && nameCategory !== undefined) {
@@ -16,7 +16,7 @@ function useNewCategory() {
             credentials: "include",
         });
         
-        handleCategorieModal();
+        handleAddCategorie();
     }
   };
 
