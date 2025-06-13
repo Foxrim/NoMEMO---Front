@@ -1,7 +1,7 @@
 import useCategoriesList from "../AddNote/hook/categoriesList";
-import Buttons from "../Buttons/Buttons";
-import Close from "../Close/Close";
-import Select from "../Select/Select";
+import Buttons from "../../Buttons/Buttons";
+import Close from "../../Close/Close";
+import Select from "../../Select/Select";
 import styles from "./DeleteCategory.module.css";
 import useDeleteCategory from "./hook/DeteleCategoryHook";
 

@@ -1,9 +1,9 @@
 import useColorList from "../AddCategorie/hook/ColorsList";
 import useCategoriesList from "../AddNote/hook/categoriesList";
-import Buttons from "../Buttons/Buttons";
-import Close from "../Close/Close";
-import TextInput from "../Inputs/Text/TextInput";
-import Select from "../Select/Select";
+import Buttons from "../../Buttons/Buttons";
+import Close from "../../Close/Close";
+import TextInput from "../../Inputs/Text/TextInput";
+import Select from "../../Select/Select";
 import useUpdateCategory from "./hook/UpdateCategoryHook";
 import styles from "./UpdateCategory.module.css";
 
@@ -36,7 +36,11 @@ export default function UpdateCategory({
   return (
     <div className={styles.updateCategory}>
       <form className={styles.updateCategoryModal} onSubmit={updateCategory}>
-        <Close className={styles.closeUpdateCategory} onClick={switchModal} newIcon={"fa-solid fa-angles-left"} />
+        <Close
+          className={styles.closeUpdateCategory}
+          onClick={switchModal}
+          newIcon={"fa-solid fa-angles-left"}
+        />
         <h2>Modification</h2>
         <Select
           option={"Choisir une catégorie"}

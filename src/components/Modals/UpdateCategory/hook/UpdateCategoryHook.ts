@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useCategoriesList from "../../AddNote/hook/categoriesList";
-import { useModal } from "../../../pages/Home/context/Modal/useModal";
-import { useNotes } from "../../../pages/Home/context/fetchNotes/useNotes";
+import { useModal } from "../../../../pages/Home/context/Modal/useModal";
+import { useNotes } from "../../../../pages/Home/context/fetchNotes/useNotes";
 
 function useUpdateCategory() {
   const [categoryId, setCategoryId] = useState<number>();

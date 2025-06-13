@@ -1,13 +1,13 @@
-import IconsButtons from "../Header/components/IconsButtons/IconsButtons";
+import IconsButtons from "../../Header/components/IconsButtons/IconsButtons";
 import styles from "./Account.module.css";
 import useUpdatePseudo from "./hook/updatePseudo";
-import { useHeader } from "../Header/context/useHeader";
+import { useHeader } from "../../Header/context/useHeader";
 import PseudoAccount from "./components/Pseudo/PseudoAccount";
 import EmailAccount from "./components/Email/EmailAccount";
 import PasswordAccount from "./components/Password/PasswordAccount";
 import DisconnectAccount from "./components/Disconnect/DisconnectAccount";
 import DeleteAccount from "./components/DeleteAccount/DeleteAccount";
-import Close from "../Close/Close";
+import Close from "../../Close/Close";
 
 export default function Account() {
   const { handleModalAccount } = useHeader();

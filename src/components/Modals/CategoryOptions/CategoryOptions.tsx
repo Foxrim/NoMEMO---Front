@@ -1,24 +1,27 @@
-import Buttons from "../Buttons/Buttons";
-import Close from "../Close/Close";
+import Buttons from "../../Buttons/Buttons";
+import Close from "../../Close/Close";
 import styles from "./CategoryOptions.module.css";
 
 type CategoryOptionsProps = {
-    handleCategorieOption: () => void;
-    handleUpdateCategory: () => void;
-    handleDeleteCategory: () => void;
-}
+  handleCategorieOption: () => void;
+  handleUpdateCategory: () => void;
+  handleDeleteCategory: () => void;
+};
 
-export default function CategoryOptions({ handleCategorieOption, handleUpdateCategory, handleDeleteCategory }: CategoryOptionsProps) {
-
+export default function CategoryOptions({
+  handleCategorieOption,
+  handleUpdateCategory,
+  handleDeleteCategory,
+}: CategoryOptionsProps) {
   const switchModalUpdate = () => {
     handleCategorieOption();
     handleUpdateCategory();
-  }
+  };
 
   const switchModalDelete = () => {
     handleCategorieOption();
     handleDeleteCategory();
-  }
+  };
 
   return (
     <div className={styles.categoryOptions}>
@@ -31,10 +34,7 @@ export default function CategoryOptions({ handleCategorieOption, handleUpdateCat
         <Buttons className={styles.editCategory} onClick={switchModalUpdate}>
           Modifier une catégorie
         </Buttons>
-        <Buttons
-          className={styles.deleteCategory}
-          onClick={switchModalDelete}
-        >
+        <Buttons className={styles.deleteCategory} onClick={switchModalDelete}>
           Supprimer une catégorie
         </Buttons>
       </div>

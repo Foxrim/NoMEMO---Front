@@ -1,4 +1,4 @@
-import Buttons from "../Buttons/Buttons";
+import Buttons from "../../Buttons/Buttons";
 import styles from "./ConfirmModal.module.css";
 
 type ConfirmModalProps = {

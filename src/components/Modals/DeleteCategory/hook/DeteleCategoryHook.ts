@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useModal } from "../../../pages/Home/context/Modal/useModal";
-import { useNotes } from "../../../pages/Home/context/fetchNotes/useNotes";
+import { useModal } from "../../../../pages/Home/context/Modal/useModal";
+import { useNotes } from "../../../../pages/Home/context/fetchNotes/useNotes";
 
 function useDeleteCategory() {
   const [categoryId, setCategoryId] = useState<number>();
