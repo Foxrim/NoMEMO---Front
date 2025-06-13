@@ -1,13 +1,14 @@
-import Account from "../../components/Account/Account";
-import AddCatNote from "../../components/AddCatNote/AddCatNote";
-import AddCategorie from "../../components/AddCategorie/AddCategory";
-import AddNote from "../../components/AddNote/AddNote";
+import Account from "../../components/Modals/Account/Account";
+import AddCatNote from "../../components/Modals/AddCatNote/AddCatNote";
+import AddCategorie from "../../components/Modals/AddCategorie/AddCategory";
+import AddNote from "../../components/Modals/AddNote/AddNote";
 import Buttons from "../../components/Buttons/Buttons";
-import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
+import CategoryOptions from "../../components/Modals/CategoryOptions/CategoryOptions";
+import DeleteCategory from "../../components/Modals/DeleteCategory/DeleteCategory";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
-import UpdateCategory from "../../components/UpdateCategory/UpdateCategory";
+import UpdateCategory from "../../components/Modals/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
 import { useModal } from "./context/Modal/useModal";
 import { useNotes } from "./context/fetchNotes/useNotes";
@@ -18,19 +19,17 @@ export default function Home() {
 
   const {
     addNoteModal,
-    handleAddNote,
     addCatNote,
-    handleModalAdd,
-    handleChangeToAddNote,
     addCategorieModal,
-    handleAddCategorie,
-    handleChangeToAddCategorie,
     categoryModal,
-    handleCategorieOption,
-    handleChangeToUpdateCategorie,
-    handleChangeToDeleteCategorie,
     updateCategory,
-    handleUpdateCategoryClose,
+    deleteCategory,
+    handleAddNote,
+    handleModalAdd,
+    handleAddCategory,
+    handleCategorieOption,
+    handleUpdateCategory,
+    handleDeleteCategory,
   } = useModal();
 
   return (
@@ -42,10 +41,10 @@ export default function Home() {
         <>
           {notes.map((note) => (
             <Notes
-            key={note.nameNote}
-            isDone={String(note.isDone)}
-            backgroundColor={note.categories?.colors?.backgroundColor}
-            fontColor={note.categories?.colors?.fontColor}
+              key={note.nameNote}
+              isDone={String(note.isDone)}
+              backgroundColor={note.categories?.colors?.backgroundColor}
+              fontColor={note.categories?.colors?.fontColor}
             >
               {note.nameNote}
             </Notes>
@@ -57,7 +56,12 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleAddNote={handleAddNote} />}
+      {addNoteModal && (
+        <AddNote
+          handleAddNote={handleAddNote}
+          handleModalAdd={handleModalAdd}
+        />
+      )}
 
       <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
@@ -66,12 +70,15 @@ export default function Home() {
       {addCatNote && (
         <AddCatNote
           handleModalAdd={handleModalAdd}
-          handleChangeToAddNote={handleChangeToAddNote}
-          handleChangeToAddCategorie={handleChangeToAddCategorie}
+          handleAddNote={handleAddNote}
+          handleAddCategory={handleAddCategory}
         />
       )}
       {addCategorieModal && (
-        <AddCategorie handleAddCategorie={handleAddCategorie} />
+        <AddCategorie
+          handleAddCategory={handleAddCategory}
+          handleModalAdd={handleModalAdd}
+        />
       )}
 
       <Buttons
@@ -84,12 +91,21 @@ export default function Home() {
       {categoryModal && (
         <CategoryOptions
           handleCategorieOption={handleCategorieOption}
-          handleChangeToUpdateCategorie={handleChangeToUpdateCategorie}
-          handleChangeToDeleteCategorie={handleChangeToDeleteCategorie}
+          handleUpdateCategory={handleUpdateCategory}
+          handleDeleteCategory={handleDeleteCategory}
         />
       )}
       {updateCategory && (
-        <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />
+        <UpdateCategory
+          handleUpdateCategory={handleUpdateCategory}
+          handleCategorieOption={handleCategorieOption}
+        />
+      )}
+      {deleteCategory && (
+        <DeleteCategory
+          handleDeleteCategory={handleDeleteCategory}
+          handleCategorieOption={handleCategorieOption}
+        />
       )}
     </section>
   );
