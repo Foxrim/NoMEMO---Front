@@ -1,4 +1,5 @@
-import Buttons from "../../../Buttons/Buttons";
+
+import Buttons from "../../../../Buttons/Buttons";
 import ConfirmModal from "../../../ConfirmModal/ConfirmModal";
 import styles from "../../Account.module.css";
 import { useAccount } from "../../context/useAccount";

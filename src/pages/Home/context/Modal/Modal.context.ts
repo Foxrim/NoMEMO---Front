@@ -15,6 +15,10 @@ type ModalContextProps = {
     handleUpdateCategory: () => void;
     setUpdateCategory: React.Dispatch<React.SetStateAction<boolean>>;
     handleDeleteCategory: () => void;
+    handleUpdateNoteOpen: (noteId: number) => void;
+    handleUpdateNoteClose: () => void;
+    updateNote: boolean;
+    selectedNoteId: number | null;
 }
 
 export const ModalContext = createContext<ModalContextProps | undefined>(undefined);

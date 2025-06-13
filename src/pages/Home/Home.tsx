@@ -12,6 +12,8 @@ import UpdateCategory from "../../components/Modals/UpdateCategory/UpdateCategor
 import styles from "./Home.module.css";
 import { useModal } from "./context/Modal/useModal";
 import { useNotes } from "./context/fetchNotes/useNotes";
+import UpdateNote from "../../components/Modals/UpdateNote/UpdateNote";
+import React from "react";
 
 export default function Home() {
   const { modalAccount } = useHeader();
@@ -24,12 +26,16 @@ export default function Home() {
     categoryModal,
     updateCategory,
     deleteCategory,
+    updateNote,
     handleAddNote,
     handleModalAdd,
     handleAddCategory,
     handleCategorieOption,
     handleUpdateCategory,
     handleDeleteCategory,
+    handleUpdateNoteOpen,
+    handleUpdateNoteClose,
+    selectedNoteId
   } = useModal();
 
   return (
@@ -40,14 +46,30 @@ export default function Home() {
       {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
-            <Notes
-              key={note.nameNote}
-              isDone={String(note.isDone)}
-              backgroundColor={note.categories?.colors?.backgroundColor}
-              fontColor={note.categories?.colors?.fontColor}
-            >
-              {note.nameNote}
-            </Notes>
+            <React.Fragment key={note.id}>
+              <Notes
+                key={note.nameNote}
+                isDone={note.isDone}
+                noteId={note.id}
+                backgroundColor={note.categories?.colors?.backgroundColor}
+                fontColor={note.categories?.colors?.fontColor}
+                onClick={handleUpdateNoteOpen}
+              >
+                {note.nameNote}
+              </Notes>
+
+              {updateNote && selectedNoteId === note.id && (
+                <UpdateNote
+                  handleUpdateNoteClose={handleUpdateNoteClose}
+                  noteId={note.id}
+                  nameNote={note.nameNote}
+                  isDone={note.isDone}
+                  comment={note.comment}
+                  categoryId={note.categoryId}
+                  link={note.link}
+                />
+              )}
+            </React.Fragment>
           ))}
         </>
       ) : (

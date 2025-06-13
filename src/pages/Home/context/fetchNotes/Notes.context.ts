@@ -1,29 +1,25 @@
 import { createContext } from "react";
 
 interface ColorsProps {
-  fontColor?: string;
-  backgroundColor?: string;
+  fontColor: string;
+  backgroundColor: string;
 }
 
 interface CategoriesProps {
-  id?: number;
-  nameCategory?: string;
-  colors?: ColorsProps;
-}
-
-interface DoneProps {
-  done?: string;
-  notDone: string;
+  id: number;
+  nameCategory: string;
+  colors: ColorsProps;
 }
 
 export type NotesProps = {
+  id: number;
   nameNote: string;
-  comment?: string;
-  link?: string;
-  isDone: DoneProps;
+  comment: string;
+  link: string;
+  isDone: 'done' | 'notDone';
   createdAt: Date;
-  categoryId?: number;
-  categories?: CategoriesProps;
+  categoryId: number;
+  categories: CategoriesProps;
 }
 
 type NotesContextProps = {

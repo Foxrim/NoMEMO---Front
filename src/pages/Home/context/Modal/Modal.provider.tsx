@@ -8,6 +8,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [categoryModal, setCategoryModal] = useState<boolean>(false);
   const [updateCategory, setUpdateCategory] = useState<boolean>(false);
   const [deleteCategory, setDeleteCategory] = useState<boolean>(false);
+  const [updateNote, setUpdateNote] = useState<boolean>(false);
+  const [selectedNoteId, setSelectedNoteId] = useState<number | null>(null);
 
   // Modal ajout d'une note
   const handleAddNote = () => setAddNoteModal((prev) => !prev);
@@ -26,6 +28,17 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   // Modal suppréssion de catégorie
   const handleDeleteCategory = () => setDeleteCategory((prev) => !prev);
 
+  // Modal modification de notes
+  const handleUpdateNoteOpen = (noteId: number) => { 
+    setSelectedNoteId(noteId)
+    setUpdateNote(true);
+  }
+
+  const handleUpdateNoteClose = () => { 
+    setSelectedNoteId(null)
+    setUpdateNote(false);
+  }
+
 
   return (
     <ModalContext.Provider
@@ -42,7 +55,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         deleteCategory,
         handleUpdateCategory,
         setUpdateCategory,
-        handleDeleteCategory
+        handleDeleteCategory,
+        handleUpdateNoteOpen,
+        handleUpdateNoteClose,
+        updateNote,
+        selectedNoteId
       }}
     >
       {children}
