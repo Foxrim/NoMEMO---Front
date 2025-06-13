@@ -12,21 +12,21 @@ import { useEffect } from "react";
 type UpdateNoteProps = {
   handleUpdateNoteClose: () => void;
   noteId: number;
-  nameNote: string;
-  isDone: "done" | "notDone";
-  comment: string;
-  categoryId: number;
-  link: string;
+  nameNoteProps: string;
+  isDoneProps: "done" | "notDone";
+  commentProps: string;
+  categoryIdProps: number;
+  linkProps: string;
 };
 
 export default function UpdateNote({
   handleUpdateNoteClose,
   noteId,
-  nameNote,
-  isDone,
-  comment,
-  categoryId,
-  link,
+  nameNoteProps,
+  isDoneProps,
+  commentProps,
+  categoryIdProps,
+  linkProps,
 }: UpdateNoteProps) {
   const categories = useCategoriesList();
   const {
@@ -37,13 +37,34 @@ export default function UpdateNote({
     setCategoryId,
     setLink,
     updateNote,
+    nameNote,
+    isDone,
+    comment,
+    categoryId,
+    link,
   } = useUpdateNote();
 
   useEffect(() => {
-    if (noteId) {
-      setNoteId(noteId);
-    }
-  }, [noteId, setNoteId]);
+    setNoteId(noteId);
+    setNameNote(nameNoteProps);
+    setIsDone(isDoneProps);
+    setComment(commentProps);
+    setCategoryId(categoryIdProps);
+    setLink(linkProps);
+  }, [
+    noteId,
+    nameNoteProps,
+    isDoneProps,
+    commentProps,
+    categoryIdProps,
+    linkProps,
+    setNoteId,
+    setNameNote,
+    setIsDone,
+    setComment,
+    setCategoryId,
+    setLink,
+  ]);
 
   return (
     <div className={styles.updateNote}>
@@ -51,7 +72,6 @@ export default function UpdateNote({
         <Close
           className={styles.closeUpdateNote}
           onClick={handleUpdateNoteClose}
-          newIcon={"fa-solid fa-angles-left"}
         />
         <h2>Modification</h2>
 
@@ -109,7 +129,6 @@ export default function UpdateNote({
           type="submit"
         >
           Valider
-          <i className={`fa-solid fa-plus ${styles.updateIcon}`}></i>
         </Buttons>
       </form>
     </div>

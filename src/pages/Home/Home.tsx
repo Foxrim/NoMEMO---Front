@@ -62,11 +62,11 @@ export default function Home() {
                 <UpdateNote
                   handleUpdateNoteClose={handleUpdateNoteClose}
                   noteId={note.id}
-                  nameNote={note.nameNote}
-                  isDone={note.isDone}
-                  comment={note.comment}
-                  categoryId={note.categoryId}
-                  link={note.link}
+                  nameNoteProps={note.nameNote}
+                  isDoneProps={note.isDone}
+                  commentProps={note.comment}
+                  categoryIdProps={note.categoryId}
+                  linkProps={note.link}
                 />
               )}
             </React.Fragment>

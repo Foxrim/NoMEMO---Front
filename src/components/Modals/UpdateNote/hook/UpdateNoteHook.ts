@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useModal } from "../../../../pages/Home/context/Modal/useModal";
+import { useNotes } from "../../../../pages/Home/context/fetchNotes/useNotes";
 
 function useUpdateNote() {
     const [noteId, setNoteId] = useState<number>();
@@ -10,6 +11,7 @@ function useUpdateNote() {
     const [link, setLink] = useState<string | undefined>();
 
     const { handleUpdateNoteClose } = useModal();
+    const { fetchNotes } = useNotes();
 
     const updateNote = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,6 +25,7 @@ function useUpdateNote() {
 
         if (res.ok) {
             handleUpdateNoteClose();
+            fetchNotes();
         }
     }
 
@@ -33,7 +36,12 @@ function useUpdateNote() {
         setComment,
         setCategoryId,
         setLink,
-        updateNote
+        updateNote,
+        nameNote,
+        isDone,
+        comment,
+        categoryId,
+        link
     };
 }
 
