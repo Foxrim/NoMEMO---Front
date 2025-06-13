@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useAuth } from "../../../pages/Connection/context/useAuth";
+import { useAuth } from "../../../../pages/Connection/context/useAuth";
 
 function useDeleteAccount() {
     const { logout } = useAuth();

@@ -1,5 +1,6 @@
-import Buttons from "../../../Buttons/Buttons";
-import TextInput from "../../../Inputs/Text/TextInput";
+
+import Buttons from "../../../../Buttons/Buttons";
+import TextInput from "../../../../Inputs/Text/TextInput";
 import styles from "../../Account.module.css";
 
 type PseudoAccountProps = {
