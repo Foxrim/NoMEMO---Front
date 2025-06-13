@@ -25,7 +25,7 @@ export default function PseudoAccount({ isUpdatePseudo, handleChangePseudo, upda
             />
         ) : (
             <TextInput
-            className={styles.pseudoAccount}
+            className={`${styles.pseudoAccount} ${styles.pseudoAccountNotUpdate}`}
             value={tempPseudo}
             readOnly
             />
