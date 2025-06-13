@@ -31,6 +31,13 @@
       margin: 1.5rem 0 1rem 1.5rem;
     }
 
+    .deleteNoteIcon {
+      grid-area: 1 / 1 / 2 / 2;
+      align-self: center;
+      justify-self: end;
+      margin-right: 1rem;
+    }
+
     .itemsForm {
       justify-self: center;
       align-self: center;

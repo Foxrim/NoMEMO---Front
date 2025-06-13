@@ -8,6 +8,8 @@ import styles from "./UpdateNote.module.css";
 import useUpdateNote from "./hook/UpdateNoteHook";
 import useCategoriesList from "../AddNote/hook/categoriesList";
 import { useEffect } from "react";
+import useDeleteNote from "./hook/DeleteNote";
+import IconsButtons from "../../Header/components/IconsButtons/IconsButtons";
 
 type UpdateNoteProps = {
   handleUpdateNoteClose: () => void;
@@ -44,6 +46,8 @@ export default function UpdateNote({
     link,
   } = useUpdateNote();
 
+  const { setNoteDeleteId, deleteNote } = useDeleteNote();
+
   useEffect(() => {
     setNoteId(noteId);
     setNameNote(nameNoteProps);
@@ -51,6 +55,7 @@ export default function UpdateNote({
     setComment(commentProps);
     setCategoryId(categoryIdProps);
     setLink(linkProps);
+    setNoteDeleteId(noteId);
   }, [
     noteId,
     nameNoteProps,
@@ -58,6 +63,7 @@ export default function UpdateNote({
     commentProps,
     categoryIdProps,
     linkProps,
+    setNoteDeleteId,
     setNoteId,
     setNameNote,
     setIsDone,
@@ -74,6 +80,8 @@ export default function UpdateNote({
           onClick={handleUpdateNoteClose}
         />
         <h2>Modification</h2>
+
+        <IconsButtons onClickEvent={deleteNote} className={styles.deleteNoteIcon}><i className="fa-solid fa-trash-can"></i></IconsButtons>
 
         <TextInput
           className={styles.itemsForm}
