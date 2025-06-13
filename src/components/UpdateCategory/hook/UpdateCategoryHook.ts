@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useCategoriesList from "../../AddNote/hook/categoriesList";
-import useHomeHook from "../../../pages/Home/hook/HomeHook";
-import useHomeModal from "../../../pages/Home/hook/HomeModal";
+import { useModal } from "../../../pages/Home/context/Modal/useModal";
+import { useNotes } from "../../../pages/Home/context/fetchNotes/useNotes";
 
 function useUpdateCategory() {
   const [categoryId, setCategoryId] = useState<number>();
@@ -9,8 +9,8 @@ function useUpdateCategory() {
   const [colorId, setColorId] = useState<number>();
 
   const categories = useCategoriesList();
-  const { fetchNotes } = useHomeHook();
-  const {handleUpdateCategoryClose} = useHomeModal();
+  const { fetchNotes } = useNotes();
+  const { handleUpdateCategoryClose } = useModal();
 
   useEffect(() => {
     const selectedCategory = categories.find(
@@ -23,7 +23,8 @@ function useUpdateCategory() {
     }
   }, [categoryId, categories]);
 
-  const updateCategory = async () => {
+  const updateCategory = async (e: React.FormEvent) => {
+    e.preventDefault();
 
     try {
       const res = await fetch(
@@ -37,12 +38,12 @@ function useUpdateCategory() {
       );
 
       if (res.ok) {
-        fetchNotes();
         handleUpdateCategoryClose();
+        fetchNotes();
       }
     } catch (err) {
-      console.error(err)
-    } 
+      console.error(err);
+    }
   };
 
   return {

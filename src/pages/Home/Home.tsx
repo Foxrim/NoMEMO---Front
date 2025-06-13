@@ -9,12 +9,13 @@ import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
 import UpdateCategory from "../../components/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
-import useHomeHook from "./hook/HomeHook";
-import useHomeModal from "./hook/HomeModal";
+import { useModal } from "./context/Modal/useModal";
+import { useNotes } from "./context/fetchNotes/useNotes";
 
 export default function Home() {
   const { modalAccount } = useHeader();
-  const { notes } = useHomeHook();
+  const { notes } = useNotes();
+  
   const {
     addNoteModal,
     handleAddNote,
@@ -29,8 +30,8 @@ export default function Home() {
     handleChangeToUpdateCategorie,
     handleChangeToDeleteCategorie,
     updateCategory,
-    handleUpdateCategoryClose
-  } = useHomeModal();
+    handleUpdateCategoryClose,
+  } = useModal();
 
   return (
     <section className={styles.home}>
@@ -40,7 +41,12 @@ export default function Home() {
       {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
-            <Notes key={note.nameNote} isDone={String(note.isDone)} backgroundColor={note.categories?.colors?.backgroundColor} fontColor={note.categories?.colors?.fontColor} >
+            <Notes
+              key={note.nameNote}
+              isDone={String(note.isDone)}
+              backgroundColor={note.categories?.colors?.backgroundColor}
+              fontColor={note.categories?.colors?.fontColor}
+            >
               {note.nameNote}
             </Notes>
           ))}
@@ -64,14 +70,27 @@ export default function Home() {
           handleChangeToAddCategorie={handleChangeToAddCategorie}
         />
       )}
-      {addCategorieModal && <AddCategorie handleAddCategorie={handleAddCategorie} />}
+      {addCategorieModal && (
+        <AddCategorie handleAddCategorie={handleAddCategorie} />
+      )}
 
-      <Buttons className={styles.moreButtonSmall} onClick={handleCategorieOption}>
+      <Buttons
+        className={styles.moreButtonSmall}
+        onClick={handleCategorieOption}
+      >
         Plus
         <i className={`fa-solid fa-gear ${styles.addIcon}`}></i>
       </Buttons>
-      {categoryModal && <CategoryOptions handleCategorieOption={handleCategorieOption} handleChangeToUpdateCategorie={handleChangeToUpdateCategorie} handleChangeToDeleteCategorie={handleChangeToDeleteCategorie} />}
-      {updateCategory && <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />}
+      {categoryModal && (
+        <CategoryOptions
+          handleCategorieOption={handleCategorieOption}
+          handleChangeToUpdateCategorie={handleChangeToUpdateCategorie}
+          handleChangeToDeleteCategorie={handleChangeToDeleteCategorie}
+        />
+      )}
+      {updateCategory && (
+        <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />
+      )}
     </section>
   );
 }
