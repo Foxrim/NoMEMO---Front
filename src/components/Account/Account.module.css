@@ -6,6 +6,7 @@
   top: 0;
   overflow: scroll;
   background-color: var(--pr-cl-demi-white);
+  z-index: 20;
 
   .modalAccount {
     background-color: var(--pr-cl-grey);

@@ -15,7 +15,7 @@ import { useNotes } from "./context/fetchNotes/useNotes";
 export default function Home() {
   const { modalAccount } = useHeader();
   const { notes } = useNotes();
-  
+
   const {
     addNoteModal,
     handleAddNote,
@@ -42,10 +42,10 @@ export default function Home() {
         <>
           {notes.map((note) => (
             <Notes
-              key={note.nameNote}
-              isDone={String(note.isDone)}
-              backgroundColor={note.categories?.colors?.backgroundColor}
-              fontColor={note.categories?.colors?.fontColor}
+            key={note.nameNote}
+            isDone={String(note.isDone)}
+            backgroundColor={note.categories?.colors?.backgroundColor}
+            fontColor={note.categories?.colors?.fontColor}
             >
               {note.nameNote}
             </Notes>
