@@ -7,20 +7,28 @@ import useDeleteCategory from "./hook/DeteleCategoryHook";
 
 type DeleteCategoryProps = {
   handleDeleteCategory: () => void;
+  handleCategorieOption: () => void;
 };
 
 export default function DeleteCategory({
   handleDeleteCategory,
+  handleCategorieOption,
 }: DeleteCategoryProps) {
   const categories = useCategoriesList();
   const { categoryId, setCategoryId, deleteCategory } = useDeleteCategory();
+
+  const switchModal = () => {
+    handleDeleteCategory();
+    handleCategorieOption();
+  };
 
   return (
     <div className={styles.deleteCategory}>
       <form className={styles.deleteCategoryModal} onSubmit={deleteCategory}>
         <Close
           className={styles.closeDeleteCategory}
-          onClick={handleDeleteCategory}
+          onClick={switchModal}
+          newIcon={"fa-solid fa-angles-left"}
         />
         <h2>Suppréssion</h2>
         <Select
@@ -37,7 +45,7 @@ export default function DeleteCategory({
         </Select>
 
         {categoryId !== undefined && (
-            <Buttons className={styles.confirmeDelete}>Confirmer</Buttons>
+          <Buttons className={styles.confirmeDelete}>Confirmer</Buttons>
         )}
       </form>
     </div>

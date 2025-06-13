@@ -15,42 +15,17 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const handleModalAdd = () => setAddCatNot((prev) => !prev);
 
   // Modal ajout d'une catégorie
-  const handleAddCategorie = () => setAddCategorieModal((prev) => !prev);
-
-  // Modal fermeture de la première modal et ajout de note
-  const handleChangeToAddNote = () => {
-    handleModalAdd();
-    handleAddNote();
-  };
-
-  // Modal fermeture de la première modal et ajout de categorie
-  const handleChangeToAddCategorie = () => {
-    handleModalAdd();
-    handleAddCategorie();
-  };
+  const handleAddCategory = () => setAddCategorieModal((prev) => !prev);
 
   // Modal option de catégorie
   const handleCategorieOption = () => setCategoryModal((prev) => !prev);
 
   // Modal modification de catégorie
-  const handleUpdateCategoryOpen = () => setUpdateCategory(true);
-
-  const handleUpdateCategoryClose = () => setUpdateCategory(false);
+  const handleUpdateCategory = () => setUpdateCategory((prev) => !prev);
 
   // Modal suppréssion de catégorie
   const handleDeleteCategory = () => setDeleteCategory((prev) => !prev);
 
-  // Modal fermeture de la première modal et modification de categorie
-  const handleChangeToUpdateCategorie = () => {
-    handleCategorieOption();
-    handleUpdateCategoryOpen();
-  };
-
-  // Modal fermeture de la première modal et suppression de categorie
-  const handleChangeToDeleteCategorie = () => {
-    handleCategorieOption();
-    handleDeleteCategory();
-  };
 
   return (
     <ModalContext.Provider
@@ -59,17 +34,13 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         addNoteModal,
         handleModalAdd,
         addCatNote,
-        handleChangeToAddNote,
         addCategorieModal,
-        handleAddCategorie,
-        handleChangeToAddCategorie,
+        handleAddCategory,
         categoryModal,
         handleCategorieOption,
-        handleChangeToUpdateCategorie,
-        handleChangeToDeleteCategorie,
         updateCategory,
         deleteCategory,
-        handleUpdateCategoryClose,
+        handleUpdateCategory,
         setUpdateCategory,
         handleDeleteCategory
       }}

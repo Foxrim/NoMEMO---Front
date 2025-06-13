@@ -10,9 +10,10 @@ import useNewNote from "./hook/newNote";
 
 type AddNoteProps = {
   handleAddNote: () => void;
+  handleModalAdd: () => void;
 };
 
-export default function AddNote({ handleAddNote }: AddNoteProps) {
+export default function AddNote({ handleAddNote, handleModalAdd }: AddNoteProps) {
   const categories = useCategoriesList();
   const {
     createNote,
@@ -28,10 +29,15 @@ export default function AddNote({ handleAddNote }: AddNoteProps) {
     categoryId,
   } = useNewNote();
 
+  const switchModal = () => {
+    handleAddNote();
+    handleModalAdd();
+  }
+
   return (
     <div className={styles.addNote}>
       <form className={styles.addNoteModal} onSubmit={createNote}>
-        <Close className={styles.closeAddNote} onClick={handleAddNote} />
+        <Close className={styles.closeAddNote} onClick={switchModal} newIcon={"fa-solid fa-angles-left"} />
         <h2>Nouvelle note</h2>
 
         <TextInput

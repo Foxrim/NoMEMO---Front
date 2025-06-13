@@ -10,7 +10,7 @@ function useUpdateCategory() {
 
   const categories = useCategoriesList();
   const { fetchNotes } = useNotes();
-  const { handleUpdateCategoryClose } = useModal();
+  const { handleUpdateCategory, handleCategorieOption } = useModal();
 
   useEffect(() => {
     const selectedCategory = categories.find(
@@ -38,7 +38,8 @@ function useUpdateCategory() {
       );
 
       if (res.ok) {
-        handleUpdateCategoryClose();
+        handleUpdateCategory();
+        handleCategorieOption();
         fetchNotes();
       }
     } catch (err) {

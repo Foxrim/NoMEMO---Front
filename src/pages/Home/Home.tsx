@@ -19,21 +19,17 @@ export default function Home() {
 
   const {
     addNoteModal,
-    handleAddNote,
     addCatNote,
-    handleModalAdd,
-    handleChangeToAddNote,
     addCategorieModal,
-    handleAddCategorie,
-    handleChangeToAddCategorie,
     categoryModal,
-    handleCategorieOption,
-    handleChangeToUpdateCategorie,
-    handleChangeToDeleteCategorie,
     updateCategory,
-    handleUpdateCategoryClose,
+    deleteCategory,
+    handleAddNote,
+    handleModalAdd,
+    handleAddCategory,
+    handleCategorieOption,
+    handleUpdateCategory,
     handleDeleteCategory,
-    deleteCategory
   } = useModal();
 
   return (
@@ -45,10 +41,10 @@ export default function Home() {
         <>
           {notes.map((note) => (
             <Notes
-            key={note.nameNote}
-            isDone={String(note.isDone)}
-            backgroundColor={note.categories?.colors?.backgroundColor}
-            fontColor={note.categories?.colors?.fontColor}
+              key={note.nameNote}
+              isDone={String(note.isDone)}
+              backgroundColor={note.categories?.colors?.backgroundColor}
+              fontColor={note.categories?.colors?.fontColor}
             >
               {note.nameNote}
             </Notes>
@@ -60,7 +56,7 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleAddNote={handleAddNote} />}
+      {addNoteModal && <AddNote handleAddNote={handleAddNote} handleModalAdd={handleModalAdd} />}
 
       <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
@@ -69,12 +65,12 @@ export default function Home() {
       {addCatNote && (
         <AddCatNote
           handleModalAdd={handleModalAdd}
-          handleChangeToAddNote={handleChangeToAddNote}
-          handleChangeToAddCategorie={handleChangeToAddCategorie}
+          handleAddNote={handleAddNote}
+          handleAddCategory={handleAddCategory}
         />
       )}
       {addCategorieModal && (
-        <AddCategorie handleAddCategorie={handleAddCategorie} />
+        <AddCategorie handleAddCategory={handleAddCategory} handleModalAdd={handleModalAdd} />
       )}
 
       <Buttons
@@ -87,15 +83,15 @@ export default function Home() {
       {categoryModal && (
         <CategoryOptions
           handleCategorieOption={handleCategorieOption}
-          handleChangeToUpdateCategorie={handleChangeToUpdateCategorie}
-          handleChangeToDeleteCategorie={handleChangeToDeleteCategorie}
+          handleUpdateCategory={handleUpdateCategory}
+          handleDeleteCategory={handleDeleteCategory}
         />
       )}
       {updateCategory && (
-        <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />
+        <UpdateCategory handleUpdateCategory={handleUpdateCategory} handleCategorieOption={handleCategorieOption} />
       )}
       {deleteCategory && (
-        <DeleteCategory handleDeleteCategory={handleDeleteCategory} />
+        <DeleteCategory handleDeleteCategory={handleDeleteCategory} handleCategorieOption={handleCategorieOption} />
       )}
     </section>
   );
