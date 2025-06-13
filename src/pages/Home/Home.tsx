@@ -7,13 +7,15 @@ import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
+import UpdateCategory from "../../components/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
-import useHomeHook from "./hook/HomeHook";
-import useHomeModal from "./hook/HomeModal";
+import { useModal } from "./context/Modal/useModal";
+import { useNotes } from "./context/fetchNotes/useNotes";
 
 export default function Home() {
   const { modalAccount } = useHeader();
-  const { notes } = useHomeHook();
+  const { notes } = useNotes();
+  
   const {
     addNoteModal,
     handleAddNote,
@@ -26,8 +28,10 @@ export default function Home() {
     categoryModal,
     handleCategorieOption,
     handleChangeToUpdateCategorie,
-    handleChangeToDeleteCategorie
-  } = useHomeModal();
+    handleChangeToDeleteCategorie,
+    updateCategory,
+    handleUpdateCategoryClose,
+  } = useModal();
 
   return (
     <section className={styles.home}>
@@ -37,7 +41,12 @@ export default function Home() {
       {notes.length !== 0 ? (
         <>
           {notes.map((note) => (
-            <Notes key={note.nameNote} isDone={String(note.isDone)} backgroundColor={note.categories?.colors?.backgroundColor} fontColor={note.categories?.colors?.fontColor} >
+            <Notes
+              key={note.nameNote}
+              isDone={String(note.isDone)}
+              backgroundColor={note.categories?.colors?.backgroundColor}
+              fontColor={note.categories?.colors?.fontColor}
+            >
               {note.nameNote}
             </Notes>
           ))}
@@ -48,7 +57,7 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleNoteModal={handleAddNote} />}
+      {addNoteModal && <AddNote handleAddNote={handleAddNote} />}
 
       <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
@@ -61,13 +70,27 @@ export default function Home() {
           handleChangeToAddCategorie={handleChangeToAddCategorie}
         />
       )}
-      {addCategorieModal && <AddCategorie handleCategorieModal={handleAddCategorie} />}
+      {addCategorieModal && (
+        <AddCategorie handleAddCategorie={handleAddCategorie} />
+      )}
 
-      <Buttons className={styles.moreButtonSmall} onClick={handleCategorieOption}>
+      <Buttons
+        className={styles.moreButtonSmall}
+        onClick={handleCategorieOption}
+      >
         Plus
         <i className={`fa-solid fa-gear ${styles.addIcon}`}></i>
       </Buttons>
-      {categoryModal && <CategoryOptions handleCategorieOption={handleCategorieOption} handleChangeToUpdateCategorie={handleChangeToUpdateCategorie} handleChangeToDeleteCategorie={handleChangeToDeleteCategorie} />}
+      {categoryModal && (
+        <CategoryOptions
+          handleCategorieOption={handleCategorieOption}
+          handleChangeToUpdateCategorie={handleChangeToUpdateCategorie}
+          handleChangeToDeleteCategorie={handleChangeToDeleteCategorie}
+        />
+      )}
+      {updateCategory && (
+        <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />
+      )}
     </section>
   );
 }

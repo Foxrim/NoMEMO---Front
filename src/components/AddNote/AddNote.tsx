@@ -9,10 +9,10 @@ import useCategoriesList from "./hook/categoriesList";
 import useNewNote from "./hook/newNote";
 
 type AddNoteProps = {
-  handleNoteModal: () => void;
+  handleAddNote: () => void;
 };
 
-export default function AddNote({ handleNoteModal }: AddNoteProps) {
+export default function AddNote({ handleAddNote }: AddNoteProps) {
   const categories = useCategoriesList();
   const {
     createNote,
@@ -31,7 +31,7 @@ export default function AddNote({ handleNoteModal }: AddNoteProps) {
   return (
     <div className={styles.addNote}>
       <form className={styles.addNoteModal} onSubmit={createNote}>
-        <Close className={styles.closeAddNote} onClick={handleNoteModal} />
+        <Close className={styles.closeAddNote} onClick={handleAddNote} />
         <h2>Nouvelle note</h2>
 
         <TextInput

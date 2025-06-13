@@ -10,15 +10,15 @@ type ColorsListProps = {
 function useColorList() {
   const [colors, setColors] = useState<ColorsListProps[]>([]);
 
-    useEffect(() => {
-        const fetchColors = async () => {
-            await fetch('http://localhost:5012/api/v1/colors')
-            .then((res) => res.json())
-            .then((data: ColorsListProps[]) => setColors(data))
-        }
+  useEffect(() => {
+    const fetchColors = async () => {
+      await fetch("http://localhost:5012/api/v1/colors")
+        .then((res) => res.json())
+        .then((data: ColorsListProps[]) => setColors(data));
+    };
 
-        fetchColors();
-    }, [])
+    fetchColors();
+  }, []);
 
   return colors;
 }
