@@ -4,19 +4,29 @@ import styles from "./AddCatNote.module.css";
 
 type AddCatNoteProps = {
     handleModalAdd: () => void;
-    handleChangeToAddNote: () => void;
-    handleChangeToAddCategorie: () => void;
+    handleAddNote: () => void;
+    handleAddCategory: () => void;
 }
 
-export default function AddCatNote({ handleModalAdd, handleChangeToAddNote, handleChangeToAddCategorie }: AddCatNoteProps) {
+export default function AddCatNote({ handleModalAdd, handleAddNote, handleAddCategory }: AddCatNoteProps) {
+
+  const switchModalNotes = () => {
+    handleModalAdd();
+    handleAddNote();
+  }
+
+  const switchModalCategories = () => {
+    handleModalAdd();
+    handleAddCategory();
+  }
 
   return (
     <div className={styles.addCatNote}>
       <div className={styles.addCatNoteModal}>
         <Close className={styles.closeAddCatNote} onClick={handleModalAdd} />
         <h2>Ajouts</h2>
-        <Buttons className={styles.addNewNote} onClick={handleChangeToAddNote}>Nouvelle note</Buttons>
-        <Buttons className={styles.addNewCategorie} onClick={handleChangeToAddCategorie}>Nouvelle catégorie</Buttons>
+        <Buttons className={styles.addNewNote} onClick={switchModalNotes}>Nouvelle note</Buttons>
+        <Buttons className={styles.addNewCategorie} onClick={switchModalCategories}>Nouvelle catégorie</Buttons>
       </div>
     </div>
   );

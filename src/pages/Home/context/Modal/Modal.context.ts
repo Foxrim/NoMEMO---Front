@@ -6,17 +6,13 @@ type ModalContextProps = {
     addNoteModal: boolean;
     handleModalAdd: () => void;
     addCatNote: boolean;
-    handleChangeToAddNote: () => void;
     addCategorieModal: boolean;
-    handleAddCategorie: () => void;
-    handleChangeToAddCategorie: () => void;
+    handleAddCategory: () => void;
     categoryModal: boolean;
     handleCategorieOption: () => void;
-    handleChangeToUpdateCategorie: () => void;
-    handleChangeToDeleteCategorie: () => void;
     updateCategory: boolean;
     deleteCategory: boolean;
-    handleUpdateCategoryClose: () => void;
+    handleUpdateCategory: () => void;
     setUpdateCategory: React.Dispatch<React.SetStateAction<boolean>>;
     handleDeleteCategory: () => void;
 }

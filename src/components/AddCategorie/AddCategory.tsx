@@ -7,21 +7,30 @@ import useColorList from "./hook/ColorsList";
 import useNewCategory from "./hook/NewCategory";
 
 type AddCategorieProps = {
-  handleAddCategorie: () => void;
+  handleModalAdd: () => void;
+  handleAddCategory: () => void;
 };
 
 export default function AddCategorie({
-  handleAddCategorie,
+  handleAddCategory,
+  handleModalAdd,
 }: AddCategorieProps) {
   const colors = useColorList();
-  const { colorId, setColorId, nameCategory, setNameCategory, createCategory } = useNewCategory()
+  const { colorId, setColorId, nameCategory, setNameCategory, createCategory } =
+    useNewCategory();
+
+  const switchModal = () => {
+    handleAddCategory();
+    handleModalAdd();
+  };
 
   return (
     <div className={styles.addCategory}>
       <form className={styles.addCategoryModal} onSubmit={createCategory}>
         <Close
           className={styles.closeAddCategory}
-          onClick={handleAddCategorie}
+          onClick={switchModal}
+          newIcon={"fa-solid fa-angles-left"}
         />
         <h2>Nouvelle catérogie</h2>
 
@@ -50,8 +59,7 @@ export default function AddCategorie({
             className={styles.colorIcon}
             style={{
               backgroundColor:
-                colors.find((c) => c.id === colorId)?.backgroundColor ||
-                "#fff",
+                colors.find((c) => c.id === colorId)?.backgroundColor || "#fff",
             }}
           />
         </div>

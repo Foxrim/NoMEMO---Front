@@ -5,7 +5,7 @@ function useNewCategory() {
   const [nameCategory, setNameCategory] = useState<string>("");
   const [colorId, setColorId] = useState<number>();
 
-  const { handleAddCategorie } = useModal();
+  const { handleAddCategory, handleModalAdd } = useModal();
 
   const createCategory = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +23,8 @@ function useNewCategory() {
         credentials: "include",
       });
 
-      handleAddCategorie();
+      handleAddCategory();
+      handleModalAdd();
     }
   };
 

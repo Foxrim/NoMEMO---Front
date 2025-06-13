@@ -5,28 +5,23 @@ import { useNotes } from "../../../pages/Home/context/fetchNotes/useNotes";
 function useDeleteCategory() {
   const [categoryId, setCategoryId] = useState<number>();
 
-  const { handleDeleteCategory } = useModal();
+  const { handleDeleteCategory, handleCategorieOption } = useModal();
   const { fetchNotes } = useNotes();
 
   const deleteCategory = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    try {
-      const res = await fetch(
-        `http://localhost:5012/api/v1/categories/${categoryId}/delete`,
-        {
-          method: "DELETE",
-        }
-      );
 
-      if (res.ok) {
-        handleDeleteCategory();
-        fetchNotes();
-      } else {
-        console.error("Erreur serveur :", await res.text());
+    const res = await fetch(
+      `http://localhost:5012/api/v1/categories/${categoryId}/delete`,
+      {
+        method: "DELETE",
       }
-    } catch (err) {
-      console.error("Erreur réseau :", err);
+    );
+
+    if (res.ok) {
+      handleDeleteCategory();
+      handleCategorieOption();
+      fetchNotes();
     }
   };
 

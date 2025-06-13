@@ -8,11 +8,13 @@ import useUpdateCategory from "./hook/UpdateCategoryHook";
 import styles from "./UpdateCategory.module.css";
 
 type UpdateCategoryProps = {
-  handleUpdateCategoryClose: () => void;
+  handleUpdateCategory: () => void;
+  handleCategorieOption: () => void;
 };
 
 export default function UpdateCategory({
-  handleUpdateCategoryClose,
+  handleUpdateCategory,
+  handleCategorieOption,
 }: UpdateCategoryProps) {
   const categories = useCategoriesList();
   const colors = useColorList();
@@ -23,16 +25,18 @@ export default function UpdateCategory({
     setNameCategory,
     colorId,
     setColorId,
-    updateCategory
+    updateCategory,
   } = useUpdateCategory();
+
+  const switchModal = () => {
+    handleUpdateCategory();
+    handleCategorieOption();
+  };
 
   return (
     <div className={styles.updateCategory}>
       <form className={styles.updateCategoryModal} onSubmit={updateCategory}>
-        <Close
-          className={styles.closeUpdateCategory}
-          onClick={handleUpdateCategoryClose}
-        />
+        <Close className={styles.closeUpdateCategory} onClick={switchModal} newIcon={"fa-solid fa-angles-left"} />
         <h2>Modification</h2>
         <Select
           option={"Choisir une catégorie"}

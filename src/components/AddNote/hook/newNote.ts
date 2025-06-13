@@ -9,7 +9,7 @@ function useNewNote() {
   const [categoryId, setCategoryId] = useState<number>();
   const [isDone, setIsDone] = useState<"done" | "notDone">("notDone");
 
-  const { handleAddNote } = useModal();
+  const { handleAddNote, handleModalAdd } = useModal();
   const { fetchNotes } = useNotes();
 
   const createNote = async (e: React.FormEvent) => {
@@ -24,6 +24,7 @@ function useNewNote() {
 
     if (res.ok) {
         handleAddNote();
+        handleModalAdd();
         fetchNotes();
     }
   };
