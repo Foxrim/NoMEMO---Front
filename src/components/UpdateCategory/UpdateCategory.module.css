@@ -1,4 +1,4 @@
-.addCategory {
+.updateCategory {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -7,7 +7,7 @@
   background-color: var(--pr-cl-demi-white);
   z-index: 10;
 
-  .addCategoryModal {
+  .updateCategoryModal {
     background-color: var(--pr-cl-grey);
     margin: 1rem;
     height: calc(100% - 5vh);
@@ -20,26 +20,31 @@
       color: var(--ft-cl-white);
       cursor: default;
       grid-area: 1 / 1 / 2 / 2;
-      justify-self: center;
       align-self: center;
+      justify-self: center;
       margin-top: 1.5rem;
     }
 
-    .closeAddCategory {
+    .closeUpdateCategory {
       grid-area: 1 / 1 / 2 / 2;
       align-self: center;
       margin: 1.5rem 0 1rem 1.5rem;
     }
 
-    .itemsForm {
-      justify-self: center;
+    .confirmeUpdate, .categorySelect, .wrappedUpdateCategory {
       align-self: center;
-      margin-bottom: 1rem;
-      max-width: 18rem;
-      width: 100%;
+      justify-self: center;
     }
 
-    .selectColorWrapper {
+    .categoryName {
+      width: 18rem;
+    }
+
+    .confirmeUpdate {
+      width: 20rem;
+    }
+
+     .selectColorWrapper {
       justify-self: center;
       align-self: center;
       position: relative;
@@ -57,17 +62,6 @@
         left: 1rem;
         transform: translateY(-50%);
       }
-    }
-
-    .buttonAddNote {
-      font-size: 25px;
-      max-width: 20rem;
-      width: 100%;
-    }
-
-    .addIcon {
-      margin-left: 1rem;
-      font-size: 25px;
     }
   }
 }
