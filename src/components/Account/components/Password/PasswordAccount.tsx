@@ -1,5 +1,5 @@
 import Buttons from "../../../Buttons/Buttons";
-import ConfirmModal from "../../../Confirm-modal/ConfirmModal";
+import ConfirmModal from "../../../ConfirmModal/ConfirmModal";
 import styles from "../../Account.module.css";
 import { useAccount } from "../../context/useAccount";
 import useUpdatePassword from "../../hook/updatePassword";
@@ -16,7 +16,11 @@ export default function PasswordAccount() {
         onClick={handlePasswordModal}
       />
       {passwordModal && (
-        <ConfirmModal onClick={handlePasswordModal} onClickYes={newPassword} onClickNo={handlePasswordModal}>
+        <ConfirmModal
+          onClick={handlePasswordModal}
+          onClickYes={newPassword}
+          onClickNo={handlePasswordModal}
+        >
           {"Voulez vous modifier votre mot de passe ?"}
         </ConfirmModal>
       )}
