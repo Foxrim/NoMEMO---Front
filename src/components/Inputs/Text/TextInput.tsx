@@ -2,7 +2,7 @@ import styles from "./TextInput.module.css";
 
 type TextProps = React.InputHTMLAttributes<HTMLInputElement> & {
     type?: React.HTMLInputTypeAttribute;
-    value: string;
+    value?: string;
     className?: string;
     ref?: React.Ref<HTMLInputElement>;
 }

@@ -2,7 +2,7 @@ import styles from "./TextArea.module.css";
 
 type TextAreaProps = {
   className?: string;
-  value: string;
+  value?: string;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
   placeholder: string;
 };

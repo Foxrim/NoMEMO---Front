@@ -1,7 +1,7 @@
-import { useAuth } from "../../../pages/Connection/context/useAuth";
 import { useNavigate } from "react-router";
-import { useHeader } from "../../Header/context/useHeader";
 import { useAccount } from "../context/useAccount";
+import { useAuth } from "../../../../pages/Connection/context/useAuth";
+import { useHeader } from "../../../Header/context/useHeader";
 
 function useHandleLogout() {
   const { logout } = useAuth();
