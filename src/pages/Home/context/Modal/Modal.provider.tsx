@@ -71,6 +71,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         deleteCategory,
         handleUpdateCategoryClose,
         setUpdateCategory,
+        handleDeleteCategory
       }}
     >
       {children}
