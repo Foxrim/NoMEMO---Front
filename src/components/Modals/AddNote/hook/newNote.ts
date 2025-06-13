@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useModal } from "../../../pages/Home/context/Modal/useModal";
-import { useNotes } from "../../../pages/Home/context/fetchNotes/useNotes";
+import { useModal } from "../../../../pages/Home/context/Modal/useModal";
+import { useNotes } from "../../../../pages/Home/context/fetchNotes/useNotes";
 
 function useNewNote() {
   const [nameNote, setNameNote] = useState<string>("");
@@ -23,9 +23,9 @@ function useNewNote() {
     });
 
     if (res.ok) {
-        handleAddNote();
-        handleModalAdd();
-        fetchNotes();
+      handleAddNote();
+      handleModalAdd();
+      fetchNotes();
     }
   };
 

@@ -1,14 +1,14 @@
-import Account from "../../components/Account/Account";
-import AddCatNote from "../../components/AddCatNote/AddCatNote";
-import AddCategorie from "../../components/AddCategorie/AddCategory";
-import AddNote from "../../components/AddNote/AddNote";
+import Account from "../../components/Modals/Account/Account";
+import AddCatNote from "../../components/Modals/AddCatNote/AddCatNote";
+import AddCategorie from "../../components/Modals/AddCategorie/AddCategory";
+import AddNote from "../../components/Modals/AddNote/AddNote";
 import Buttons from "../../components/Buttons/Buttons";
-import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
-import DeleteCategory from "../../components/DeleteCategory/DeleteCategory";
+import CategoryOptions from "../../components/Modals/CategoryOptions/CategoryOptions";
+import DeleteCategory from "../../components/Modals/DeleteCategory/DeleteCategory";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
-import UpdateCategory from "../../components/UpdateCategory/UpdateCategory";
+import UpdateCategory from "../../components/Modals/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
 import { useModal } from "./context/Modal/useModal";
 import { useNotes } from "./context/fetchNotes/useNotes";
@@ -56,7 +56,12 @@ export default function Home() {
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
       )}
-      {addNoteModal && <AddNote handleAddNote={handleAddNote} handleModalAdd={handleModalAdd} />}
+      {addNoteModal && (
+        <AddNote
+          handleAddNote={handleAddNote}
+          handleModalAdd={handleModalAdd}
+        />
+      )}
 
       <Buttons className={styles.addButtonSmall} onClick={handleModalAdd}>
         Ajouter
@@ -70,7 +75,10 @@ export default function Home() {
         />
       )}
       {addCategorieModal && (
-        <AddCategorie handleAddCategory={handleAddCategory} handleModalAdd={handleModalAdd} />
+        <AddCategorie
+          handleAddCategory={handleAddCategory}
+          handleModalAdd={handleModalAdd}
+        />
       )}
 
       <Buttons
@@ -88,10 +96,16 @@ export default function Home() {
         />
       )}
       {updateCategory && (
-        <UpdateCategory handleUpdateCategory={handleUpdateCategory} handleCategorieOption={handleCategorieOption} />
+        <UpdateCategory
+          handleUpdateCategory={handleUpdateCategory}
+          handleCategorieOption={handleCategorieOption}
+        />
       )}
       {deleteCategory && (
-        <DeleteCategory handleDeleteCategory={handleDeleteCategory} handleCategorieOption={handleCategorieOption} />
+        <DeleteCategory
+          handleDeleteCategory={handleDeleteCategory}
+          handleCategorieOption={handleCategorieOption}
+        />
       )}
     </section>
   );

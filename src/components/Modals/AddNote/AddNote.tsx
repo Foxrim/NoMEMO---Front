@@ -1,9 +1,9 @@
-import Buttons from "../Buttons/Buttons";
-import Close from "../Close/Close";
-import TextInput from "../Inputs/Text/TextInput";
-import RadioDone from "../RadioDone/RadioDone";
-import Select from "../Select/Select";
-import TextArea from "../TextArea/TextArea";
+import Buttons from "../../Buttons/Buttons";
+import Close from "../../Close/Close";
+import TextInput from "../../Inputs/Text/TextInput";
+import RadioDone from "../../RadioDone/RadioDone";
+import Select from "../../Select/Select";
+import TextArea from "../../TextArea/TextArea";
 import styles from "./AddNote.module.css";
 import useCategoriesList from "./hook/categoriesList";
 import useNewNote from "./hook/newNote";
@@ -13,7 +13,10 @@ type AddNoteProps = {
   handleModalAdd: () => void;
 };
 
-export default function AddNote({ handleAddNote, handleModalAdd }: AddNoteProps) {
+export default function AddNote({
+  handleAddNote,
+  handleModalAdd,
+}: AddNoteProps) {
   const categories = useCategoriesList();
   const {
     createNote,
@@ -32,12 +35,16 @@ export default function AddNote({ handleAddNote, handleModalAdd }: AddNoteProps)
   const switchModal = () => {
     handleAddNote();
     handleModalAdd();
-  }
+  };
 
   return (
     <div className={styles.addNote}>
       <form className={styles.addNoteModal} onSubmit={createNote}>
-        <Close className={styles.closeAddNote} onClick={switchModal} newIcon={"fa-solid fa-angles-left"} />
+        <Close
+          className={styles.closeAddNote}
+          onClick={switchModal}
+          newIcon={"fa-solid fa-angles-left"}
+        />
         <h2>Nouvelle note</h2>
 
         <TextInput
@@ -89,7 +96,10 @@ export default function AddNote({ handleAddNote, handleModalAdd }: AddNoteProps)
           onChange={(e) => setLink(e.target.value)}
         />
 
-        <Buttons className={`${styles.itemsForm} ${styles.buttonAddNote}`} type="submit">
+        <Buttons
+          className={`${styles.itemsForm} ${styles.buttonAddNote}`}
+          type="submit"
+        >
           Ajouter
           <i className={`fa-solid fa-plus ${styles.addIcon}`}></i>
         </Buttons>
