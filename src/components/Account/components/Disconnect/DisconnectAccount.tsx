@@ -1,5 +1,5 @@
 import Buttons from "../../../Buttons/Buttons";
-import ConfirmModal from "../../../Confirm-modal/ConfirmModal";
+import ConfirmModal from "../../../ConfirmModal/ConfirmModal";
 import styles from "../../Account.module.css";
 import { useAccount } from "../../context/useAccount";
 import useHandleLogout from "../../hook/logout";
@@ -15,9 +15,13 @@ export default function DisconnectAccount() {
         children={"Déconnection"}
         onClick={handleDisconnectModal}
       />
-      { disconnectModal && (
-        <ConfirmModal onClick={handleDisconnectModal} onClickYes={handleLogout} onClickNo={handleDisconnectModal}>
-            {"Voulez vous vous déconnecter ?"}
+      {disconnectModal && (
+        <ConfirmModal
+          onClick={handleDisconnectModal}
+          onClickYes={handleLogout}
+          onClickNo={handleDisconnectModal}
+        >
+          {"Voulez vous vous déconnecter ?"}
         </ConfirmModal>
       )}
     </>

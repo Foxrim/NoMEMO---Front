@@ -4,6 +4,7 @@ import AddCategorie from "../../components/AddCategorie/AddCategory";
 import AddNote from "../../components/AddNote/AddNote";
 import Buttons from "../../components/Buttons/Buttons";
 import CategoryOptions from "../../components/CategoryOptions/CategoryOptions";
+import DeleteCategory from "../../components/DeleteCategory/DeleteCategory";
 import Header from "../../components/Header/Header";
 import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
@@ -31,6 +32,8 @@ export default function Home() {
     handleChangeToDeleteCategorie,
     updateCategory,
     handleUpdateCategoryClose,
+    handleDeleteCategory,
+    deleteCategory
   } = useModal();
 
   return (
@@ -90,6 +93,9 @@ export default function Home() {
       )}
       {updateCategory && (
         <UpdateCategory handleUpdateCategoryClose={handleUpdateCategoryClose} />
+      )}
+      {deleteCategory && (
+        <DeleteCategory handleDeleteCategory={handleDeleteCategory} />
       )}
     </section>
   );

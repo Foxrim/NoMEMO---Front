@@ -1,0 +1,43 @@
+.deleteCategory {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--pr-cl-demi-white);
+  z-index: 10;
+
+  .deleteCategoryModal {
+    background-color: var(--pr-cl-grey);
+    margin: 1rem;
+    height: calc(100% - 5vh);
+    border-radius: 16px;
+    height: auto;
+
+    display: grid;
+
+    h2 {
+      color: var(--ft-cl-white);
+      cursor: default;
+      grid-area: 1 / 1 / 2 / 2;
+      align-self: center;
+      justify-self: center;
+      margin-top: 1.5rem;
+    }
+
+    .closeDeleteCategory {
+      grid-area: 1 / 1 / 2 / 2;
+      align-self: center;
+      margin: 1.5rem 0 1rem 1.5rem;
+    }
+
+    .confirmeDelete, .categorySelect {
+      align-self: center;
+      justify-self: center;
+    }
+
+    .confirmeDelete {
+      width: 20rem;
+    }
+  }
+}
