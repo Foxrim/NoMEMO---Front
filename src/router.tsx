@@ -9,7 +9,7 @@ import TokenVerifyPassword from "./pages/guard/TokenVerifyPassword";
 import TokenVerifyEmail from "./pages/guard/TokenVerifyEmail";
 import NewEmail from "./pages/NewEmail/NewEmail";
 import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
-import NotesPage from "./pages/NotesPage";
+import NotesPage from "./pages/NotesPage/NotesPage";
 
 export const router = createBrowserRouter([
   {
