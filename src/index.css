@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  background-color: var(--pr-cl-black);
 
   h1,
   p,
@@ -38,6 +39,7 @@ body {
   --pr-cl-demi-white: #ffffff7e;
   --pr-cl-demi-yellow: rgba(222, 168, 5, 0.5);
   --pr-cl-light-grey: #404040;
+  --pr-cl-black: #0B0B0B;
 
   /* True | False */
   --tf-cl-green: #258931;
