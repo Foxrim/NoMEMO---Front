@@ -10,13 +10,12 @@
 
   .modalAccount {
     background-color: var(--pr-cl-grey);
-    height: calc(100vh - 4rem);
+    max-height: calc(100% - 8vh);
     margin: 1rem;
     border-radius: 16px;
     padding: 1rem 1rem 1rem 1rem;
 
     display: grid;
-    grid-template-rows: 12vh 10vh 10vh 5vh 10vh 10vh 15vh 10vh;
     grid-template-columns: 100%;
 
     .topAccount {
@@ -44,12 +43,15 @@
 
     input,
     button {
-      margin: auto;
+      justify-self: center;
+      align-self: center;
+      margin-bottom: 1rem;
     }
 
     .pseudoAccount {
       grid-row: 2 / 3;
       cursor: default;
+      margin: 1rem;
     }
 
     .pseudoAccountUpdate {
@@ -57,8 +59,13 @@
       cursor: text;
     }
 
+    .pseudoAccountNotUpdate {
+      margin-bottom: calc(8.45rem - 6px);
+    }
+    
     .pseudoValidateAccount {
       grid-row: 3 / 4;
+      margin-bottom: 3.19rem;
     }
 
     .emailAccount {
@@ -67,6 +74,7 @@
 
     .passwordAccount {
       grid-row: 6 / 7;
+      margin-bottom: 4rem;
     }
 
     .logoutAccount {
