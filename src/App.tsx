@@ -18,7 +18,7 @@ export default function App() {
     };
 
     verifyToken();
-  });
+  }, [navigate, pseudo]);
 
   return (
     <>
