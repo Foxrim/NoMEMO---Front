@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  background-color: var(--pr-cl-black);
 
   h1,
   p,
@@ -18,7 +19,7 @@ body {
   select, 
   textarea {
     font-family: "Lato", sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
   }
 }
@@ -33,10 +34,12 @@ body {
   /* Primary colors */
   --pr-cl-yellow: #dea605;
   --pr-cl-grey: #2c2c2c;
+  --pr-cl-dark-grey: #191919;
   --pr-cl-white: #ffffff;
   --pr-cl-demi-white: #ffffff7e;
   --pr-cl-demi-yellow: rgba(222, 168, 5, 0.5);
   --pr-cl-light-grey: #404040;
+  --pr-cl-black: #0B0B0B;
 
   /* True | False */
   --tf-cl-green: #258931;
