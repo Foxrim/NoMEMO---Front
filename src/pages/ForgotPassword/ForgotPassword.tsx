@@ -34,7 +34,7 @@ export default function ForgotPassword() {
         />
         <Buttons type="submit" children="Confirmer" />
       </form>
-      <NavLink to="/login">Connection</NavLink>
+      <NavLink className={styles.connexion} to="/login">Connection</NavLink>
       <NavLink className={styles.createAccount} to="/create-account">
         Créer un compte
       </NavLink>
