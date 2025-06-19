@@ -7,6 +7,7 @@
   left: 0;
   padding: 1rem;
   box-sizing: border-box;
+  overflow: scroll;
 
   h2 {
     text-align: center;
@@ -27,5 +28,21 @@
     font-size: 20px;
     color: var(--ft-cl-white);
     top: 1.55rem;
+  }
+
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    padding: .4rem;
+    font-size: 18px;
+    background-color: var(--pr-cl-yellow);
+    margin: 2rem 0 ;
+  }
+
+  .deleteAccount {
+    text-align: center;
+    color: var(--ft-cl-white);
+    font-size: 16px;
   }
 }

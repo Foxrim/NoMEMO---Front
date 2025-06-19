@@ -13,6 +13,8 @@ export default function Menu() {
             <StyleMenu />
             <AccountMenu />
             <ConfidentMenu />
+            <button>Déconnection</button>
+            <p className={styles.deleteAccount}>Supprimer le compte</p>
         </div>
     )
 }
