@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useModal } from "../../../../pages/NotesPage/Modal/useModal";
+import { useModal } from "../../../../contexts/Modal/useModal";
 
 function useNewCategory() {
   const [nameCategory, setNameCategory] = useState<string>("");

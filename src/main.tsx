@@ -6,7 +6,7 @@ import "./index.css";
 import { AuthProvider } from "./pages/Connection/context/Auth.provider.tsx";
 import { HeaderProvider } from "./components/Header/context/Header.provider.tsx";
 import { AccountProvider } from "./components/Modals/Account/context/Account.provider.tsx";
-import { ModalProvider } from "./pages/NotesPage/Modal/Modal.provider.tsx";
+import { ModalProvider } from "./contexts/Modal/Modal.provider.tsx";
 import { NotesProvider } from "./pages/Home/context/fetchNotes/Notes.provider.tsx";
 
 if (rootElement == null) {

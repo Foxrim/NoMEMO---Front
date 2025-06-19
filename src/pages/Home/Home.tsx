@@ -10,7 +10,7 @@ import { useHeader } from "../../components/Header/context/useHeader";
 import Notes from "../../components/Notes/Notes";
 import UpdateCategory from "../../components/Modals/UpdateCategory/UpdateCategory";
 import styles from "./Home.module.css";
-import { useModal } from "../NotesPage/Modal/useModal";
+import { useModal } from "../../contexts/Modal/useModal";
 import { useNotes } from "./context/fetchNotes/useNotes";
 import UpdateNote from "../../components/Modals/UpdateNote/UpdateNote";
 import React from "react";
