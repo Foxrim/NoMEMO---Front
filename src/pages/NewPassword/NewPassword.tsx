@@ -24,7 +24,7 @@ export default function NewPassword() {
         />
         <Buttons type="submit" children="Modifier le mot de passe" />
       </form>
-      <NavLink to="/login">Connection</NavLink>
+      <NavLink className={styles.connexion} to="/login">Connection</NavLink>
       <NavLink className={styles.createAccount} to="/create-account">
         Créer un compte
       </NavLink>
