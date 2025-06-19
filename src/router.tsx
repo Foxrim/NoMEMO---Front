@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import Connection from "./pages/Connection/Connection";
 import NewAccount from "./pages/NewAccount/NewAccount";
-import Home from "./pages/Home/Home";
 import AuthConnection from "./pages/guard/AuthConnection";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import NewPassword from "./pages/NewPassword/NewPassword";
@@ -10,6 +9,7 @@ import TokenVerifyPassword from "./pages/guard/TokenVerifyPassword";
 import TokenVerifyEmail from "./pages/guard/TokenVerifyEmail";
 import NewEmail from "./pages/NewEmail/NewEmail";
 import ConfirmEmail from "./pages/ConfirmEmail/ConfirmEmail";
+import NotesPage from "./pages/NotesPage/NotesPage";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "home/:pseudo",
-            element: <Home />,
+            element: <NotesPage />,
           },
           {
             path: "verify-email",
