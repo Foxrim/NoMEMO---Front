@@ -1,0 +1,38 @@
+.pseudoMenu {
+    margin: 1rem 0;
+    
+    h3 {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      margin-left: .2rem;
+      color: var(--ft-cl-light-grey);
+      cursor: default;
+    }
+
+    div {
+      position: relative;
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 7px;
+        border: none;
+        height: 2.5rem;
+        background-color: var(--pr-cl-dark-grey);
+        padding-left: 1rem;
+        padding-right: 3rem;
+        color: var(--ft-cl-white);
+        font-size: 18px;
+      }
+
+      i {
+        color: var(--ft-cl-light-grey-second);
+        font-size: 20px;
+        position: absolute;
+        margin-left: -2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    }
+  }

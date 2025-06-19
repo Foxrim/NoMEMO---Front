@@ -1,10 +1,8 @@
-type PseudoMenuProps = {
-    className: string;
-}
+import styles from "./PseudoMenu.module.css";
 
-export default function PseudoMenu({ className } : PseudoMenuProps) {
+export default function PseudoMenu() {
   return (
-    <div className={className}>
+    <div className={styles.pseudoMenu}>
       <h3>Pseudo</h3>
       <div>
         <input type="text" name="" id="" />
