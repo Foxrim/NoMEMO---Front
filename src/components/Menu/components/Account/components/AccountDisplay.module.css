@@ -1,0 +1,14 @@
+.accountDisplay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+        color: var(--ft-cl-white);
+        margin: 0;
+    }
+
+    i {
+        color: var(--ft-cl-light-grey-second);
+    }
+}
