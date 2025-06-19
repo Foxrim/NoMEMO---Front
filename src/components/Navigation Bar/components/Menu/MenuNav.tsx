@@ -1,11 +1,12 @@
 type MenuNavProps = {
     className: string;
+    onClick: () => void;
 }
 
-export default function MenuNav({ className }: MenuNavProps) {
+export default function MenuNav({ className, onClick }: MenuNavProps) {
   return (
     <>
-      <i className={`fa-solid fa-bars ${className}`}></i>
+      <i onClick={onClick} className={`fa-solid fa-bars ${className}`}></i>
     </>
   );
 }
