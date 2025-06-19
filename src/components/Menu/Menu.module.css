@@ -12,6 +12,20 @@
     text-align: center;
     margin: 0;
     color: var(--ft-cl-white);
+  }
+  
+  h2, h3, h4, p {
     cursor: default;
+  }
+  
+  i {
+    cursor: pointer;
+  }
+
+  .exitOption {
+    position: absolute;
+    font-size: 20px;
+    color: var(--ft-cl-white);
+    top: 1.55rem;
   }
 }
