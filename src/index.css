@@ -16,6 +16,8 @@ body {
   button,
   a, 
   h2,
+  h3,
+  h4,
   select, 
   textarea {
     font-family: "Lato", sans-serif;
@@ -30,6 +32,8 @@ body {
   --ft-cl-black: #1e1e1e;
   --ft-cl-semi-black: #00000050;
   --ft-cl-yellow: #dea605;
+  --ft-cl-light-grey: #C5C5C5;
+  --ft-cl-light-grey-second: #A4A4A4;
 
   /* Primary colors */
   --pr-cl-yellow: #dea605;
