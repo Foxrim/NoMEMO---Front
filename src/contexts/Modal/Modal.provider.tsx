@@ -4,6 +4,7 @@ import { ModalContext } from "./Modal.context";
 export function ModalProvider({ children }: { children: ReactNode }) {
   const [menu, setMenu] = useState<boolean>(false);
   const [arrangement, setArrangement] = useState<boolean>(false);
+  const [sortModal, setSortModal] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -15,6 +16,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setArrangement((prev) => !prev);
   }
 
+  // Ouverture fermeture de l'option Trier
+  const handleSort = () => {
+    setSortModal((prev) => !prev);
+  }
+
 
   return (
     <ModalContext.Provider
@@ -23,6 +29,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        menu,
        handleArrangement,
        arrangement,
+       handleSort,
+       sortModal,
       }}
     >
       {children}

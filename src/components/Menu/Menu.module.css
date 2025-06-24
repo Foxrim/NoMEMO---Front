@@ -38,4 +38,11 @@
     left: 50%;
     transform: translate(20%, -50%);
   }
+
+  .sortModal {
+    position: fixed;
+    top: 13.75rem;
+    left: 28%;
+    transform: translate(20%, -50%);
+  }
 }

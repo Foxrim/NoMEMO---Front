@@ -23,7 +23,7 @@ function useSort() {
         const selected = sortValues[index];
 
         try {
-            const res = await fetch ('http://localhost:5012/api/v1/users/modidy-me', {
+            const res = await fetch ('http://localhost:5012/api/v1/users/modify-me', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({ sort: selected }),
@@ -38,8 +38,6 @@ function useSort() {
             console.error('Une erreur est survenue: ', err);
         }
     }
-
-
 
     return { sorts, sort, handleUpdateSort };
 }

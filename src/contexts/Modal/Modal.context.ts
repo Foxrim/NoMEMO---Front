@@ -5,6 +5,8 @@ type ModalContextProps = {
   menu: boolean;
   handleArrangement: () => void;
   arrangement: boolean;
+  handleSort: () => void;
+  sortModal: boolean;
 };
 
 export const ModalContext = createContext<ModalContextProps | undefined>(
