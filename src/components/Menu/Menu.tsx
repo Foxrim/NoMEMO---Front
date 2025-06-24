@@ -47,7 +47,7 @@ export default function Menu() {
       )}
 
       {themeModal && (
-        <Select onClick={handleTheme} >
+        <Select className={styles.themeModal} onClick={handleTheme} >
           {themes.map((theme, index) => (
             <p key={index} onClick={() => handleUpdateTheme(index)}>{theme}</p>
           ))}
