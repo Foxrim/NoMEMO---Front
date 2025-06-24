@@ -7,7 +7,7 @@ export type UserProps = {
 };
 
 type UserContextProps = {
-    user: UserProps[];
+    user: UserProps;
     fetchUser: () => void;
 }
 
