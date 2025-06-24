@@ -14,14 +14,6 @@
     margin: 0;
     color: var(--ft-cl-white);
   }
-  
-  h2, h3, h4, p {
-    cursor: default;
-  }
-  
-  i {
-    cursor: pointer;
-  }
 
   .exitOption {
     position: absolute;
@@ -31,12 +23,6 @@
   }
 
   button {
-    width: 100%;
-    border: none;
-    border-radius: 7px;
-    padding: .4rem;
-    font-size: 18px;
-    background-color: var(--pr-cl-yellow);
     margin: 2rem 0 ;
   }
 

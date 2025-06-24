@@ -1,6 +1,7 @@
 * {
   line-height: 1.5;
   font-weight: 400;
+  cursor: default;
 }
 
 body {
@@ -23,6 +24,10 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+
+  button, i {
+    cursor: pointer ;
   }
 }
 

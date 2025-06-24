@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNotes } from "../../../../pages/Home/context/fetchNotes/useNotes";
-import { useModal } from "../../../../pages/NotesPage/Modal/useModal";
+import { useModal } from "../../../../contexts/Modal/useModal";
 
 function useDeleteNote() {
   const [noteDeleteId, setNoteDeleteId] = useState<number>();
