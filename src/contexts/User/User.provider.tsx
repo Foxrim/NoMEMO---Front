@@ -18,8 +18,8 @@ export function UserProvider({ children }: {children: ReactNode}) {
       }, []);
 
     return (
-        <UserContext value={{ user: user as UserProps, fetchUser }}>
+        <UserContext.Provider value={{ user: user as UserProps, fetchUser }}>
             {children}
-        </UserContext>
+        </UserContext.Provider>
     )
 }
