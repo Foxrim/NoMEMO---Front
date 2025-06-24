@@ -12,22 +12,19 @@ export default function ConfirmEmail() {
       const token = params.get("token");
 
       if (!token) {
-        console.log('ok')
         navigate('/login');
         throw new Error('Token invalide');
       }
 
       try {
-        const data = await fetch(`http://localhost:5012/api/v1/email/token=${token}`, {
+        const data = await fetch(`http://localhost:5012/api/v1/email/validate`, {
             method: "POST",
             headers: { "Content-Type": "application/json"},
-            body: JSON.stringify({ token })
+            body: JSON.stringify({ token: token })
         })
         
         if (data.ok) {
           navigate(`/login`);
-        } else {
-          console.log("problème")
         }
       } catch {
         console.error("Token invalide");
