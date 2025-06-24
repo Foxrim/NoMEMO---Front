@@ -5,7 +5,7 @@ import OptionStyle from './components/OptionStyle';
 import styles from './StyleMenu.module.css';
 
 export default function StyleMenu() {
-  const { handleArrangement, handleSort } = useModal();
+  const { handleArrangement, handleSort, handleTheme } = useModal();
   const { arr } = useArrangement();
   const { sort } = useSort();
 
@@ -15,7 +15,7 @@ export default function StyleMenu() {
       <div className={styles.disposalContainer}>
         <OptionStyle onClick={handleArrangement} nameOption={'Disposition'} optionChoose={arr} />
         <OptionStyle onClick={handleSort} nameOption={'Trier'} optionChoose={sort} />
-        <OptionStyle nameOption={'Aspect'} optionChoose={'Sombre'} />
+        <OptionStyle onClick={handleTheme} nameOption={'Aspect'} optionChoose={'Sombre'} />
       </div>
     </div>
   );

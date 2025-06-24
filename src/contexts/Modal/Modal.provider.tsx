@@ -5,6 +5,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [menu, setMenu] = useState<boolean>(false);
   const [arrangement, setArrangement] = useState<boolean>(false);
   const [sortModal, setSortModal] = useState<boolean>(false);
+  const [themeModal, setThemeModal] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -21,6 +22,10 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setSortModal((prev) => !prev);
   }
 
+  // Ouverture fermeture de l'option Aspect
+  const handleTheme = () => {
+    setThemeModal((prev) => !prev);
+  }
 
   return (
     <ModalContext.Provider
@@ -31,6 +36,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        arrangement,
        handleSort,
        sortModal,
+       handleTheme,
+       themeModal
       }}
     >
       {children}

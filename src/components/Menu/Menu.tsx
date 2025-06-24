@@ -10,7 +10,7 @@ import useSort from "./hook/sort";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
-  const { handleMenu, arrangement, handleArrangement, sortModal, handleSort } = useModal();
+  const { handleMenu, arrangement, handleArrangement, sortModal, handleSort, themeModal, handleTheme } = useModal();
   const { handleLogout } = useLogout();
   const { arrangements, handleUpdateArr } = useArrangement();
   const { sorts, handleUpdateSort } = useSort();
@@ -42,6 +42,12 @@ export default function Menu() {
           <p key={index} onClick={() => handleUpdateSort(index)}>{sort}</p>
         ))}
       </Select>
+      )}
+
+      {themeModal && (
+        <Select onClick={handleTheme} >
+          <p></p>
+        </Select>
       )}
 
     </div>
