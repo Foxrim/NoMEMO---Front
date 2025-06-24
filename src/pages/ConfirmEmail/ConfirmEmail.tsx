@@ -12,6 +12,8 @@ export default function ConfirmEmail() {
       const token = params.get("token");
 
       if (!token) {
+        console.log('ok')
+        navigate('/login');
         throw new Error('Token invalide');
       }
 
@@ -23,7 +25,7 @@ export default function ConfirmEmail() {
         })
         
         if (data.ok) {
-          navigate(`login`);
+          navigate(`/login`);
         }
       } catch {
         console.error("Token invalide");

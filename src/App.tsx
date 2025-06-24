@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
-import usePseudo from "./services/user";
 
 export default function App() {
   const navigate = useNavigate();
-  const pseudo = usePseudo();
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -13,12 +11,12 @@ export default function App() {
       });
 
       if (res.ok) {
-        navigate(`/home/${pseudo}`);
+        navigate(`/home`);
       }
     };
 
     verifyToken();
-  }, [navigate, pseudo]);
+  });
 
   return (
     <>

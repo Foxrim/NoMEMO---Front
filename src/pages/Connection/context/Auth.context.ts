@@ -2,7 +2,6 @@ import { createContext } from "react";
 
 type LoggedUser = {
     id: string;
-    pseudo: string;
 };
 
 
