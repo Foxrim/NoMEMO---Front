@@ -3,11 +3,12 @@ import Buttons from "../Buttons/Buttons";
 import AccountMenu from "./components/Account/AccountMenu";
 import ConfidentMenu from "./components/Confident/ConfidentMenu";
 import StyleMenu from "./components/Style/StyleMenu";
+import useLogout from "./hook/logout";
 import styles from "./Menu.module.css";
-import handleLogout from "./hook/logout";
 
 export default function Menu() {
   const { handleMenu } = useModal();
+  const { handleLogout } = useLogout();
   
   return (
     <div className={styles.menu}>

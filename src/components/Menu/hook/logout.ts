@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../../pages/Connection/context/useAuth";
 import { useModal } from "../../../contexts/Modal/useModal";
 
-function useHandleLogout() {
+function useLogout() {
   const { logout } = useAuth();
   const { handleMenu } = useModal();
 
@@ -11,10 +11,10 @@ function useHandleLogout() {
   const handleLogout = () => {
     handleMenu();
     logout();
-    navigate("/login");
+    navigate("login");
   };
 
   return { handleLogout };
 };
 
-export default useHandleLogout;
+export default useLogout;
