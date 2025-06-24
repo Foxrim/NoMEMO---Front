@@ -10,7 +10,7 @@ export function UserProvider({ children }: {children: ReactNode}) {
           credentials: "include",
         });
         const data: UserProps = await res.json();
-        setUser(data);
+        setUser({...data});
       };
     
       useEffect(() => {
