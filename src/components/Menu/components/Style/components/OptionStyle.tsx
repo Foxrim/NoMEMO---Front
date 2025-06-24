@@ -1,16 +1,16 @@
-import styles from "./Disposal.module.css";
+import styles from "./OptionStyle.module.css";
 
-type DisposalProps = {
+type OptionStyleProps = {
   nameOption: string;
   optionChoose: string;
   onClick?: () => void;
 }
 
-export default function Disposal({nameOption, optionChoose, onClick}: DisposalProps) {
+export default function OptionStyle({nameOption, optionChoose, onClick}: OptionStyleProps) {
   return (
-    <div className={styles.disposal}>
+    <div className={styles.optionStyle}>
       <h4>{nameOption}</h4>
-      <p>{optionChoose}</p>
+      <p onClick={onClick}>{optionChoose}</p>
       <i onClick={onClick} className={`fa-solid fa-chevron-up ${styles.chevronUp}`}></i>
       <i onClick={onClick} className={`fa-solid fa-chevron-down ${styles.chevronDown}`}></i>
     </div>
