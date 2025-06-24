@@ -1,24 +1,38 @@
-import { useModal } from "../../pages/NotesPage/Modal/useModal";
+import { useModal } from "../../contexts/Modal/useModal";
+import Buttons from "../Buttons/Buttons";
+import Select from "../Modals/Select/Select";
 import AccountMenu from "./components/Account/AccountMenu";
 import ConfidentMenu from "./components/Confident/ConfidentMenu";
-import PseudoMenu from "./components/Pseudo/PseudoMenu";
 import StyleMenu from "./components/Style/StyleMenu";
+import useArrangement from "./hook/arrangement";
+import useLogout from "./hook/logout";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
+  const { handleMenu, arrangement, handleArrangement } = useModal();
+  const { handleLogout } = useLogout();
+  const { arrangements, handleUpdateArr } = useArrangement();
 
-    const { handleMenu } = useModal();
+  return (
+    <div className={styles.menu}>
+      <i
+        onClick={handleMenu}
+        className={`fa-solid fa-chevron-left ${styles.exitOption}`}
+      ></i>
+      <h2>Options</h2>
+      <StyleMenu />
+      <AccountMenu />
+      <ConfidentMenu />
+      <Buttons onClick={handleLogout}>Déconnection</Buttons>
+      <p className={styles.deleteAccount}>Supprimer le compte</p>
+      {arrangement && (
+        <Select className={styles.arrangementModal} onClick={handleArrangement}>
+        {arrangements.map((arr, index) => (
+          <p key={index} onClick={() => handleUpdateArr(index)}>{arr}</p>
+        ))}
+      </Select>
+      )}
 
-    return (
-        <div className={styles.menu}>
-            <i onClick={handleMenu} className={`fa-solid fa-chevron-left ${styles.exitOption}`}></i>
-            <h2>Options</h2>
-            <PseudoMenu />
-            <StyleMenu />
-            <AccountMenu />
-            <ConfidentMenu />
-            <button>Déconnection</button>
-            <p className={styles.deleteAccount}>Supprimer le compte</p>
-        </div>
-    )
+    </div>
+  );
 }

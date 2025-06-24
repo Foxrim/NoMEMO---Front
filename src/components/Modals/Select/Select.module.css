@@ -1,0 +1,34 @@
+.select {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--ft-cl-semi-black);
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    .selectOption {
+        background-color: var(--pr-cl-grey);
+        border-radius: 7px;
+        color: var(--ft-cl-white);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        z-index: 10;
+    
+        p {
+            padding: .5rem .75rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        p:hover {
+            background-color: var(--pr-cl-yellow);
+            color: var(--ft-cl-black);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+    }
+}

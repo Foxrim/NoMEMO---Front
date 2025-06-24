@@ -1,13 +1,14 @@
 * {
   line-height: 1.5;
   font-weight: 400;
+  cursor: default;
 }
 
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  background-color: var(--pr-cl-black);
+  background-color: var(--pr-cl-grey);
 
   h1,
   p,
@@ -23,6 +24,10 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+
+  button, i {
+    cursor: pointer ;
   }
 }
 
@@ -41,7 +46,7 @@ body {
   --pr-cl-dark-grey: #191919;
   --pr-cl-white: #ffffff;
   --pr-cl-demi-white: #ffffff7e;
-  --pr-cl-demi-yellow: rgba(222, 168, 5, 0.5);
+  --pr-cl-light-yellow: #D5BB6E;
   --pr-cl-light-grey: #404040;
   --pr-cl-black: #0B0B0B;
 

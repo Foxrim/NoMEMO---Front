@@ -3,10 +3,9 @@ import CategoriesNav from "./components/Categories/CategoriesNav";
 import NotesNav from "./components/Notes/NotesNav";
 import SearchNav from "./components/Search/SearchNav";
 import MenuNav from "./components/Menu/MenuNav";
-import { useModal } from "../../pages/NotesPage/Modal/useModal";
+import { useModal } from "../../contexts/Modal/useModal";
 
 export default function NavigationBar() {
-
   const { handleMenu } = useModal();
 
   return (

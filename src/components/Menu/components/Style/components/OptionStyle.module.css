@@ -1,0 +1,38 @@
+.optionStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    h4 {
+        color: var(--ft-cl-white);
+        margin: 0;
+    }
+
+    p, i {
+        font-size: 12px;
+        color: var(--ft-cl-light-grey-second);
+        margin: 0;
+    }
+
+    p {
+        margin-right: 1.5rem;
+    }
+
+    .chevronUp, .chevronDown {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .chevronUp {
+        margin-top: -.3rem;
+    }
+
+    .chevronDown {
+        margin-top: .3rem;
+    }
+
+}
