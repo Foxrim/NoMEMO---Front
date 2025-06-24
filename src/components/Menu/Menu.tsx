@@ -7,6 +7,7 @@ import StyleMenu from "./components/Style/StyleMenu";
 import useArrangement from "./hook/arrangement";
 import useLogout from "./hook/logout";
 import useSort from "./hook/sort";
+import useTheme from "./hook/theme";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
@@ -14,6 +15,7 @@ export default function Menu() {
   const { handleLogout } = useLogout();
   const { arrangements, handleUpdateArr } = useArrangement();
   const { sorts, handleUpdateSort } = useSort();
+  const { themes, handleUpdateTheme } = useTheme();
 
   return (
     <div className={styles.menu}>
@@ -46,7 +48,9 @@ export default function Menu() {
 
       {themeModal && (
         <Select onClick={handleTheme} >
-          <p></p>
+          {themes.map((theme, index) => (
+            <p key={index} onClick={() => handleUpdateTheme(index)}>{theme}</p>
+          ))}
         </Select>
       )}
 

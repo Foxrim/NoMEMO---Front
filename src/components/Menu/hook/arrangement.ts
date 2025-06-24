@@ -17,7 +17,7 @@ function useArrangement() {
     } else {
       setArr("non trouvé");
     }
-  }, [user, setArr]);
+  }, [user.arrangement]);
 
   const handleUpdateArr = async (index: number) => {
     const selected = arrValues[index];

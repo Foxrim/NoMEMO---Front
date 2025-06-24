@@ -17,7 +17,7 @@ function useSort() {
         } else {
             setSort('non trouvé');
         }
-    }, [user, setSort]);
+    }, [user.sort]);
 
     const handleUpdateSort = async (index: number) => {
         const selected = sortValues[index];

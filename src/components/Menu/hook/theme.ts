@@ -17,7 +17,7 @@ function useTheme() {
     } else {
       setTheme("non trouvé");
     }
-  }, [user, setTheme]);
+  }, [user.theme]);
 
   const handleUpdateTheme = async (index: number) => {
     const selected = themeValues[index];
@@ -26,7 +26,7 @@ function useTheme() {
       const res = await fetch("http://localhost:5012/api/v1/users/modify-me", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sort: selected }),
+        body: JSON.stringify({ theme: selected }),
         credentials: "include",
       });
 
