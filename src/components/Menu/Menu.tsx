@@ -11,7 +11,7 @@ import styles from "./Menu.module.css";
 export default function Menu() {
   const { handleMenu, arrangement, handleArrangement } = useModal();
   const { handleLogout } = useLogout();
-  const { arrangements } = useArrangement();
+  const { arrangements, handleUpdateArr } = useArrangement();
 
   return (
     <div className={styles.menu}>
@@ -25,15 +25,14 @@ export default function Menu() {
       <ConfidentMenu />
       <Buttons onClick={handleLogout}>Déconnection</Buttons>
       <p className={styles.deleteAccount}>Supprimer le compte</p>
-
       {arrangement && (
         <Select className={styles.arrangementModal} onClick={handleArrangement}>
-        {arrangements.map((arr) => (
-          <p>{arr}</p>
+        {arrangements.map((arr, index) => (
+          <p key={index} onClick={() => handleUpdateArr(index)}>{arr}</p>
         ))}
       </Select>
       )}
-      
+
     </div>
   );
 }
