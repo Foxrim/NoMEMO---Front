@@ -26,7 +26,7 @@ export default function Menu() {
       <Buttons onClick={handleLogout}>Déconnection</Buttons>
       <p className={styles.deleteAccount}>Supprimer le compte</p>
       {arrangement && (
-        <Select onClick={handleArrangement}>
+        <Select className={styles.arrangementModal} onClick={handleArrangement}>
         {arrangements.map((arr) => (
           <p>{arr}</p>
         ))}

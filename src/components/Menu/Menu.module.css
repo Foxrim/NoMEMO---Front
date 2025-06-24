@@ -31,4 +31,11 @@
     color: var(--ft-cl-white);
     font-size: 16px;
   }
+
+  .arrangementModal {
+    position: fixed;
+    top: 11.5rem;
+    left: 50%;
+    transform: translate(20%, -50%);
+  }
 }

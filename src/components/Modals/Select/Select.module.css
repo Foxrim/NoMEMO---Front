@@ -7,7 +7,6 @@
     left: 0;
     
     .selectOption {
-        position: absolute;
         background-color: var(--pr-cl-grey);
         border-radius: 7px;
         color: var(--ft-cl-white);
