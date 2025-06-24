@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router";
 import "./index.css";
 import { AuthProvider } from "./pages/Connection/context/Auth.provider.tsx";
 import { ModalProvider } from "./contexts/Modal/Modal.provider.tsx";
+import { UserProvider } from "./contexts/User/User.provider.tsx";
 
 if (rootElement == null) {
   throw new Error(`La route utilisé n'est pas correcte`);
@@ -14,7 +15,9 @@ createRoot(rootElement).render(
   <StrictMode>
     <AuthProvider>
       <ModalProvider>
-        <RouterProvider router={router} />
+        <UserProvider>
+          <RouterProvider router={router} />
+        </UserProvider>
       </ModalProvider>
     </AuthProvider>
   </StrictMode>

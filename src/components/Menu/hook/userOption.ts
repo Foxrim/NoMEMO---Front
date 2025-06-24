@@ -8,7 +8,6 @@ type UserProps = {
 
 function useUserOption() {
   const [user, setUser] = useState<UserProps | undefined>(undefined);
-  const arrangement = ["Affichage grille", "Affichage liste"];
 
   const fetchUser = async () => {
     const res = await fetch("http://localhost:5012/api/v1/users/find-me", {
@@ -22,7 +21,7 @@ function useUserOption() {
     fetchUser();
   }, []);
 
-  return { fetchUser, user, arrangement };
+  return { fetchUser, user };
 }
 
 export default useUserOption;
