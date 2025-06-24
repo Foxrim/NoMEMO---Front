@@ -1,9 +1,5 @@
 import { createContext } from "react";
 
-export type userProps = {
-    pseudo: string;
-}
-
 type HeaderContextType = {
     isListMode: boolean;
     handleListMode: () => void;

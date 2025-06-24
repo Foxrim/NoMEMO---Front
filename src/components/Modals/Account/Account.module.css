@@ -47,27 +47,7 @@
       align-self: center;
       margin-bottom: 1rem;
     }
-
-    .pseudoAccount {
-      grid-row: 2 / 3;
-      cursor: default;
-      margin: 1rem;
-    }
-
-    .pseudoAccountUpdate {
-      border: solid 3px var(--ft-cl-yellow);
-      cursor: text;
-    }
-
-    .pseudoAccountNotUpdate {
-      margin-bottom: calc(8.45rem - 6px);
-    }
     
-    .pseudoValidateAccount {
-      grid-row: 3 / 4;
-      margin-bottom: 3.19rem;
-    }
-
     .emailAccount {
       grid-row: 5 / 6;
     }

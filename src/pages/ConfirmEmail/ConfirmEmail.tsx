@@ -26,6 +26,8 @@ export default function ConfirmEmail() {
         
         if (data.ok) {
           navigate(`/login`);
+        } else {
+          console.log("problème")
         }
       } catch {
         console.error("Token invalide");
