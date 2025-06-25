@@ -1,12 +1,20 @@
+import { useModal } from "../../contexts/Modal/useModal";
+import FormModal from "../Modals/Form Modal/FormModal";
 import Notes from "./components/Notes/Notes";
 import styles from "./NotesContainer.module.css";
 
 export default function NotesContainer() {
-    return (
-        <div className={styles.notesContainer}>
-            <h2>Notes</h2>
-            <p>Aucune note ajoutée</p>
-            <Notes/>
-        </div>
-    )
+    const { notes } = useModal();
+
+  return (
+    <div className={styles.notesContainer}>
+      <h2>Notes</h2>
+      <p>Aucune note ajoutée</p>
+      <Notes />
+
+        {notes && (
+            <FormModal />
+        )}
+    </div>
+  );
 }
