@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 function useEmail() {
+    const [response, setResponse] = useState<string>('');
 
     const fetchUpdateEmail = async () => {
         try {
@@ -7,13 +10,13 @@ function useEmail() {
             });
 
             const data = await res.json();
-            console.log(data.message);
+            setResponse(data.message);
         } catch (err) {
             console.error('Une erreur est survenue : ', err);
         }
     }
 
-    return { fetchUpdateEmail };
+    return { fetchUpdateEmail, response };
 }
 
 export default useEmail;
