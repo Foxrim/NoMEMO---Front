@@ -27,7 +27,7 @@
     width: 100%;
     background-color: var(--pr-cl-dark-grey);
     border-radius: 7px;
-    padding: 0.5rem;
+    padding: .75rem 0.5rem;
     box-sizing: border-box;
     margin-top: 1rem;
   }
