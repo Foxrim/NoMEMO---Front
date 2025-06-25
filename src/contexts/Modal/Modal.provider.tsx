@@ -7,6 +7,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [sortModal, setSortModal] = useState<boolean>(false);
   const [themeModal, setThemeModal] = useState<boolean>(false);
   const [updateEmail, setUpdateEmail] = useState<boolean>(false);
+  const [updatePassword, setUpdatePassword] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -38,6 +39,16 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setUpdateEmail(false);
   }
 
+  // Ouverture fermeture de confirmation de changement de password
+  const handlePassword = () => {
+    setUpdatePassword((prev) => !prev);
+  }
+
+  // Fermeture de confirmation de changement de password
+  const handlePasswordClose = () => {
+    setUpdatePassword(false);
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -52,6 +63,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        handleEmail,
        updateEmail,
        handleEmailClose,
+       handlePassword,
+       updatePassword,
+       handlePasswordClose,
       }}
     >
       {children}

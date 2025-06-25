@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function useEmail() {
+function usePassword() {
   const [response, setResponse] = useState<string>("");
 
-  const fetchUpdateEmail = async () => {
+  const fetchUpdatePassword = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5012/api/v1/email/changeEmail",
+        "http://localhost:5012/api/v1/password/forgotPassword",
         {
           credentials: "include",
         }
@@ -21,11 +21,11 @@ function useEmail() {
       const data = await res.json();
       setResponse(data.message);
     } catch (err) {
-      console.error("Une erreur est survenue : ", err);
+      console.error("Une erreur est survenue :", err);
     }
   };
 
-  return { fetchUpdateEmail, response };
+  return { fetchUpdatePassword, response };
 }
 
-export default useEmail;
+export default usePassword;

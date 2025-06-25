@@ -12,6 +12,9 @@ type ModalContextProps = {
   handleEmail: () => void;
   updateEmail: boolean;
   handleEmailClose: () => void;
+  handlePassword: () => void;
+  updatePassword: boolean;
+  handlePasswordClose: () => void;
 };
 
 export const ModalContext = createContext<ModalContextProps | undefined>(
