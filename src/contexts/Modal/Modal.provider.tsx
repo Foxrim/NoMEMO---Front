@@ -6,6 +6,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [arrangement, setArrangement] = useState<boolean>(false);
   const [sortModal, setSortModal] = useState<boolean>(false);
   const [themeModal, setThemeModal] = useState<boolean>(false);
+  const [updateEmail, setUpdateEmail] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -27,6 +28,16 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setThemeModal((prev) => !prev);
   }
 
+  // Ouverture fermeture de confirmation de changement d'email
+  const handleEmail = () => {
+    setUpdateEmail((prev) => !prev);
+  }
+
+  // Fermeture de confirmation de changement d'email
+  const handleEmailClose = () => {
+    setUpdateEmail(false);
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -37,7 +48,10 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        handleSort,
        sortModal,
        handleTheme,
-       themeModal
+       themeModal,
+       handleEmail,
+       updateEmail,
+       handleEmailClose,
       }}
     >
       {children}
