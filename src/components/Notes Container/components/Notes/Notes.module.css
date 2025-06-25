@@ -1,0 +1,65 @@
+.notes {
+  background-color: #d5bb6e;
+  border-radius: 7px;
+  padding: 0.5rem 1.25rem;
+  position: relative;
+
+  h3 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+    text-align: left;
+    font-size: 12px;
+    color: var(--ft-cl-black);
+  }
+
+  .hrNotes {
+    position: absolute;
+    background-color: #cfa21c;
+    top: 0;
+    right: 3rem;
+    height: 100%;
+    width: 5rem;
+    border-radius: 0 50% 50% 0;
+    border: none;
+    z-index: 1;
+    margin: 0;
+  }
+}
+
+.notes::before {
+  content: "";
+  position: absolute;
+  background-color: #6c5100;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5rem;
+  border-radius: 0 7px 7px 0;
+}
+
+.notes::after {
+  content: "";
+  position: absolute;
+  background-color: #9d7500;
+  top: 0;
+  right: 1.5rem;
+  height: 100%;
+  width: 5rem;
+  border-radius: 0 50% 50% 0;
+}
+
+.hrNotes::before {
+  content: "";
+  position: absolute;
+  background-color: #D5BB6E;
+  top: 0;
+  right: 1.5rem;
+  height: 100%;
+  width: 3.5rem;
+  border-radius: 0 50% 50% 0;
+}

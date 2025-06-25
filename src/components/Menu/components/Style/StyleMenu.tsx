@@ -1,9 +1,9 @@
 import { useModal } from "../../../../contexts/Modal/useModal";
 import Select from "../../../Modals/Select/Select";
+import Options from "../../../Options/Options";
 import useArrangement from "../../hook/arrangement";
 import useSort from "../../hook/sort";
 import useTheme from "../../hook/theme";
-import OptionStyle from "./components/OptionStyle";
 import styles from "./StyleMenu.module.css";
 
 export default function StyleMenu() {
@@ -27,17 +27,17 @@ export default function StyleMenu() {
     <div className={styles.styleMenu}>
       <h3>Style</h3>
       <div className={styles.disposalContainer}>
-        <OptionStyle
+        <Options
           onClick={handleArrangement}
           nameOption={"Disposition"}
           optionChoose={arr}
         />
-        <OptionStyle
+        <Options
           onClick={handleSort}
           nameOption={"Trier"}
           optionChoose={sort}
         />
-        <OptionStyle
+        <Options
           onClick={handleTheme}
           nameOption={"Aspect"}
           optionChoose={theme}

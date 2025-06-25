@@ -8,6 +8,7 @@
   padding: 1rem;
   box-sizing: border-box;
   overflow: scroll;
+  z-index: 51;
 
   h2 {
     text-align: center;

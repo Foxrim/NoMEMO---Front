@@ -1,14 +1,14 @@
-import styles from "./OptionStyle.module.css";
+import styles from "./Options.module.css";
 
-type OptionStyleProps = {
+type OptionsProps = {
   nameOption: string;
   optionChoose: string;
   onClick?: () => void;
 }
 
-export default function OptionStyle({nameOption, optionChoose, onClick}: OptionStyleProps) {
+export default function Options({nameOption, optionChoose, onClick}: OptionsProps) {
   return (
-    <div className={styles.optionStyle}>
+    <div className={styles.options}>
       <h4>{nameOption}</h4>
       <p onClick={onClick}>{optionChoose}</p>
       <i onClick={onClick} className={`fa-solid fa-chevron-up ${styles.chevronUp}`}></i>

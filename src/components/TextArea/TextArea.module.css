@@ -1,10 +1,13 @@
 .textArea {
-    border: none;
-    border-radius: 7px;
-    padding: 1rem;
-    max-width: 18rem;
-    width: 16rem;
-    min-height: 8rem;
-    font-size: 16px;
-    resize: none;
+  border: none;
+  max-width: 18rem;
+  min-width: 100%;
+  width: 100%;
+  min-height: 12rem;
+  font-size: 14px;
+  resize: none;
+  background-color: var(--pr-cl-dark-grey);
+  color: var(--ft-cl-white);
+  padding: 0 .5rem;
+  box-sizing: border-box;
 }
