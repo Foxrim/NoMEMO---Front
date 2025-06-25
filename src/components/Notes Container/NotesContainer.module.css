@@ -7,7 +7,7 @@
         margin-left: .5rem;
     }
 
-    p {
+    .zeroNotes {
         color: var(--ft-cl-light-grey-second);
         text-align: center;
     }

@@ -9,7 +9,7 @@ export default function NotesContainer() {
   return (
     <div className={styles.notesContainer}>
       <h2>Notes</h2>
-      <p>Aucune note ajoutée</p>
+      <p className={styles.zeroNotes}>Aucune note ajoutée</p>
       <Notes />
 
         {notes && (
