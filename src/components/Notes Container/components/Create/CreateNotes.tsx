@@ -11,8 +11,8 @@ export default function CreateNotes() {
             <hr />
             <TextArea placeholder={"Comment à taper"} />
             <hr />
-            <Options nameOption="Catégorie" optionChoose="Aucune" />
-            <Options nameOption="Status" optionChoose="Aucun" />
+            <Options className={styles.categorieCreateNotes} nameOption="Catégorie" optionChoose="Aucune" />
+            <Options className={styles.statusCreateNotes} nameOption="Status" optionChoose="Aucun" />
             <hr />
             <FormInput placeholder="Lien" className={styles.linkInput}/>
         </FormModal>

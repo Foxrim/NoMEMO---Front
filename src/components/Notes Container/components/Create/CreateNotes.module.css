@@ -17,4 +17,9 @@
   .linkInput {
     font-size: 16px;
   }
+
+  .statusCreateNotes, .categorieCreateNotes {
+    margin: .25rem 0;
+    margin-left: .5rem;
+  }
 }
