@@ -49,10 +49,10 @@ body {
   --pr-cl-light-yellow: #D5BB6E;
   --pr-cl-light-grey: #404040;
   --pr-cl-black: #0B0B0B;
+  --pr-cl-red: #AF1313;
 
   /* True | False */
   --tf-cl-green: #258931;
-  --tf-cl-red: #d01f08;
   --tf-cl-demi-green: hsla(127, 57%, 34%, 0.5);
   --tf-cl-demi-red: #d01f0840;
 }

@@ -1,29 +1,30 @@
 .confirmModal {
   height: 100vh;
   width: 100%;
-  position: absolute;
-  background-color: var(--pr-cl-demi-white);
+  position: fixed;
+  background-color: var(--ft-cl-semi-black);
   top: 0;
   left: 0;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 
   z-index: 10;
 
   .modalConfirmModal {
     background-color: var(--pr-cl-grey);
-    border-radius: 16px;
-    max-width: 20rem;
+    border-radius: 7px;
+    max-width: 19rem;
+    width: 100%;
+    margin-bottom: 5rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
 
-    padding: 1rem;
+    padding: .5rem 1rem 1rem .5rem;
+    gap: .5rem;
 
     .closeModal {
       align-self: flex-start;
@@ -33,10 +34,24 @@
 
     h2 {
       color: var(--ft-cl-white);
+      grid-area: 1 / 1 / 2 / 3;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-self: center;
     }
 
-    .buttonYes {
-      margin-bottom: 1rem;
+    button {
+      margin: 0;
+      padding: 1rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .buttonNo {
+      background-color: var(--pr-cl-white);
     }
   }
 }

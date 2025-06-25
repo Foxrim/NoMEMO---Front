@@ -15,7 +15,7 @@ function useTheme() {
     } else if (user.theme === "light") {
       setTheme("Clair");
     } else {
-      setTheme("non trouvé");
+      setTheme("Sombre");
     }
   }, [user.theme]);
 
