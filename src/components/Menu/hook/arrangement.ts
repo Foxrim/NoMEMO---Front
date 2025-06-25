@@ -15,7 +15,7 @@ function useArrangement() {
     } else if (user.arrangement === "list") {
       setArr("Affichage en liste");
     } else {
-      setArr("non trouvé");
+      setArr("Affichage en liste");
     }
   }, [user.arrangement]);
 
