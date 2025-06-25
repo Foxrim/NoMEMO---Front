@@ -1,3 +1,4 @@
+import Notes from "./components/Notes/Notes";
 import styles from "./NotesContainer.module.css";
 
 export default function NotesContainer() {
@@ -5,6 +6,7 @@ export default function NotesContainer() {
         <div className={styles.notesContainer}>
             <h2>Notes</h2>
             <p>Aucune note ajoutée</p>
+            <Notes/>
         </div>
     )
 }
