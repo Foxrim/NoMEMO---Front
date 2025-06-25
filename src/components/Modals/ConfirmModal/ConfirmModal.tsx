@@ -2,28 +2,26 @@ import Buttons from "../../Buttons/Buttons";
 import styles from "./ConfirmModal.module.css";
 
 type ConfirmModalProps = {
-  onClick: () => void;
   children: React.ReactNode;
-  onClickYes: () => void;
-  onClickNo: () => void;
+  onClickYes?: () => void;
+  onClickNo?: () => void;
+  action: string;
+  classNameYes?: string;
 };
 
 export default function ConfirmModal({
-  onClick,
   children,
   onClickYes,
-  onClickNo
+  onClickNo,
+  action,
+  classNameYes
 }: ConfirmModalProps) {
   return (
-    <div className={styles.confirmModal}>
+    <div className={styles.confirmModal} onClick={onClickNo}>
       <div className={styles.modalConfirmModal}>
-        <i
-          className={`fa-solid fa-xmark ${styles.closeModal}`}
-          onClick={onClick}
-        ></i>
         <h2>{children}</h2>
-        <Buttons children="Oui" onClick={onClickYes} className={styles.buttonYes} />
-        <Buttons children="Non" onClick={onClickNo} />
+        <Buttons children="Annuler" onClick={onClickNo} className={styles.buttonNo} />
+        <Buttons children={action} onClick={onClickYes} className={classNameYes} />
       </div>
     </div>
   );

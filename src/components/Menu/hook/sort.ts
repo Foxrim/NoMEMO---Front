@@ -15,7 +15,7 @@ function useSort() {
         } else if (user.sort === 'modify') {
             setSort('Trier par date de modification');
         } else {
-            setSort('non trouvé');
+            setSort('Trier par date de création');
         }
     }, [user.sort]);
 

@@ -16,4 +16,25 @@
         flex-direction: column;
         gap: .75rem;
     }
+
+    .arrangementModal {
+    position: fixed;
+    top: 11.5rem;
+    left: 50%;
+    transform: translate(20%, -50%);
+  }
+
+  .sortModal {
+    position: fixed;
+    top: 13.75rem;
+    left: 28%;
+    transform: translate(20%, -50%);
+  }
+
+  .themeModal {
+    position: fixed;
+    top: 16rem;
+    left: 69.5%;
+    transform: translate(20%, -50%);
+  }
 }

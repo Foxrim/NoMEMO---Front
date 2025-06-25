@@ -1,21 +1,17 @@
 import { useModal } from "../../contexts/Modal/useModal";
 import Buttons from "../Buttons/Buttons";
-import Select from "../Modals/Select/Select";
+import ConfirmModal from "../Modals/ConfirmModal/ConfirmModal";
 import AccountMenu from "./components/Account/AccountMenu";
 import ConfidentMenu from "./components/Confident/ConfidentMenu";
 import StyleMenu from "./components/Style/StyleMenu";
-import useArrangement from "./hook/arrangement";
+import useDeleteAccount from "./hook/deleteAccount";
 import useLogout from "./hook/logout";
-import useSort from "./hook/sort";
-import useTheme from "./hook/theme";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
-  const { handleMenu, arrangement, handleArrangement, sortModal, handleSort, themeModal, handleTheme } = useModal();
+  const { handleMenu, handleDeleteAccount, deleteAccount, handleDeleteAccountClose } = useModal();
   const { handleLogout } = useLogout();
-  const { arrangements, handleUpdateArr } = useArrangement();
-  const { sorts, handleUpdateSort } = useSort();
-  const { themes, handleUpdateTheme } = useTheme();
+  const { fetchDeleteAccount } = useDeleteAccount();
 
   return (
     <div className={styles.menu}>
@@ -28,32 +24,11 @@ export default function Menu() {
       <AccountMenu />
       <ConfidentMenu />
       <Buttons onClick={handleLogout}>Déconnection</Buttons>
-      <p className={styles.deleteAccount}>Supprimer le compte</p>
+      <p className={styles.deleteAccount} onClick={handleDeleteAccount}>Supprimer le compte</p>
 
-      {arrangement && (
-        <Select className={styles.arrangementModal} onClick={handleArrangement}>
-        {arrangements.map((arr, index) => (
-          <p key={index} onClick={() => handleUpdateArr(index)}>{arr}</p>
-        ))}
-      </Select>
+      {deleteAccount && (
+        <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} onClickNo={handleDeleteAccountClose} onClickYes={fetchDeleteAccount}/>
       )}
-
-      {sortModal && (
-        <Select className={styles.sortModal} onClick={handleSort}>
-        {sorts.map((sort, index) => (
-          <p key={index} onClick={() => handleUpdateSort(index)}>{sort}</p>
-        ))}
-      </Select>
-      )}
-
-      {themeModal && (
-        <Select className={styles.themeModal} onClick={handleTheme} >
-          {themes.map((theme, index) => (
-            <p key={index} onClick={() => handleUpdateTheme(index)}>{theme}</p>
-          ))}
-        </Select>
-      )}
-
     </div>
   );
 }
