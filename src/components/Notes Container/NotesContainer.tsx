@@ -1,10 +1,10 @@
 import { useModal } from "../../contexts/Modal/useModal";
-import FormModal from "../Modals/Form Modal/FormModal";
+import CreateNotes from "./components/Create/CreateNotes";
 import Notes from "./components/Notes/Notes";
 import styles from "./NotesContainer.module.css";
 
 export default function NotesContainer() {
-    const { notes } = useModal();
+  const { notes } = useModal();
 
   return (
     <div className={styles.notesContainer}>
@@ -12,9 +12,7 @@ export default function NotesContainer() {
       <p className={styles.zeroNotes}>Aucune note ajoutée</p>
       <Notes />
 
-        {notes && (
-            <FormModal />
-        )}
+      {notes && <CreateNotes />}
     </div>
   );
 }
