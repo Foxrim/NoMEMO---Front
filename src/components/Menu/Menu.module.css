@@ -31,4 +31,9 @@
     color: var(--ft-cl-white);
     font-size: 16px;
   }
+
+  .deleteAccountButtonYes {
+    background-color: var(--pr-cl-red);
+    color: var(--ft-cl-white);
+  }
 }

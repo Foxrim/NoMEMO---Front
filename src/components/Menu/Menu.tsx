@@ -1,5 +1,6 @@
 import { useModal } from "../../contexts/Modal/useModal";
 import Buttons from "../Buttons/Buttons";
+import ConfirmModal from "../Modals/ConfirmModal/ConfirmModal";
 import AccountMenu from "./components/Account/AccountMenu";
 import ConfidentMenu from "./components/Confident/ConfidentMenu";
 import StyleMenu from "./components/Style/StyleMenu";
@@ -22,6 +23,8 @@ export default function Menu() {
       <ConfidentMenu />
       <Buttons onClick={handleLogout}>Déconnection</Buttons>
       <p className={styles.deleteAccount}>Supprimer le compte</p>
+
+      <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} />
     </div>
   );
 }
