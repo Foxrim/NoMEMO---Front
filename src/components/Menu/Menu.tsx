@@ -4,12 +4,14 @@ import ConfirmModal from "../Modals/ConfirmModal/ConfirmModal";
 import AccountMenu from "./components/Account/AccountMenu";
 import ConfidentMenu from "./components/Confident/ConfidentMenu";
 import StyleMenu from "./components/Style/StyleMenu";
+import useDeleteAccount from "./hook/deleteAccount";
 import useLogout from "./hook/logout";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
   const { handleMenu, handleDeleteAccount, deleteAccount, handleDeleteAccountClose } = useModal();
   const { handleLogout } = useLogout();
+  const { fetchDeleteAccount } = useDeleteAccount();
 
   return (
     <div className={styles.menu}>
@@ -25,7 +27,7 @@ export default function Menu() {
       <p className={styles.deleteAccount} onClick={handleDeleteAccount}>Supprimer le compte</p>
 
       {deleteAccount && (
-        <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} onClickNo={handleDeleteAccountClose}/>
+        <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} onClickNo={handleDeleteAccountClose} onClickYes={fetchDeleteAccount}/>
       )}
     </div>
   );
