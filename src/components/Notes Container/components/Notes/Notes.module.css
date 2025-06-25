@@ -20,13 +20,14 @@
   .hrNotes {
     position: absolute;
     background-color: #cfa21c;
-    top: -.5rem;
+    top: 0;
     right: 3rem;
     height: 100%;
     width: 5rem;
     border-radius: 0 50% 50% 0;
     border: none;
     z-index: 1;
+    margin: 0;
   }
 }
 
