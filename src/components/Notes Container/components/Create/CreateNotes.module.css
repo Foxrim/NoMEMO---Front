@@ -1,0 +1,16 @@
+.createNotes {
+  display: flex;
+  justify-items: center;
+  align-self: center;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 2px;
+    border-radius: 7px;
+    background-color: var(--pr-cl-grey);
+  }
+}
