@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router";
 import { useModal } from "../../../contexts/Modal/useModal";
 
 function useDeleteAccount() {
     const { handleMenu } = useModal();
+
+  const navigate = useNavigate();
 
     const fetchDeleteAccount = async () => {
 
@@ -19,6 +22,7 @@ function useDeleteAccount() {
             }
             
             handleMenu();
+            navigate('/');
         } catch (err) {
             console.error('Une erreur est survenue : ', err);
         }
