@@ -8,7 +8,7 @@ import useLogout from "./hook/logout";
 import styles from "./Menu.module.css";
 
 export default function Menu() {
-  const { handleMenu } = useModal();
+  const { handleMenu, handleDeleteAccount, deleteAccount, handleDeleteAccountClose } = useModal();
   const { handleLogout } = useLogout();
 
   return (
@@ -22,9 +22,11 @@ export default function Menu() {
       <AccountMenu />
       <ConfidentMenu />
       <Buttons onClick={handleLogout}>Déconnection</Buttons>
-      <p className={styles.deleteAccount}>Supprimer le compte</p>
+      <p className={styles.deleteAccount} onClick={handleDeleteAccount}>Supprimer le compte</p>
 
-      <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} />
+      {deleteAccount && (
+        <ConfirmModal children={'Voulez-vous supprimer votre compte ?'} classNameYes={styles.deleteAccountButtonYes} action={"Supprimer"} onClickNo={handleDeleteAccountClose}/>
+      )}
     </div>
   );
 }

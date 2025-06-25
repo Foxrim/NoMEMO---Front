@@ -15,6 +15,9 @@ type ModalContextProps = {
   handlePassword: () => void;
   updatePassword: boolean;
   handlePasswordClose: () => void;
+  handleDeleteAccount: () => void;
+  deleteAccount: boolean;
+  handleDeleteAccountClose: () => void;
 };
 
 export const ModalContext = createContext<ModalContextProps | undefined>(
