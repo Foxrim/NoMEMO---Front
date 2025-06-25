@@ -8,9 +8,9 @@ type FormInputProps = {
 
 export default function FormInput({ placeholder, className, icon }: FormInputProps) {
   return (
-    <div className={styles.formInput}>
+    <div className={`${styles.formInput} ${className}`}>
       <input
-        className={`${styles.input} ${className}`}
+        className={styles.input}
         type="text"
         placeholder={placeholder}
       />

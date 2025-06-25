@@ -16,10 +16,12 @@
 
   .linkInput {
     font-size: 16px;
+    padding-right: 1.75rem;
   }
 
-  .statusCreateNotes, .categorieCreateNotes {
-    margin: .25rem 0;
-    margin-left: .5rem;
+  .statusCreateNotes,
+  .categorieCreateNotes {
+    margin: 0.25rem 0;
+    margin-left: 0.5rem;
   }
 }
