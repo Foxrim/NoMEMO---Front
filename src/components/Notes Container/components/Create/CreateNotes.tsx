@@ -14,7 +14,7 @@ export default function CreateNotes() {
             <Options className={styles.categorieCreateNotes} nameOption="Catégorie" optionChoose="Aucune" />
             <Options className={styles.statusCreateNotes} nameOption="Status" optionChoose="Aucun" />
             <hr />
-            <FormInput placeholder="Lien" className={styles.linkInput}/>
+            <FormInput placeholder="Lien" className={styles.linkInput} icon="fa-regular fa-copy"/>
         </FormModal>
     )
 }
