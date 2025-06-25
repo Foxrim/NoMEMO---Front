@@ -1,7 +1,21 @@
 .formInput {
+  position: relative;
+
+  .input {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     color: var(--ft-cl-white);
     font-size: 20px;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    color: var(--ft-cl-light-grey-second);
+  }
 }

@@ -15,19 +15,26 @@ body {
   span,
   input,
   button,
-  a, 
+  a,
   h2,
   h3,
   h4,
-  select, 
+  select,
   textarea {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
 
-  button, i {
-    cursor: pointer ;
+  button,
+  i {
+    cursor: pointer;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: none;
   }
 }
 
@@ -37,8 +44,8 @@ body {
   --ft-cl-black: #1e1e1e;
   --ft-cl-semi-black: #00000050;
   --ft-cl-yellow: #dea605;
-  --ft-cl-light-grey: #C5C5C5;
-  --ft-cl-light-grey-second: #A4A4A4;
+  --ft-cl-light-grey: #c5c5c5;
+  --ft-cl-light-grey-second: #a4a4a4;
 
   /* Primary colors */
   --pr-cl-yellow: #dea605;
@@ -46,10 +53,10 @@ body {
   --pr-cl-dark-grey: #191919;
   --pr-cl-white: #ffffff;
   --pr-cl-demi-white: #ffffff7e;
-  --pr-cl-light-yellow: #D5BB6E;
+  --pr-cl-light-yellow: #d5bb6e;
   --pr-cl-light-grey: #404040;
-  --pr-cl-black: #0B0B0B;
-  --pr-cl-red: #AF1313;
+  --pr-cl-black: #0b0b0b;
+  --pr-cl-red: #af1313;
 
   /* True | False */
   --tf-cl-green: #258931;
