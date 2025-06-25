@@ -1,3 +1,4 @@
+import AddButton from "../../components/Add Button/AddButton";
 import Menu from "../../components/Menu/Menu";
 import NavigationBar from "../../components/Navigation Bar/NavigationBar";
 import NotesContainer from "../../components/Notes Container/NotesContainer";
@@ -10,6 +11,7 @@ export default function NotesPage() {
   return (
     <main className={styles.notesPage}>
       <NotesContainer/>
+      <AddButton/>
       <NavigationBar />
       {menu && <Menu />}
     </main>
