@@ -13,4 +13,8 @@
     border-radius: 7px;
     background-color: var(--pr-cl-grey);
   }
+
+  .linkInput {
+    font-size: 16px;
+  }
 }

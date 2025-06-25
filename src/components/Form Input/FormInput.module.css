@@ -1,0 +1,7 @@
+.formInput {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: var(--ft-cl-white);
+    font-size: 20px;
+    padding: 0 .5rem;
+}
