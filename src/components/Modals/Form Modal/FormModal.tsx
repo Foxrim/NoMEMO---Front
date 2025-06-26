@@ -4,13 +4,18 @@ type FormTypeProps = {
     children?: React.ReactNode;
     onSubmit?: () => void; 
     className?: string;
+    update?: boolean;
 }
 
-export default function FormModal({children, onSubmit, className} : FormTypeProps) {
+export default function FormModal({children, onSubmit, className, update} : FormTypeProps) {
     return (
         <form className={styles.formModal} onSubmit={onSubmit}>
             <button type="submit" onClick={onSubmit} className="fa-solid fa-chevron-left"></button>
-            <button type="submit" className={`fa-solid fa-ellipsis-vertical ${styles.optionFormModal}`}></button>
+            {update ? (
+                <button type="submit" className={`fa-solid fa-check ${styles.optionFormModal}`}></button>
+            ): (
+                <button type="submit" className={`fa-solid fa-ellipsis-vertical ${styles.optionFormModal}`}></button>
+            )}
             <div className={`${styles.formContainer} ${className}`}>
                 {children}
             </div>
