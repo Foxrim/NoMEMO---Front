@@ -9,37 +9,39 @@ function useCreateNotes() {
   const [nameNote, setNameNote] = useState<string>("");
   const [comment, setComment] = useState<string>("");
   const [link, setLink] = useState<string>("");
-  const [status, setStatus] = useState<string>('');
+  const [status, setStatus] = useState<string>("");
   const [categoryId, setCategoryId] = useState<number | null>(null);
 
   const [nameCategory, setNameCategory] = useState<string>("");
-  const [nameStatus, setNameStatus] = useState<string>('');
+  const [nameStatus, setNameStatus] = useState<string>("");
+
+  const [isUpdate, setIsUpdate] = useState<boolean>(false);
 
   const statusArray = ["Aucun", "En cours", "Terminé"];
 
   const handleStatus = async (index: number) => {
     if (index === 0) {
-      setStatus('');
+      setStatus("");
     } else if (index === 1) {
-      setStatus('inProgress');
+      setStatus("inProgress");
     } else if (index === 2) {
-      setStatus('finished');
+      setStatus("finished");
     } else {
-      setStatus('');
+      setStatus("");
     }
-  }; 
+  };
 
   useEffect(() => {
-    if (status === '') {
-      setNameStatus('Aucun');
-    } else if (status === 'inProgress') {
-      setNameStatus('En cours');
-    } else if (status === 'finished') {
-      setNameStatus('Terminé');
+    if (status === "") {
+      setNameStatus("Aucun");
+    } else if (status === "inProgress") {
+      setNameStatus("En cours");
+    } else if (status === "finished") {
+      setNameStatus("Terminé");
     } else {
-      setNameStatus('Aucun');
+      setNameStatus("Aucun");
     }
-  }, [status])
+  }, [status]);
 
   const handleCategoryId = async (index: number) => {
     setCategoryId(index);
@@ -54,6 +56,20 @@ function useCreateNotes() {
     }
   }, [categories, categoryId]);
 
+  useEffect(() => {
+    if (
+      nameNote !== "" ||
+      comment !== "" ||
+      link !== "" ||
+      status !== "" ||
+      categoryId !== null
+    ) {
+      setIsUpdate(true);
+    } else {
+      setIsUpdate(false);
+    }
+  }, [nameNote, comment, link, status, categoryId]);
+
   const fetchCreateNotes = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -61,13 +77,7 @@ function useCreateNotes() {
       setCategoryId(null);
     }
 
-    if (
-      nameNote === "" &&
-      comment === "" &&
-      link === "" &&
-      status === "" &&
-      categoryId === null
-    ) {
+    if (!isUpdate) {
       return;
     }
 
@@ -107,7 +117,8 @@ function useCreateNotes() {
     nameCategory,
     handleStatus,
     statusArray,
-    nameStatus
+    nameStatus,
+    isUpdate
   };
 }
 

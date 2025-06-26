@@ -23,14 +23,16 @@ export default function CreateNotes() {
     nameCategory,
     statusArray,
     handleStatus,
-    nameStatus
+    nameStatus,
+    isUpdate
   } = useCreateNotes();
 
   return (
     <>
       <FormModal
         className={styles.createNotes}
-        onSubmit={() => fetchCreateNotes}
+        onSubmit={fetchCreateNotes}
+        update={isUpdate}
       >
         <FormInput
           placeholder="Titre"
