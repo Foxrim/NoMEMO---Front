@@ -6,12 +6,16 @@ function useCreateNotes() {
   const [comment, setComment] = useState<string>("");
   const [link, setLink] = useState<string>("");
   const [status, setStatus] = useState<string>("");
-  const [categoryId, setCategoryId] = useState<number>();
+  const [categoryId, setCategoryId] = useState<number | null>(null);
 
   const { handleNotes } = useModal();
 
   const fetchCreateNotes = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (categoryId === 0) {
+      setCategoryId(null);
+    }
 
     if (
       nameNote === "" &&
