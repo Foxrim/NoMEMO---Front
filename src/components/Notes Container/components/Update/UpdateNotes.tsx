@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCategories } from "../../../../contexts/Categories/useCategories";
 import { useModal } from "../../../../contexts/Modal/useModal";
 import FormInput from "../../../Form Input/FormInput";
@@ -5,10 +6,15 @@ import FormModal from "../../../Modals/Form Modal/FormModal";
 import Select from "../../../Modals/Select/Select";
 import Options from "../../../Options/Options";
 import TextArea from "../../../TextArea/TextArea";
-import useCreateNotes from "../../hook/createNotes";
+import useFormNotes from "../../hook/formNotes";
+import useUpdateNotes from "../../hook/updateNotes";
 import styles from "./UpdateNotes.module.css";
 
-export default function UpdateNotes() {
+type UpdateNotesProps = {
+  key?: number;
+}
+
+export default function UpdateNotes({ key }: UpdateNotesProps) {
   const { categories } = useCategories();
 
   const {
@@ -18,8 +24,8 @@ export default function UpdateNotes() {
     handleStatusCreateNotes,
   } = useModal();
 
+  const { fetchUpdateNotes, setNoteId } = useUpdateNotes();
   const {
-    fetchCreateNotes,
     nameNote,
     comment,
     link,
@@ -32,13 +38,19 @@ export default function UpdateNotes() {
     handleStatus,
     nameStatus,
     isUpdate,
-  } = useCreateNotes();
+  } = useFormNotes();
+
+  useEffect(() => {
+    if (key) {
+       setNoteId(key)
+    }
+  })
 
   return (
     <>
       <FormModal
         className={styles.updateNotes}
-        onSubmit={fetchCreateNotes}
+        onSubmit={fetchUpdateNotes}
         update={isUpdate}
       >
         <FormInput

@@ -6,13 +6,20 @@ import Select from "../../../Modals/Select/Select";
 import Options from "../../../Options/Options";
 import TextArea from "../../../TextArea/TextArea";
 import useCreateNotes from "../../hook/createNotes";
+import useFormNotes from "../../hook/formNotes";
 import styles from "./CreateNotes.module.css";
 
 export default function CreateNotes() {
   const { categories } = useCategories();
-  const { categoriesCreateNotes, handleCategoriesCreateNotes, statusCreateNotes, handleStatusCreateNotes } = useModal();
   const {
-    fetchCreateNotes,
+    categoriesCreateNotes,
+    handleCategoriesCreateNotes,
+    statusCreateNotes,
+    handleStatusCreateNotes,
+  } = useModal();
+
+  const { fetchCreateNotes } = useCreateNotes();
+  const {
     nameNote,
     comment,
     link,
@@ -24,8 +31,8 @@ export default function CreateNotes() {
     statusArray,
     handleStatus,
     nameStatus,
-    isUpdate
-  } = useCreateNotes();
+    isUpdate,
+  } = useFormNotes();
 
   return (
     <>

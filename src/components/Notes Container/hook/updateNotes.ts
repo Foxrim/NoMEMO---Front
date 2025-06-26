@@ -1,10 +1,13 @@
-import { useModal } from "../../../contexts/Modal/useModal";
 import { useNotes } from "../../../contexts/Notes/useNotes";
+import { useModal } from "../../../contexts/Modal/useModal";
 import useFormNotes from "./formNotes";
+import { useState } from "react";
 
-function useCreateNotes() {
+function useUpdateNotes() {
   const { handleNotes } = useModal();
   const { fetchNotes } = useNotes();
+
+  const [noteId, setNoteId] = useState<number>();
 
   const {
     nameNote,
@@ -16,7 +19,7 @@ function useCreateNotes() {
     isUpdate,
   } = useFormNotes();
 
-  const fetchCreateNotes = async (e: React.FormEvent) => {
+  const fetchUpdateNotes = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (categoryId === 0) {
@@ -29,12 +32,15 @@ function useCreateNotes() {
     }
 
     try {
-      const res = await fetch("http://localhost:5012/api/v1/notes/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nameNote, comment, link, status, categoryId }),
-        credentials: "include",
-      });
+      const res = await fetch(
+        `http://localhost:5012/api/v1/notes/${noteId}/modify`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nameNote, comment, link, status, categoryId }),
+          credentials: "include",
+        }
+      );
 
       if (!res.ok) {
         const text = await res.text();
@@ -50,8 +56,16 @@ function useCreateNotes() {
   };
 
   return {
-    fetchCreateNotes,
+    fetchUpdateNotes,
+    nameNote,
+    comment,
+    link,
+    status,
+    categoryId,
+    setCategoryId,
+    isUpdate,
+    setNoteId
   };
 }
 
-export default useCreateNotes;
+export default useUpdateNotes;
