@@ -33,7 +33,7 @@
   .categories {
     position: fixed;
     top: 24rem;
-    right: 3rem;
+    right: 2.25rem;
     transform: translate(20%, -50%);
   }
 }

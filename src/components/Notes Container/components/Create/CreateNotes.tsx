@@ -19,6 +19,7 @@ export default function CreateNotes() {
     setNameNote,
     setComment,
     setLink,
+    handleCategoryId
   } = useCreateNotes();
 
   return (
@@ -67,7 +68,7 @@ export default function CreateNotes() {
           onClick={handleCategoriesCreateNotes}
         >
           {categories.map((category) => (
-            <p key={category.id}>{category.nameCategory}</p>
+            <p key={category.id} onClick={() => handleCategoryId(category.id)}>{category.nameCategory}</p>
           ))}
         </Select>
       )}

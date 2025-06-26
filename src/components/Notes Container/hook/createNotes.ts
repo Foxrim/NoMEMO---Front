@@ -10,7 +10,11 @@ function useCreateNotes() {
 
   const { handleNotes } = useModal();
 
-  const fetchCreateNotes = async (e: React.FormEvent) => {
+  const handleCategoryId = async (index: number) => {
+    setCategoryId(index);
+  }
+
+  const fetchCreateNotes = async (e: React.FormEvent ) => {
     e.preventDefault();
 
     if (categoryId === 0) {
@@ -59,6 +63,7 @@ function useCreateNotes() {
     setLink,
     setStatus,
     setCategoryId,
+    handleCategoryId
   };
 }
 
