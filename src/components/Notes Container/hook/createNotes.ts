@@ -3,31 +3,58 @@ import { useModal } from "../../../contexts/Modal/useModal";
 import { useCategories } from "../../../contexts/Categories/useCategories";
 
 function useCreateNotes() {
-  const [nameNote, setNameNote] = useState<string>("");
-  const [comment, setComment] = useState<string>("");
-  const [link, setLink] = useState<string>("");
-  const [status, setStatus] = useState<string>("");
-  const [categoryId, setCategoryId] = useState<number | null>(null);
-
-  const [nameCategory, setNameCategory] = useState<string>('');
-
   const { handleNotes } = useModal();
   const { categories } = useCategories();
 
-  useEffect(() => {
-    if (categories && categoryId !== null && categoryId !== 0) {
-      const name = categories[categoryId]?.nameCategory
-      setNameCategory(`${name}`)
+  const [nameNote, setNameNote] = useState<string>("");
+  const [comment, setComment] = useState<string>("");
+  const [link, setLink] = useState<string>("");
+  const [status, setStatus] = useState<string>('');
+  const [categoryId, setCategoryId] = useState<number | null>(null);
+
+  const [nameCategory, setNameCategory] = useState<string>("");
+  const [nameStatus, setNameStatus] = useState<string>('');
+
+  const statusArray = ["Aucun", "En cours", "Terminé"];
+
+  const handleStatus = async (index: number) => {
+    if (index === 0) {
+      setStatus('');
+    } else if (index === 1) {
+      setStatus('inProgress');
+    } else if (index === 2) {
+      setStatus('finished');
     } else {
-      setNameCategory('Aucune');
+      setStatus('');
     }
-  }, [categories, categoryId])
+  }; 
+
+  useEffect(() => {
+    if (status === '') {
+      setNameStatus('Aucun');
+    } else if (status === 'inProgress') {
+      setNameStatus('En cours');
+    } else if (status === 'finished') {
+      setNameStatus('Terminé');
+    } else {
+      setNameStatus('Aucun');
+    }
+  }, [status])
 
   const handleCategoryId = async (index: number) => {
     setCategoryId(index);
-  }
+  };
 
-  const fetchCreateNotes = async (e: React.FormEvent ) => {
+  useEffect(() => {
+    if (categories && categoryId !== null && categoryId !== 0) {
+      const name = categories[categoryId]?.nameCategory;
+      setNameCategory(`${name}`);
+    } else {
+      setNameCategory("Aucune");
+    }
+  }, [categories, categoryId]);
+
+  const fetchCreateNotes = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (categoryId === 0) {
@@ -77,7 +104,10 @@ function useCreateNotes() {
     setStatus,
     setCategoryId,
     handleCategoryId,
-    nameCategory
+    nameCategory,
+    handleStatus,
+    statusArray,
+    nameStatus
   };
 }
 
