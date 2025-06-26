@@ -9,7 +9,10 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [updateEmail, setUpdateEmail] = useState<boolean>(false);
   const [updatePassword, setUpdatePassword] = useState<boolean>(false);
   const [deleteAccount, setDeleteAccount] = useState<boolean>(false);
-  const [notes, setNotes] = useState<boolean>(false);
+  const [createNotes, setCreateNotes] = useState<boolean>(false);
+  const [categoriesCreateNotes, setCategoriesCreateNotes] = useState<boolean>(false);
+  const [statusCreateNotes, setStatusCreateNotes] = useState<boolean>(false);
+  const [updateNotes, setUpdateNotes] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -61,9 +64,24 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setDeleteAccount(false);
   }
 
-  // Ouverture fermeture de création / modification / suppréssion de notes
-  const handleNotes = () => {
-    setNotes((prev) => !prev);
+  // Ouverture fermeture de création
+  const handleCreateNotes = () => {
+    setCreateNotes((prev) => !prev);
+  }
+
+  // Ouverture fermeture de l'option catégories de création de notes
+  const handleCategoriesCreateNotes = () => {
+    setCategoriesCreateNotes((prev) => !prev)
+  }
+
+  // Ouverture fermeture de l'option status de création de notes
+  const handleStatusCreateNotes = () => {
+    setStatusCreateNotes((prev) => !prev);
+  }
+
+  // Ouverture fermeture de modification de notes
+  const handleUpdateNotes = () => {
+    setUpdateNotes((prev) => !prev);
   }
 
   return (
@@ -86,8 +104,14 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        handleDeleteAccount,
        deleteAccount,
        handleDeleteAccountClose,
-       handleNotes,
-       notes
+       handleCreateNotes,
+       createNotes,
+       handleCategoriesCreateNotes,
+       categoriesCreateNotes,
+       handleStatusCreateNotes,
+       statusCreateNotes,
+       handleUpdateNotes,
+       updateNotes
       }}
     >
       {children}

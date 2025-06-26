@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCategories } from "../../../../contexts/Categories/useCategories";
 import { useModal } from "../../../../contexts/Modal/useModal";
 import FormInput from "../../../Form Input/FormInput";
@@ -5,20 +6,26 @@ import FormModal from "../../../Modals/Form Modal/FormModal";
 import Select from "../../../Modals/Select/Select";
 import Options from "../../../Options/Options";
 import TextArea from "../../../TextArea/TextArea";
-import useCreateNotes from "../../hook/createNotes";
 import useFormNotes from "../../hook/formNotes";
-import styles from "./CreateNotes.module.css";
+import useUpdateNotes from "../../hook/updateNotes";
+import styles from "./UpdateNotes.module.css";
 
-export default function CreateNotes() {
+type UpdateNotesProps = {
+  key?: number;
+}
+
+export default function UpdateNotes({ key }: UpdateNotesProps) {
   const { categories } = useCategories();
+
   const {
     categoriesCreateNotes,
     handleCategoriesCreateNotes,
     statusCreateNotes,
     handleStatusCreateNotes,
+    handleUpdateNotes
   } = useModal();
 
-  const { fetchCreateNotes } = useCreateNotes();
+  const { setNoteId } = useUpdateNotes();
   const {
     nameNote,
     comment,
@@ -34,11 +41,16 @@ export default function CreateNotes() {
     isUpdate,
   } = useFormNotes();
 
+  useEffect(() => {
+    if (key) {
+       setNoteId(key)
+    }
+  })
+
   return (
     <>
       <FormModal
-        className={styles.createNotes}
-        onSubmit={fetchCreateNotes}
+        className={styles.updateNotes}
         update={isUpdate}
       >
         <FormInput
@@ -54,13 +66,13 @@ export default function CreateNotes() {
         />
         <hr />
         <Options
-          className={styles.categorieCreateNotes}
+          className={styles.categorieUpdateNotes}
           nameOption="Catégorie"
           optionChoose={nameCategory || "Aucune"}
           onClick={handleCategoriesCreateNotes}
         />
         <Options
-          className={styles.statusCreateNotes}
+          className={styles.statusUpdateNotes}
           nameOption="Status"
           optionChoose={nameStatus || "Aucun"}
           onClick={handleStatusCreateNotes}
@@ -73,11 +85,14 @@ export default function CreateNotes() {
           value={link}
           onChange={(e) => setLink(e.target.value)}
         />
+        <hr />
+        <p onClick={handleUpdateNotes}>Créé le </p>
+        <p>Modifié le </p>
       </FormModal>
 
       {categoriesCreateNotes && (
         <Select
-          classNameSelect={styles.selectCreateNotes}
+          classNameSelect={styles.selectUpdateNotes}
           className={styles.categories}
           onClick={handleCategoriesCreateNotes}
         >

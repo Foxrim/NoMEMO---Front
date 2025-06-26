@@ -6,12 +6,12 @@ import { useModal } from "../../contexts/Modal/useModal";
 import styles from "./NotesPage.module.css";
 
 export default function NotesPage() {
-  const { menu, handleNotes } = useModal();
+  const { menu, handleCreateNotes } = useModal();
 
   return (
     <main className={styles.notesPage}>
       <NotesContainer/>
-      <AddButton onClick={handleNotes}/>
+      <AddButton onClick={handleCreateNotes}/>
       <NavigationBar />
       {menu && <Menu />}
     </main>

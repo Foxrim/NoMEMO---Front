@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 100%;
+  z-index: 5;
 
   color: var(--ft-cl-yellow);
 
