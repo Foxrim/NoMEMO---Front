@@ -19,7 +19,7 @@ type ModalContextProps = {
   deleteAccount: boolean;
   handleDeleteAccountClose: () => void;
   handleNotes: () => void;
-  notes: boolean;
+  createNotes: boolean;
   handleCategoriesCreateNotes: () => void;
   categoriesCreateNotes: boolean;
   handleStatusCreateNotes: () => void;

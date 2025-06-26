@@ -9,7 +9,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [updateEmail, setUpdateEmail] = useState<boolean>(false);
   const [updatePassword, setUpdatePassword] = useState<boolean>(false);
   const [deleteAccount, setDeleteAccount] = useState<boolean>(false);
-  const [notes, setNotes] = useState<boolean>(false);
+  const [createNotes, setCreateNotes] = useState<boolean>(false);
   const [categoriesCreateNotes, setCategoriesCreateNotes] = useState<boolean>(false);
   const [statusCreateNotes, setStatusCreateNotes] = useState<boolean>(false);
 
@@ -65,7 +65,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   // Ouverture fermeture de création / modification / suppréssion de notes
   const handleNotes = () => {
-    setNotes((prev) => !prev);
+    setCreateNotes((prev) => !prev);
   }
 
   // Ouverture fermeture de l'option catégories de création de notes
@@ -99,7 +99,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        deleteAccount,
        handleDeleteAccountClose,
        handleNotes,
-       notes,
+       createNotes,
        handleCategoriesCreateNotes,
        categoriesCreateNotes,
        handleStatusCreateNotes,

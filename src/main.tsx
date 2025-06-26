@@ -18,11 +18,11 @@ createRoot(rootElement).render(
     <AuthProvider>
       <ModalProvider>
         <UserProvider>
-          <NotesProvider>
-            <CategoriesProvider>
+          <CategoriesProvider>
+            <NotesProvider>
               <RouterProvider router={router} />
-            </CategoriesProvider>
-          </NotesProvider>
+            </NotesProvider>
+          </CategoriesProvider>
         </UserProvider>
       </ModalProvider>
     </AuthProvider>
