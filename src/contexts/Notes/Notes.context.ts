@@ -13,7 +13,7 @@ type CategoryProps = {
 
 export type NotesProps = {
     id?: number;
-    nameNotes?: string;
+    nameNote?: string;
     comment?: string;
     link?: string;
     status?: string;

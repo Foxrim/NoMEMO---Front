@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useModal } from "../../../contexts/Modal/useModal";
 import { useCategories } from "../../../contexts/Categories/useCategories";
+import { useNotes } from "../../../contexts/Notes/useNotes";
 
 function useCreateNotes() {
   const { handleNotes } = useModal();
   const { categories } = useCategories();
+  const { fetchNotes } = useNotes();
 
   const [nameNote, setNameNote] = useState<string>("");
   const [comment, setComment] = useState<string>("");
@@ -97,6 +99,7 @@ function useCreateNotes() {
       }
 
       handleNotes();
+      fetchNotes();
     } catch (err) {
       console.error("Une erreur est survenue : ", err);
     }

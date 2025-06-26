@@ -11,13 +11,13 @@ export default function NotesContainer() {
   return (
     <div className={styles.notesContainer}>
       <h2>Notes</h2>
-      <p className={styles.zeroNotes}>Aucune note ajoutée</p>
-      {notes.length !== 0 && (notes.map((note) => (
-        <>
-        <p>{note.comment}</p>
-        <Notes nameNote={note.nameNotes} comment={note.comment} />
-        </>
-      )))}
+      {notes.length !== 0 ? (
+        notes.map((note) => (
+          <Notes nameNote={note.nameNote} comment={note.comment} status={note.status} />
+        ))
+      ) : (
+        <p className={styles.zeroNotes}>Aucune note ajoutée</p>
+      )}
 
       {createNotes && <CreateNotes />}
     </div>

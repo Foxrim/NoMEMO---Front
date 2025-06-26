@@ -58,8 +58,7 @@ body {
   --pr-cl-black: #0b0b0b;
   --pr-cl-red: #af1313;
 
-  /* True | False */
-  --tf-cl-green: #258931;
-  --tf-cl-demi-green: hsla(127, 57%, 34%, 0.5);
-  --tf-cl-demi-red: #d01f0840;
+  /* Status */
+  --st-cl-orange: #CC5500;
+  --st-cl-green: #0C8B0C;
 }

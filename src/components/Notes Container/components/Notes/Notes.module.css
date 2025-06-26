@@ -3,6 +3,7 @@
   border-radius: 7px;
   padding: 0.5rem 1.25rem;
   position: relative;
+  min-height: 3rem;
 
   h3 {
     margin: 0;
@@ -23,11 +24,37 @@
     top: 0;
     right: 3rem;
     height: 100%;
-    width: 5rem;
+    width: 4rem;
     border-radius: 0 50% 50% 0;
     border: none;
     z-index: 1;
     margin: 0;
+  }
+
+  .statusIcon {
+    position: absolute;
+    top: 50%;
+    right: .5rem;
+    z-index: 2;
+    transform: translateY(-50%);
+    background-color: #6c5100;
+    padding: .4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+    width: 1.5rem;
+  } 
+
+  .statusInProgress {
+    color: var(--st-cl-orange);
+    font-size: 24px;
+  }
+
+  .statusFinished {
+    color: var(--st-cl-green);
+    font-size: 28px;
   }
 }
 
@@ -38,7 +65,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 5rem;
+  width: 4rem;
   border-radius: 0 7px 7px 0;
 }
 
@@ -49,7 +76,7 @@
   top: 0;
   right: 1.5rem;
   height: 100%;
-  width: 5rem;
+  width: 4rem;
   border-radius: 0 50% 50% 0;
 }
 
@@ -60,6 +87,6 @@
   top: 0;
   right: 1.5rem;
   height: 100%;
-  width: 3.5rem;
-  border-radius: 0 50% 50% 0;
+  width: 4rem;
+  border-radius: 0 100% 100% 0;
 }
