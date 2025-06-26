@@ -14,9 +14,8 @@ export function CategoriesProvider({ children }: { children: ReactNode }) {
       );
 
       let data: CategoriesProps[] = await res.json();
-      if (!data || data.length === 0) {
-        data = [{ id: 0, nameCategory: "Aucune" }];
-      }
+      data = [{ id: 0, nameCategory: "Aucune" }];
+      
       setCategories([...data]);
     } catch (err) {
       console.error("Une erreur est survenue : ", err);
