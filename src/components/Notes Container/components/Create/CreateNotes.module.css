@@ -27,12 +27,19 @@
   }
 }
 
-.categoriesCreateNotes {
+.selectCreateNotes {
   z-index: 100;
 
   .categories {
     position: fixed;
     top: 24rem;
+    right: 2.25rem;
+    transform: translate(20%, -50%);
+  }
+
+  .status {
+    position: fixed;
+    top: 28.2rem;
     right: 2.25rem;
     transform: translate(20%, -50%);
   }

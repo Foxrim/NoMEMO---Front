@@ -20,7 +20,9 @@ export default function CreateNotes() {
     setComment,
     setLink,
     handleCategoryId,
-    nameCategory
+    nameCategory,
+    statusArray,
+    handleStatus
   } = useCreateNotes();
 
   return (
@@ -64,7 +66,7 @@ export default function CreateNotes() {
 
       {categoriesCreateNotes && (
         <Select
-          classNameSelect={styles.categoriesCreateNotes}
+          classNameSelect={styles.selectCreateNotes}
           className={styles.categories}
           onClick={handleCategoriesCreateNotes}
         >
@@ -73,6 +75,15 @@ export default function CreateNotes() {
           ))}
         </Select>
       )}
+
+      <Select 
+          classNameSelect={styles.selectCreateNotes}
+          className={styles.status}
+       >
+        {statusArray.map((status, index) => (
+          <p key={index} onClick={() => handleStatus(index)}>{status}</p>
+        ))}
+      </Select>
     </>
   );
 }
