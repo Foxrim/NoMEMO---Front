@@ -1,4 +1,5 @@
 import { useCategories } from "../../../../contexts/Categories/useCategories";
+import { useModal } from "../../../../contexts/Modal/useModal";
 import FormInput from "../../../Form Input/FormInput";
 import FormModal from "../../../Modals/Form Modal/FormModal";
 import Select from "../../../Modals/Select/Select";
@@ -9,6 +10,7 @@ import styles from "./CreateNotes.module.css";
 
 export default function CreateNotes() {
   const { categories } = useCategories();
+  const { categoriesCreateNotes, handleCategoriesCreateNotes } = useModal();
   const {
     fetchCreateNotes,
     nameNote,
@@ -18,7 +20,6 @@ export default function CreateNotes() {
     setComment,
     setLink,
   } = useCreateNotes();
-
 
   return (
     <>
@@ -42,6 +43,7 @@ export default function CreateNotes() {
           className={styles.categorieCreateNotes}
           nameOption="Catégorie"
           optionChoose="Aucune"
+          onClick={handleCategoriesCreateNotes}
         />
         <Options
           className={styles.statusCreateNotes}
@@ -58,14 +60,17 @@ export default function CreateNotes() {
         />
       </FormModal>
 
-      <Select
-        classNameSelect={styles.categoriesCreateNotes}
-        className={styles.categories}
-      >
-        {categories.map((category) => (
-          <p key={category.id}>{category.nameCategory}</p>
-        ))}
-      </Select>
+      {categoriesCreateNotes && (
+        <Select
+          classNameSelect={styles.categoriesCreateNotes}
+          className={styles.categories}
+          onClick={handleCategoriesCreateNotes}
+        >
+          {categories.map((category) => (
+            <p key={category.id}>{category.nameCategory}</p>
+          ))}
+        </Select>
+      )}
     </>
   );
 }

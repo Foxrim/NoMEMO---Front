@@ -20,6 +20,8 @@ type ModalContextProps = {
   handleDeleteAccountClose: () => void;
   handleNotes: () => void;
   notes: boolean;
+  handleCategoriesCreateNotes: () => void;
+  categoriesCreateNotes: boolean;
 };
 
 export const ModalContext = createContext<ModalContextProps | undefined>(

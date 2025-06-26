@@ -10,6 +10,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [updatePassword, setUpdatePassword] = useState<boolean>(false);
   const [deleteAccount, setDeleteAccount] = useState<boolean>(false);
   const [notes, setNotes] = useState<boolean>(false);
+  const [categoriesCreateNotes, setCategoriesCreateNotes] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -66,6 +67,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setNotes((prev) => !prev);
   }
 
+  // Ouverture fermeture de l'option catégories de création de notes
+  const handleCategoriesCreateNotes = () => {
+    setCategoriesCreateNotes((prev) => !prev)
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -87,7 +93,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        deleteAccount,
        handleDeleteAccountClose,
        handleNotes,
-       notes
+       notes,
+       handleCategoriesCreateNotes,
+       categoriesCreateNotes
       }}
     >
       {children}
