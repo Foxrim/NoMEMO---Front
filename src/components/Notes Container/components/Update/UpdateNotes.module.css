@@ -1,4 +1,4 @@
-.createNotes {
+.updateNotes {
   display: flex;
   justify-items: center;
   align-self: center;
@@ -20,14 +20,14 @@
     padding-right: 1.75rem;
   }
 
-  .statusCreateNotes,
-  .categorieCreateNotes {
+  .statusUpdateNotes,
+  .categorieUpdateNotes {
     margin: 0.25rem 0;
     margin-left: 0.5rem;
   }
 }
 
-.selectCreateNotes {
+.selectUpdateNotes {
   z-index: 100;
 
   .categories {
