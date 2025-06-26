@@ -10,7 +10,7 @@ import styles from "./CreateNotes.module.css";
 
 export default function CreateNotes() {
   const { categories } = useCategories();
-  const { categoriesCreateNotes, handleCategoriesCreateNotes } = useModal();
+  const { categoriesCreateNotes, handleCategoriesCreateNotes, statusCreateNotes, handleStatusCreateNotes } = useModal();
   const {
     fetchCreateNotes,
     nameNote,
@@ -22,7 +22,8 @@ export default function CreateNotes() {
     handleCategoryId,
     nameCategory,
     statusArray,
-    handleStatus
+    handleStatus,
+    nameStatus
   } = useCreateNotes();
 
   return (
@@ -46,13 +47,14 @@ export default function CreateNotes() {
         <Options
           className={styles.categorieCreateNotes}
           nameOption="Catégorie"
-          optionChoose={nameCategory || 'Aucune'}
+          optionChoose={nameCategory || "Aucune"}
           onClick={handleCategoriesCreateNotes}
         />
         <Options
           className={styles.statusCreateNotes}
           nameOption="Status"
-          optionChoose="Aucun"
+          optionChoose={nameStatus || "Aucun"}
+          onClick={handleStatusCreateNotes}
         />
         <hr />
         <FormInput
@@ -71,19 +73,26 @@ export default function CreateNotes() {
           onClick={handleCategoriesCreateNotes}
         >
           {categories.map((category) => (
-            <p key={category.id} onClick={() => handleCategoryId(category.id)}>{category.nameCategory}</p>
+            <p key={category.id} onClick={() => handleCategoryId(category.id)}>
+              {category.nameCategory}
+            </p>
           ))}
         </Select>
       )}
 
-      <Select 
+      {statusCreateNotes && (
+        <Select
           classNameSelect={styles.selectCreateNotes}
           className={styles.status}
-       >
-        {statusArray.map((status, index) => (
-          <p key={index} onClick={() => handleStatus(index)}>{status}</p>
-        ))}
-      </Select>
+          onClick={handleStatusCreateNotes}
+        >
+          {statusArray.map((status, index) => (
+            <p key={index} onClick={() => handleStatus(index)}>
+              {status}
+            </p>
+          ))}
+        </Select>
+      )}
     </>
   );
 }

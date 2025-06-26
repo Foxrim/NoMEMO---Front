@@ -11,6 +11,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [deleteAccount, setDeleteAccount] = useState<boolean>(false);
   const [notes, setNotes] = useState<boolean>(false);
   const [categoriesCreateNotes, setCategoriesCreateNotes] = useState<boolean>(false);
+  const [statusCreateNotes, setStatusCreateNotes] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -72,6 +73,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setCategoriesCreateNotes((prev) => !prev)
   }
 
+  // Ouverture fermeture de l'option status de création de notes
+  const handleStatusCreateNotes = () => {
+    setStatusCreateNotes((prev) => !prev);
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -95,7 +101,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        handleNotes,
        notes,
        handleCategoriesCreateNotes,
-       categoriesCreateNotes
+       categoriesCreateNotes,
+       handleStatusCreateNotes,
+       statusCreateNotes
       }}
     >
       {children}

@@ -22,6 +22,8 @@ type ModalContextProps = {
   notes: boolean;
   handleCategoriesCreateNotes: () => void;
   categoriesCreateNotes: boolean;
+  handleStatusCreateNotes: () => void;
+  statusCreateNotes: boolean;
 };
 
 export const ModalContext = createContext<ModalContextProps | undefined>(
