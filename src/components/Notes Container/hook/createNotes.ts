@@ -3,7 +3,7 @@ import { useNotes } from "../../../contexts/Notes/useNotes";
 import useFormNotes from "./formNotes";
 
 function useCreateNotes() {
-  const { handleNotes } = useModal();
+  const { handleCreateNotes } = useModal();
   const { fetchNotes } = useNotes();
 
   const {
@@ -24,7 +24,7 @@ function useCreateNotes() {
     }
 
     if (!isUpdate) {
-      handleNotes();
+      handleCreateNotes();
       return;
     }
 
@@ -42,7 +42,7 @@ function useCreateNotes() {
         return;
       }
 
-      handleNotes();
+      handleCreateNotes();
       fetchNotes();
     } catch (err) {
       console.error("Une erreur est survenue : ", err);

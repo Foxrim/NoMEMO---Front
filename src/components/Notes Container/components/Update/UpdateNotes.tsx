@@ -22,9 +22,10 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
     handleCategoriesCreateNotes,
     statusCreateNotes,
     handleStatusCreateNotes,
+    handleUpdateNotes
   } = useModal();
 
-  const { fetchUpdateNotes, setNoteId } = useUpdateNotes();
+  const { setNoteId } = useUpdateNotes();
   const {
     nameNote,
     comment,
@@ -50,7 +51,6 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
     <>
       <FormModal
         className={styles.updateNotes}
-        onSubmit={fetchUpdateNotes}
         update={isUpdate}
       >
         <FormInput
@@ -86,7 +86,7 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
           onChange={(e) => setLink(e.target.value)}
         />
         <hr />
-        <p>Créé le </p>
+        <p onClick={handleUpdateNotes}>Créé le </p>
         <p>Modifié le </p>
       </FormModal>
 

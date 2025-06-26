@@ -12,6 +12,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [createNotes, setCreateNotes] = useState<boolean>(false);
   const [categoriesCreateNotes, setCategoriesCreateNotes] = useState<boolean>(false);
   const [statusCreateNotes, setStatusCreateNotes] = useState<boolean>(false);
+  const [updateNotes, setUpdateNotes] = useState<boolean>(false);
 
   // Ouverture fermeture du menu
   const handleMenu = () => {
@@ -63,8 +64,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setDeleteAccount(false);
   }
 
-  // Ouverture fermeture de création / modification / suppréssion de notes
-  const handleNotes = () => {
+  // Ouverture fermeture de création
+  const handleCreateNotes = () => {
     setCreateNotes((prev) => !prev);
   }
 
@@ -76,6 +77,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   // Ouverture fermeture de l'option status de création de notes
   const handleStatusCreateNotes = () => {
     setStatusCreateNotes((prev) => !prev);
+  }
+
+  // Ouverture fermeture de modification de notes
+  const handleUpdateNotes = () => {
+    setUpdateNotes((prev) => !prev);
   }
 
   return (
@@ -98,12 +104,14 @@ export function ModalProvider({ children }: { children: ReactNode }) {
        handleDeleteAccount,
        deleteAccount,
        handleDeleteAccountClose,
-       handleNotes,
+       handleCreateNotes,
        createNotes,
        handleCategoriesCreateNotes,
        categoriesCreateNotes,
        handleStatusCreateNotes,
-       statusCreateNotes
+       statusCreateNotes,
+       handleUpdateNotes,
+       updateNotes
       }}
     >
       {children}

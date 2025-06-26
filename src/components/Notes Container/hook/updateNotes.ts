@@ -4,7 +4,7 @@ import useFormNotes from "./formNotes";
 import { useState } from "react";
 
 function useUpdateNotes() {
-  const { handleNotes } = useModal();
+  const { handleCreateNotes } = useModal();
   const { fetchNotes } = useNotes();
 
   const [noteId, setNoteId] = useState<number>();
@@ -27,7 +27,7 @@ function useUpdateNotes() {
     }
 
     if (!isUpdate) {
-      handleNotes();
+      handleCreateNotes();
       return;
     }
 
@@ -48,7 +48,7 @@ function useUpdateNotes() {
         return;
       }
 
-      handleNotes();
+      handleCreateNotes();
       fetchNotes();
     } catch (err) {
       console.error("Une erreur est survenue : ", err);

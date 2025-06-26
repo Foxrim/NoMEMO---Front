@@ -4,11 +4,12 @@ type NotesProps = {
   nameNote?: string;
   comment?: string;
   status?: string;
+  onClick?: () => void;
 }
 
-export default function Notes({ nameNote, comment, status } : NotesProps) {
+export default function Notes({ nameNote, comment, status, onClick } : NotesProps) {
   return (
-      <div className={styles.notes}>
+      <div className={styles.notes} onClick={onClick}>
         <h3>{nameNote !== null ? nameNote : "Sans titre"}</h3>
         <p>{comment !== null ? comment : 'Sans texte'}</p>
         <hr className={styles.hrNotes} />
