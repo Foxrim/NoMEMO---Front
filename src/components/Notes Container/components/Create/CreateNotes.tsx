@@ -8,6 +8,7 @@ import useCreateNotes from "../../hook/createNotes";
 import styles from "./CreateNotes.module.css";
 
 export default function CreateNotes() {
+  const { categories } = useCategories();
   const {
     fetchCreateNotes,
     nameNote,
@@ -18,7 +19,6 @@ export default function CreateNotes() {
     setLink,
   } = useCreateNotes();
 
-  const { categories } = useCategories();
 
   return (
     <>
@@ -58,9 +58,12 @@ export default function CreateNotes() {
         />
       </FormModal>
 
-      <Select classNameSelect={styles.categoriesCreateNotes} className={styles.categories}>
-        {categories.map((category, index) => (
-            <p key={index}  >{category.nameCategory}</p>
+      <Select
+        classNameSelect={styles.categoriesCreateNotes}
+        className={styles.categories}
+      >
+        {categories.map((category) => (
+          <p key={category.id}>{category.nameCategory}</p>
         ))}
       </Select>
     </>

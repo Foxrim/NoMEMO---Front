@@ -8,7 +8,7 @@ type ColorsProps = {
 
 export type CategoriesProps = {
     id: number;
-    nameCategory: string;
+    nameCategory?: string;
     createdAt?: string;
     updatedAt?: string;
     color?: ColorsProps;
