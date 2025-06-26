@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useModal } from "../../../contexts/Modal/useModal";
+import { useCategories } from "../../../contexts/Categories/useCategories";
 
 function useCreateNotes() {
   const [nameNote, setNameNote] = useState<string>("");
@@ -8,7 +9,19 @@ function useCreateNotes() {
   const [status, setStatus] = useState<string>("");
   const [categoryId, setCategoryId] = useState<number | null>(null);
 
+  const [nameCategory, setNameCategory] = useState<string>('');
+
   const { handleNotes } = useModal();
+  const { categories } = useCategories();
+
+  useEffect(() => {
+    if (categories && categoryId !== null && categoryId !== 0) {
+      const name = categories[categoryId]?.nameCategory
+      setNameCategory(`${name}`)
+    } else {
+      setNameCategory('Aucune');
+    }
+  }, [categories, categoryId])
 
   const handleCategoryId = async (index: number) => {
     setCategoryId(index);
@@ -63,7 +76,8 @@ function useCreateNotes() {
     setLink,
     setStatus,
     setCategoryId,
-    handleCategoryId
+    handleCategoryId,
+    nameCategory
   };
 }
 

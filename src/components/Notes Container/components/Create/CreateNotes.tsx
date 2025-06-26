@@ -19,7 +19,8 @@ export default function CreateNotes() {
     setNameNote,
     setComment,
     setLink,
-    handleCategoryId
+    handleCategoryId,
+    nameCategory
   } = useCreateNotes();
 
   return (
@@ -43,7 +44,7 @@ export default function CreateNotes() {
         <Options
           className={styles.categorieCreateNotes}
           nameOption="Catégorie"
-          optionChoose="Aucune"
+          optionChoose={nameCategory || 'Aucune'}
           onClick={handleCategoriesCreateNotes}
         />
         <Options
