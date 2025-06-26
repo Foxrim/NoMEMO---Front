@@ -7,6 +7,7 @@ import { AuthProvider } from "./pages/Connection/context/Auth.provider.tsx";
 import { ModalProvider } from "./contexts/Modal/Modal.provider.tsx";
 import { UserProvider } from "./contexts/User/User.provider.tsx";
 import { CategoriesProvider } from "./contexts/Categories/Categories.provider.tsx";
+import { NotesProvider } from "./contexts/Notes/Notes.provider.tsx";
 
 if (rootElement == null) {
   throw new Error(`La route utilisé n'est pas correcte`);
@@ -17,9 +18,11 @@ createRoot(rootElement).render(
     <AuthProvider>
       <ModalProvider>
         <UserProvider>
-          <CategoriesProvider>
-            <RouterProvider router={router} />
-          </CategoriesProvider>
+          <NotesProvider>
+            <CategoriesProvider>
+              <RouterProvider router={router} />
+            </CategoriesProvider>
+          </NotesProvider>
         </UserProvider>
       </ModalProvider>
     </AuthProvider>
