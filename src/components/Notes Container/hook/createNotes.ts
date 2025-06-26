@@ -78,6 +78,7 @@ function useCreateNotes() {
     }
 
     if (!isUpdate) {
+      handleNotes();
       return;
     }
 
