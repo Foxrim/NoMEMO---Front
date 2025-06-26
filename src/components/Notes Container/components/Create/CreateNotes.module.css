@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
 
   hr {
     width: 100%;
@@ -23,5 +24,16 @@
   .categorieCreateNotes {
     margin: 0.25rem 0;
     margin-left: 0.5rem;
+  }
+}
+
+.categoriesCreateNotes {
+  z-index: 100;
+
+  .categories {
+    position: fixed;
+    top: 24rem;
+    right: 3rem;
+    transform: translate(20%, -50%);
   }
 }

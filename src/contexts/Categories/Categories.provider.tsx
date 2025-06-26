@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { CategoriesContext, type CategoriesProps } from "./Categories.context";
 
 export function CategoriesProvider({ children } : { children: ReactNode }) {
@@ -10,12 +10,21 @@ export function CategoriesProvider({ children } : { children: ReactNode }) {
                 credentials: "include"
             });
 
-            const data: CategoriesProps[] = await res.json();
+            let data: CategoriesProps[] = await res.json();
+            if (!data || data.length === 0) {
+                data = [{ id: 0, nameCategory: 'Aucune' }];
+            }
+
             setCategories(data);
         } catch (err) {
             console.error('Une erreur est survenue : ', err );
+            setCategories([{ id: 0, nameCategory: 'Aucune' }]);
         }
     }
+
+    useEffect(() => {
+        fetchCategories();
+    })
 
 
     return (

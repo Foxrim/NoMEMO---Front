@@ -7,10 +7,11 @@ type ColorsProps = {
 }
 
 export type CategoriesProps = {
+    id: number;
     nameCategory: string;
-    createdAt: string;
-    updatedAt: string;
-    color: ColorsProps;
+    createdAt?: string;
+    updatedAt?: string;
+    color?: ColorsProps;
 }
 
 type CategoriesContextProps = {
