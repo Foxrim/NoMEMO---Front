@@ -1,0 +1,46 @@
+.updateNotes {
+  display: flex;
+  justify-items: center;
+  align-self: center;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 2px;
+    border-radius: 7px;
+    background-color: var(--pr-cl-grey);
+  }
+
+  .linkInput {
+    font-size: 16px;
+    padding-right: 1.75rem;
+  }
+
+  .statusUpdateNotes,
+  .categorieUpdateNotes {
+    margin: 0.25rem 0;
+    margin-left: 0.5rem;
+  }
+}
+
+.selectUpdateNotes {
+  z-index: 100;
+
+  .categories {
+    position: fixed;
+    top: 24rem;
+    right: 2.25rem;
+    transform: translate(20%, -50%);
+  }
+
+  .status {
+    position: fixed;
+    top: 28.2rem;
+    right: 2.25rem;
+    transform: translate(20%, -50%);
+  }
+}
