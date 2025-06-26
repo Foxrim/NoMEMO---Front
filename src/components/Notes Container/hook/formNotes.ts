@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useCategories } from "../../../contexts/Categories/useCategories";
+import { useModal } from "../../../contexts/Modal/useModal";
 
 function useFormNotes() {
   const { categories } = useCategories();
+  const { handleUpdateNotes } = useModal();
+
+  const [noteId, setNoteId] = useState<number>();
 
   const [nameNote, setNameNote] = useState<string>("");
   const [comment, setComment] = useState<string>("");
@@ -16,6 +20,11 @@ function useFormNotes() {
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
 
   const statusArray = ["Aucun", "En cours", "Terminé"];
+
+  const selectedNotes = async (index: number) => {
+    setNoteId(index);
+    handleUpdateNotes();
+  };
 
   const handleStatus = async (index: number) => {
     if (index === 0) {
@@ -85,6 +94,8 @@ function useFormNotes() {
     statusArray,
     nameStatus,
     isUpdate,
+    selectedNotes,
+    noteId
   };
 }
 
