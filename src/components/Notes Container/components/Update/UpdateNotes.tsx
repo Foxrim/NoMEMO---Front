@@ -9,12 +9,13 @@ import TextArea from "../../../TextArea/TextArea";
 import useFormNotes from "../../hook/formNotes";
 import useUpdateNotes from "../../hook/updateNotes";
 import styles from "./UpdateNotes.module.css";
+import type {NotesProps} from "../../../../contexts/Notes/Notes.context";
 
 type UpdateNotesProps = {
-  key?: number;
-}
+  note: NotesProps;
+};
 
-export default function UpdateNotes({ key }: UpdateNotesProps) {
+export default function UpdateNotes({ note }: UpdateNotesProps) {
   const { categories } = useCategories();
 
   const {
@@ -22,7 +23,7 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
     handleCategoriesCreateNotes,
     statusCreateNotes,
     handleStatusCreateNotes,
-    handleUpdateNotes
+    handleUpdateNotes,
   } = useModal();
 
   const { setNoteId } = useUpdateNotes();
@@ -33,6 +34,8 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
     setNameNote,
     setComment,
     setLink,
+    setCategoryId,
+    setStatus,
     handleCategoryId,
     nameCategory,
     statusArray,
@@ -42,17 +45,18 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
   } = useFormNotes();
 
   useEffect(() => {
-    if (key) {
-       setNoteId(key)
-    }
-  })
+    setNoteId(note.id);
+    setNameNote(note.nameNote);
+    setComment(note.comment);
+    setCategoryId(note.categoryId);
+    setStatus(note.status);
+    setLink(note.link);
+  });
+
 
   return (
     <>
-      <FormModal
-        className={styles.updateNotes}
-        update={isUpdate}
-      >
+      <FormModal className={styles.updateNotes} update={isUpdate} key={note.id}>
         <FormInput
           placeholder="Titre"
           value={nameNote}
@@ -68,7 +72,7 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
         <Options
           className={styles.categorieUpdateNotes}
           nameOption="Catégorie"
-          optionChoose={nameCategory || "Aucune"}
+          optionChoose={nameCategory ? nameCategory : "Aucune"}
           onClick={handleCategoriesCreateNotes}
         />
         <Options
@@ -86,8 +90,8 @@ export default function UpdateNotes({ key }: UpdateNotesProps) {
           onChange={(e) => setLink(e.target.value)}
         />
         <hr />
-        <p onClick={handleUpdateNotes}>Créé le </p>
-        <p>Modifié le </p>
+        <p onClick={handleUpdateNotes}>Créé le {note.createdAt}</p>
+        <p>Modifié le {note.updateAt}</p>
       </FormModal>
 
       {categoriesCreateNotes && (

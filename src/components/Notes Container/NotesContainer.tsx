@@ -2,12 +2,11 @@ import { useModal } from "../../contexts/Modal/useModal";
 import { useNotes } from "../../contexts/Notes/useNotes";
 import CreateNotes from "./components/Create/CreateNotes";
 import Notes from "./components/Notes/Notes";
-import UpdateNotes from "./components/Update/UpdateNotes";
 import useFormNotes from "./hook/formNotes";
 import styles from "./NotesContainer.module.css";
 
 export default function NotesContainer() {
-  const { createNotes, updateNotes } = useModal();
+  const { createNotes } = useModal();
   const { notes } = useNotes();
 
   const { selectedNotes } = useFormNotes();
@@ -19,9 +18,7 @@ export default function NotesContainer() {
         notes.map((note, index) => (
           <Notes
             key={note.id}
-            nameNote={note.nameNote}
-            comment={note.comment}
-            status={note.status}
+            note={note}
             onClick={() => selectedNotes(index)}
           />
         ))
@@ -30,7 +27,6 @@ export default function NotesContainer() {
       )}
 
       {createNotes && <CreateNotes />}
-      {updateNotes && <UpdateNotes />}
     </div>
   );
 }

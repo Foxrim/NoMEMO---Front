@@ -23,7 +23,7 @@ function useUpdateNotes() {
     e.preventDefault();
 
     if (categoryId === 0) {
-      setCategoryId(null);
+      setCategoryId(undefined);
     }
 
     if (!isUpdate) {

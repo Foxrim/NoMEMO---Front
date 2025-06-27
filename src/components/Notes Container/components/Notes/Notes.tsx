@@ -1,25 +1,38 @@
+import { useModal } from "../../../../contexts/Modal/useModal";
+import UpdateNotes from "../Update/UpdateNotes";
 import styles from "./Notes.module.css";
+import type {NotesProps} from "../../../../contexts/Notes/Notes.context";
 
-type NotesProps = {
-  nameNote?: string;
-  comment?: string;
-  status?: string;
+type NotesType = {
+  note: NotesProps;
   onClick?: () => void;
-}
+};
 
-export default function Notes({ nameNote, comment, status, onClick } : NotesProps) {
+export default function Notes({
+  onClick,
+  note
+}: NotesType) {
+    const { updateNotes } = useModal();
   return (
+    <>
       <div className={styles.notes} onClick={onClick}>
-        <h3>{nameNote !== null ? nameNote : "Sans titre"}</h3>
-        <p>{comment !== null ? comment : 'Sans texte'}</p>
+        <h3>{note.nameNote !== null ? note.nameNote : "Sans titre"}</h3>
+        <p>{note.comment !== null ? note.comment : "Sans texte"}</p>
         <hr className={styles.hrNotes} />
-        {status === 'finished' ? (
-          <i className={`fa-solid fa-circle-check ${styles.statusIcon} ${styles.statusFinished}`}></i>
-        )  : status === 'inProgress' ? (
-          <i className={`fa-solid fa-clock-rotate-left ${styles.statusIcon} ${styles.statusInProgress}`}></i>
+        {note.status === "finished" ? (
+          <i
+            className={`fa-solid fa-circle-check ${styles.statusIcon} ${styles.statusFinished}`}
+          ></i>
+        ) : note.status === "inProgress" ? (
+          <i
+            className={`fa-solid fa-clock-rotate-left ${styles.statusIcon} ${styles.statusInProgress}`}
+          ></i>
         ) : (
           ""
         )}
       </div>
+
+      {updateNotes && <UpdateNotes note={note} />}
+    </>
   );
 }

@@ -8,13 +8,13 @@ function useFormNotes() {
 
   const [noteId, setNoteId] = useState<number>();
 
-  const [nameNote, setNameNote] = useState<string>("");
-  const [comment, setComment] = useState<string>("");
-  const [link, setLink] = useState<string>("");
-  const [status, setStatus] = useState<string>("");
-  const [categoryId, setCategoryId] = useState<number | null>(null);
+  const [nameNote, setNameNote] = useState<string | undefined>("");
+  const [comment, setComment] = useState<string | undefined>("");
+  const [link, setLink] = useState<string | undefined>("");
+  const [status, setStatus] = useState<string | undefined>("");
+  const [categoryId, setCategoryId] = useState<number | undefined>(undefined);
 
-  const [nameCategory, setNameCategory] = useState<string>("");
+  const [nameCategory, setNameCategory] = useState<string | undefined>("");
   const [nameStatus, setNameStatus] = useState<string>("");
 
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
@@ -56,7 +56,7 @@ function useFormNotes() {
 
   useEffect(() => {
     if (categories && categoryId !== null && categoryId !== 0) {
-      const name = categories[categoryId]?.nameCategory;
+      const name = categories[Number(categoryId)]?.nameCategory;
       setNameCategory(`${name}`);
     } else {
       setNameCategory("Aucune");
